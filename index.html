@@ -774,7 +774,9 @@ summary{padding:22px 46px;}
 const CHECKOUT_URL = "https://pay.cakto.com.br/89zpxmz_1043324";
 
 /* Dados do produto, usados nos eventos do pixel. */
-const PRODUTO = { nome: "Maquina de Sites", id: "maquina-de-sites", valor: 97.00, moeda: "BRL" };
+/* O id tem que ser igual ao content_ids que a Cakto manda no Purchase,
+   senao a Meta le a landing e o checkout como produtos diferentes. */
+const PRODUTO = { nome: "Maquina de Sites", id: "89zpxmz", valor: 97.99, moeda: "BRL" };
 
 /* ------------------------------------------------------------------
    Repassa UTMs e fbclid da landing para o checkout.
