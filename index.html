@@ -11,6 +11,27 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://maquinadesites.online/">
 <link rel="canonical" href="https://maquinadesites.online/">
+
+<!-- ==================================================================
+     META PIXEL
+     COLE AQUI O ID DO SEU PIXEL (Gerenciador de Eventos > Fontes de dados).
+     São 15 ou 16 dígitos, só números.
+     Enquanto estiver vazio nada é rastreado e a página funciona normal.
+     ================================================================== -->
+<script>
+var META_PIXEL_ID = "";
+
+if (META_PIXEL_ID) {
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', META_PIXEL_ID);
+  fbq('track', 'PageView');
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -666,7 +687,7 @@ summary{padding:22px 46px;}
       <div class="price-old">De R$ 297</div>
       <div class="price-now">R$ 97</div>
       <div class="price-cond">à vista no Pix ou cartão · pagamento único · acesso vitalício</div>
-      <a class="btn btn-lg" href="#" data-checkout data-cta>QUERO COMEÇAR AGORA</a>
+      <a class="btn btn-lg" href="https://pay.cakto.com.br/89zpxmz_1043324" data-checkout data-cta data-local="oferta">QUERO COMEÇAR AGORA</a>
       <span class="btn-sub">Acesso liberado na hora, mesmo às 3 da manhã</span>
     </div>
 
@@ -726,7 +747,7 @@ summary{padding:22px 46px;}
     <p class="lead reveal" style="margin-bottom:34px">Os negócios com nota alta e sem site da sua
       cidade continuam lá. A diferença entre você e a pessoa que vai fechar com eles é uma
       tarde de instalação.</p>
-    <a class="btn btn-lg reveal" href="#" data-checkout data-cta>COMEÇAR POR R$ 97</a>
+    <a class="btn btn-lg reveal" href="https://pay.cakto.com.br/89zpxmz_1043324" data-checkout data-cta data-local="fechamento">COMEÇAR POR R$ 97</a>
     <span class="btn-sub">7 dias de garantia · acesso imediato · pagamento único</span>
   </div>
 </section>
@@ -742,7 +763,7 @@ summary{padding:22px 46px;}
 
 <div class="sticky" id="sticky">
   <span class="p"><s>R$ 297</s> R$ 97</span>
-  <a class="btn" href="#" data-checkout data-cta>QUERO COMEÇAR</a>
+  <a class="btn" href="https://pay.cakto.com.br/89zpxmz_1043324" data-checkout data-cta data-local="barra-fixa">QUERO COMEÇAR</a>
 </div>
 
 <script>
@@ -752,7 +773,63 @@ summary{padding:22px 46px;}
    ------------------------------------------------------------------ */
 const CHECKOUT_URL = "https://pay.cakto.com.br/89zpxmz_1043324";
 
-document.querySelectorAll('[data-checkout]').forEach(function(a){ a.href = CHECKOUT_URL; });
+/* Dados do produto, usados nos eventos do pixel. */
+const PRODUTO = { nome: "Maquina de Sites", id: "maquina-de-sites", valor: 97.00, moeda: "BRL" };
+
+/* ------------------------------------------------------------------
+   Repassa UTMs e fbclid da landing para o checkout.
+   Sem isso a Cakto recebe a venda sem origem, e a Meta nao consegue
+   ligar a compra ao anuncio que a gerou.
+   ------------------------------------------------------------------ */
+var paramsEntrada = new URLSearchParams(location.search);
+var paramsRepasse = new URLSearchParams();
+['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(function(k){
+  var v = paramsEntrada.get(k);
+  if (v) paramsRepasse.set(k, v);
+});
+
+var destinoCheckout = CHECKOUT_URL;
+if (paramsRepasse.toString()) {
+  destinoCheckout += (CHECKOUT_URL.indexOf('?') === -1 ? '?' : '&') + paramsRepasse.toString();
+}
+document.querySelectorAll('[data-checkout]').forEach(function(a){ a.href = destinoCheckout; });
+
+/* ------------------------------------------------------------------
+   Eventos do pixel.
+   PageView ja dispara no <head>. Purchase NAO fica aqui: a compra
+   acontece no dominio da Cakto, entao e la que ele precisa ser ligado.
+   ------------------------------------------------------------------ */
+function metaTrack(evento, dados) {
+  if (window.fbq && window.META_PIXEL_ID) fbq('track', evento, dados || {});
+}
+
+/* ViewContent quando o bloco de oferta entra na tela de verdade */
+var blocoOferta = document.getElementById('oferta');
+if (blocoOferta && 'IntersectionObserver' in window) {
+  var obsOferta = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        metaTrack('ViewContent', {
+          content_name: PRODUTO.nome, content_ids: [PRODUTO.id], content_type: 'product',
+          value: PRODUTO.valor, currency: PRODUTO.moeda
+        });
+        obsOferta.disconnect();
+      }
+    });
+  }, {threshold:.4});
+  obsOferta.observe(blocoOferta);
+}
+
+/* InitiateCheckout no clique de qualquer botao de compra */
+document.querySelectorAll('[data-checkout]').forEach(function(a){
+  a.addEventListener('click', function(){
+    metaTrack('InitiateCheckout', {
+      content_name: PRODUTO.nome, content_ids: [PRODUTO.id], content_type: 'product',
+      value: PRODUTO.valor, currency: PRODUTO.moeda,
+      botao: a.dataset.local || 'nao-identificado'
+    });
+  });
+});
 
 /* scroll reveal */
 if ('IntersectionObserver' in window) {
