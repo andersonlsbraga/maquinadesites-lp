@@ -783,10 +783,14 @@ summary{padding:22px 46px;}
 const CHECKOUT_URL = "https://pay.kiwify.com.br/IIRRDQE";
 
 /* Dados do produto, usados nos eventos do pixel. */
+/* O id tem que ser igual ao content_ids que a Cakto manda no Purchase,
+   senao a Meta le a landing e o checkout como produtos diferentes. */
 const PRODUTO = { nome: "Maquina de Sites (R$ 67)", id: "89zpxmz", valor: 67.00, moeda: "BRL" };
 
 /* ------------------------------------------------------------------
-   Repassa UTMs, fbclid e dados capturados para o checkout.
+   Repassa UTMs e fbclid da landing para o checkout.
+   Sem isso a Kiwify recebe a venda sem origem, e a Meta nao consegue
+   ligar a compra ao anuncio que a gerou.
    ------------------------------------------------------------------ */
 var paramsEntrada = new URLSearchParams(location.search);
 var paramsRepasse = new URLSearchParams();
@@ -795,38 +799,22 @@ var paramsRepasse = new URLSearchParams();
   if (v) paramsRepasse.set(k, v);
 });
 
-function redirecionar() {
-  var destinoCheckout = CHECKOUT_URL;
-  if (paramsRepasse.toString()) {
-    destinoCheckout += (CHECKOUT_URL.indexOf('?') === -1 ? '?' : '&') + paramsRepasse.toString();
-  }
-  window.location.href = destinoCheckout;
+var destinoCheckout = CHECKOUT_URL;
+if (paramsRepasse.toString()) {
+  destinoCheckout += (CHECKOUT_URL.indexOf('?') === -1 ? '?' : '&') + paramsRepasse.toString();
 }
-
-/* ------------------------------------------------------------------
-   Intercepta cliques em botões de compra: dispara o evento e manda
-   direto para o checkout, sem etapa intermediária.
-   ------------------------------------------------------------------ */
-document.querySelectorAll('[data-checkout]').forEach(function(a){
-  a.addEventListener('click', function(e){
-    e.preventDefault();
-    metaTrack('InitiateCheckout', {
-      content_name: PRODUTO.nome, content_ids: [PRODUTO.id], content_type: 'product',
-      value: PRODUTO.valor, currency: PRODUTO.moeda,
-      botao: a.dataset.local || 'nao-identificado'
-    });
-    redirecionar();
-  });
-});
+document.querySelectorAll('[data-checkout]').forEach(function(a){ a.href = destinoCheckout; });
 
 /* ------------------------------------------------------------------
    Eventos do pixel.
+   PageView ja dispara no <head>. Purchase NAO fica aqui: a compra
+   acontece no dominio da Kiwify, entao e la que ele precisa ser ligado.
    ------------------------------------------------------------------ */
 function metaTrack(evento, dados) {
   if (window.fbq && window.META_PIXEL_ID) fbq('track', evento, dados || {});
 }
 
-/* ViewContent quando o bloco de oferta entra na tela */
+/* ViewContent quando o bloco de oferta entra na tela de verdade */
 var blocoOferta = document.getElementById('oferta');
 if (blocoOferta && 'IntersectionObserver' in window) {
   var obsOferta = new IntersectionObserver(function(entries){
@@ -842,6 +830,17 @@ if (blocoOferta && 'IntersectionObserver' in window) {
   }, {threshold:.4});
   obsOferta.observe(blocoOferta);
 }
+
+/* InitiateCheckout no clique de qualquer botao de compra */
+document.querySelectorAll('[data-checkout]').forEach(function(a){
+  a.addEventListener('click', function(){
+    metaTrack('InitiateCheckout', {
+      content_name: PRODUTO.nome, content_ids: [PRODUTO.id], content_type: 'product',
+      value: PRODUTO.valor, currency: PRODUTO.moeda,
+      botao: a.dataset.local || 'nao-identificado'
+    });
+  });
+});
 
 /* scroll reveal */
 if ('IntersectionObserver' in window) {
