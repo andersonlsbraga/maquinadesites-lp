@@ -326,44 +326,6 @@ footer p{font-family:var(--mono);font-size:12px;color:var(--ink-3);line-height:2
   transition:opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94);}
 .js .reveal.vis{opacity:1;transform:none;}
 
-/* ---------- modal de captura ---------- */
-.modal-overlay{
-  position:fixed;top:0;left:0;right:0;bottom:0;z-index:100;
-  background:rgba(4,6,12,.8);backdrop-filter:blur(4px);
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;pointer-events:none;transition:opacity .3s ease;
-  padding:20px;
-}
-.modal-overlay.on{opacity:1;pointer-events:auto;}
-.modal{
-  background:var(--surface);border:1px solid var(--line-2);border-radius:24px;
-  padding:40px;max-width:480px;width:100%;box-shadow:0 40px 90px rgba(0,0,0,.6);
-}
-.modal h3{font-size:28px;margin-bottom:12px;}
-.modal p{color:var(--ink-2);font-size:16px;margin-bottom:28px;}
-.form-group{margin-bottom:18px;}
-.form-group label{display:block;font-weight:600;font-size:14px;margin-bottom:8px;}
-.form-group input{
-  width:100%;padding:14px 16px;border:1px solid var(--line-2);border-radius:12px;
-  background:var(--bg);color:var(--ink);font-size:16px;font-family:inherit;
-  transition:border-color .2s ease,box-shadow .2s ease;
-}
-.form-group input:focus{
-  outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(29,111,255,.15);
-}
-.form-group input::placeholder{color:var(--ink-3);}
-.form-buttons{display:flex;gap:12px;margin-top:28px;}
-.form-buttons button{
-  flex:1;padding:14px;border-radius:12px;border:none;cursor:pointer;
-  font-weight:700;font-size:16px;transition:all .2s ease;
-}
-.btn-confirmar{background:linear-gradient(180deg,#FF8F35,var(--orange));color:#1A0A00;}
-.btn-confirmar:hover{transform:translateY(-2px);box-shadow:0 10px 30px var(--orange-glow);}
-.btn-cancelar{background:var(--line-2);color:var(--ink);border:1px solid var(--line-2);}
-.btn-cancelar:hover{background:var(--line);}
-.form-error{color:#FF6B6B;font-size:13px;margin-top:6px;display:none;}
-.form-error.show{display:block;}
-
 /* ============================================================
    CENTRALIZAÇÃO
    Tudo centralizado, com largura de leitura travada para o texto
@@ -813,33 +775,6 @@ summary{padding:22px 46px;}
   <a class="btn" href="https://pay.kiwify.com.br/vHjCXHE" data-checkout data-cta data-local="barra-fixa">QUERO COMEÇAR</a>
 </div>
 
-<!-- MODAL DE CAPTURA -->
-<div class="modal-overlay" id="modalCaptura">
-  <div class="modal">
-    <h3>Antes de começar…</h3>
-    <p>Preciso do seu email e telefone para liberar o acesso na hora.</p>
-
-    <form id="formCaptura" novalidate>
-      <div class="form-group">
-        <label for="inputEmail">Email</label>
-        <input type="email" id="inputEmail" name="email" placeholder="seu@email.com" required>
-        <div class="form-error" id="errorEmail"></div>
-      </div>
-
-      <div class="form-group">
-        <label for="inputPhone">Telefone (WhatsApp)</label>
-        <input type="tel" id="inputPhone" name="phone" placeholder="(11) 99999-9999" required>
-        <div class="form-error" id="errorPhone"></div>
-      </div>
-
-      <div class="form-buttons">
-        <button type="button" class="btn-cancelar" id="btnCancelar">Cancelar</button>
-        <button type="submit" class="btn-confirmar">Continuar</button>
-      </div>
-    </form>
-  </div>
-</div>
-
 <script>
 /* ------------------------------------------------------------------
    LINK DO CHECKOUT NA KIWIFY.
@@ -849,90 +784,6 @@ const CHECKOUT_URL = "https://pay.kiwify.com.br/vHjCXHE";
 
 /* Dados do produto, usados nos eventos do pixel. */
 const PRODUTO = { nome: "Maquina de Sites (R$ 37)", id: "89zpxmz", valor: 37.00, moeda: "BRL" };
-
-/* ------------------------------------------------------------------
-   CAPTURA DE EMAIL E TELEFONE
-   ------------------------------------------------------------------ */
-var modalCaptura = document.getElementById('modalCaptura');
-var formCaptura = document.getElementById('formCaptura');
-var inputEmail = document.getElementById('inputEmail');
-var inputPhone = document.getElementById('inputPhone');
-var btnCancelar = document.getElementById('btnCancelar');
-
-function validarEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-function limparPhone(phone) {
-  return phone.replace(/\D/g, '');
-}
-
-function validarPhone(phone) {
-  var cleaned = limparPhone(phone);
-  return cleaned.length >= 10 && cleaned.length <= 15;
-}
-
-function abrirModal(origem) {
-  modalCaptura.classList.add('on');
-  modalCaptura.dataset.origem = origem;
-  inputEmail.focus();
-}
-
-function fecharModal() {
-  modalCaptura.classList.remove('on');
-  formCaptura.reset();
-  document.getElementById('errorEmail').classList.remove('show');
-  document.getElementById('errorPhone').classList.remove('show');
-}
-
-btnCancelar.addEventListener('click', fecharModal);
-modalCaptura.addEventListener('click', function(e) {
-  if (e.target === modalCaptura) fecharModal();
-});
-
-formCaptura.addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  var email = inputEmail.value.trim();
-  var phone = inputPhone.value.trim();
-  var errorEmail = document.getElementById('errorEmail');
-  var errorPhone = document.getElementById('errorPhone');
-
-  errorEmail.classList.remove('show');
-  errorPhone.classList.remove('show');
-
-  var valido = true;
-  if (!validarEmail(email)) {
-    errorEmail.textContent = 'Email inválido';
-    errorEmail.classList.add('show');
-    valido = false;
-  }
-  if (!validarPhone(phone)) {
-    errorPhone.textContent = 'Telefone inválido (mínimo 10 dígitos)';
-    errorPhone.classList.add('show');
-    valido = false;
-  }
-
-  if (valido) {
-    var dados = {
-      email: email,
-      phone: limparPhone(phone)
-    };
-    localStorage.setItem('mds_captura', JSON.stringify(dados));
-    atualizarPixelComDados(dados);
-    fecharModal();
-    redirecionar();
-  }
-});
-
-function atualizarPixelComDados(dados) {
-  if (window.fbq && window.META_PIXEL_ID) {
-    fbq('init', window.META_PIXEL_ID, {
-      em: dados.email,
-      ph: dados.phone
-    });
-  }
-}
 
 /* ------------------------------------------------------------------
    Repassa UTMs, fbclid e dados capturados para o checkout.
@@ -953,23 +804,18 @@ function redirecionar() {
 }
 
 /* ------------------------------------------------------------------
-   Intercepta cliques em botões de compra para abrir o modal
+   Intercepta cliques em botões de compra: dispara o evento e manda
+   direto para o checkout, sem etapa intermediária.
    ------------------------------------------------------------------ */
 document.querySelectorAll('[data-checkout]').forEach(function(a){
   a.addEventListener('click', function(e){
     e.preventDefault();
-
-    var dadosCapturados = localStorage.getItem('mds_captura');
-    if (dadosCapturados) {
-      redirecionar();
-    } else {
-      abrirModal(a.dataset.local || 'desconhecido');
-      metaTrack('InitiateCheckout', {
-        content_name: PRODUTO.nome, content_ids: [PRODUTO.id], content_type: 'product',
-        value: PRODUTO.valor, currency: PRODUTO.moeda,
-        botao: a.dataset.local || 'nao-identificado'
-      });
-    }
+    metaTrack('InitiateCheckout', {
+      content_name: PRODUTO.nome, content_ids: [PRODUTO.id], content_type: 'product',
+      value: PRODUTO.valor, currency: PRODUTO.moeda,
+      botao: a.dataset.local || 'nao-identificado'
+    });
+    redirecionar();
   });
 });
 
