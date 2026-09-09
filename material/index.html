@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>O Método da Entrega Invertida | Material gratuito</title>
+<meta name="description" content="18 páginas com o método completo: como escolher o negócio certo, o que o site precisa ter e a mensagem que faz o dono responder. Baixe grátis, sem cadastro.">
+<meta property="og:title" content="O Método da Entrega Invertida">
+<meta property="og:description" content="O material gratuito de 18 páginas. Sem cadastro, é só baixar.">
+<meta property="og:image" content="https://maquinadesites.online/material/capa.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://maquinadesites.online/material/">
+<link rel="canonical" href="https://maquinadesites.online/material/">
+
+<!-- ==================================================================
+     META PIXEL
+     Mesmo ID da landing, de proposito: quem baixa o material entra no
+     publico de remarketing do produto. O evento de download e custom
+     (BaixouMaterial), nao Lead, pra nao sujar o evento padrao usado
+     em campanha de conversao.
+     ================================================================== -->
+<script>
+var META_PIXEL_ID = "4452223498369342";
+if (META_PIXEL_ID) {
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', META_PIXEL_ID);
+  fbq('track', 'PageView');
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#04060C;--bg-2:#080D18;--surface:#0C1322;--surface-2:#111A2D;
+  --line:#1B2740;--line-2:#2A3A5C;
+  --ink:#EDF2FB;--ink-2:#93A3C0;--ink-3:#61708C;
+  --blue:#1D6FFF;--blue-2:#4D9BFF;--orange:#FF7A18;--orange-2:#FFA24D;--green:#22C77E;
+  --display:'Archivo',system-ui,-apple-system,sans-serif;
+  --body:'Inter',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--ink);font-family:var(--body);
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+h1,h2{font-family:var(--display);font-weight:900;letter-spacing:-.038em;line-height:1.02;text-wrap:balance}
+.eyebrow{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange-2)}
+strong{font-weight:600;color:#fff}
+
+.glow{position:fixed;top:-380px;right:-320px;width:900px;height:900px;border-radius:50%;
+  background:radial-gradient(circle,rgba(29,111,255,.22) 0%,rgba(29,111,255,0) 62%);pointer-events:none;z-index:0}
+
+/* topo */
+.bar{border-bottom:1px solid var(--line);background:rgba(4,6,12,.86);position:relative;z-index:3}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:var(--display);font-weight:900;font-size:15px;letter-spacing:-.02em}
+.brand span{color:var(--blue-2)}
+.bar .ig{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--ink-3);white-space:nowrap}
+@media(max-width:520px){.bar .ig{font-size:10px;letter-spacing:.06em}}
+
+/* hero */
+.hero{position:relative;z-index:2;padding:56px 0 72px}
+.hero .grid{display:grid;grid-template-columns:1fr;gap:44px;align-items:center}
+.hero .grid>*{min-width:0}
+@media(min-width:900px){.hero .grid{grid-template-columns:0.85fr 1fr;gap:64px}}
+.cover{
+  border:1px solid var(--line-2);border-radius:20px;overflow:hidden;
+  box-shadow:0 40px 90px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,.03) inset;
+  width:100%;max-width:340px;margin:0 auto;
+}
+@media(min-width:900px){.cover{max-width:420px;margin:0}}
+h1{font-size:clamp(38px,7vw,62px);margin-top:18px}
+h1 .hl{color:var(--blue-2)}
+.sub{font-size:clamp(18px,2.4vw,21px);color:var(--ink-2);margin-top:22px;max-width:34ch}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.fact{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-2);border:1px solid var(--line-2);border-radius:99px;padding:9px 14px}
+
+/* botoes */
+.cta{
+  display:block;text-align:center;border-radius:14px;padding:22px 20px;margin-top:30px;
+  font-family:var(--display);font-weight:900;font-size:clamp(19px,3.4vw,23px);letter-spacing:-.02em;
+  background:linear-gradient(135deg,var(--orange) 0%,#FF9A3D 100%);color:#0B0602;
+  box-shadow:0 18px 44px rgba(255,122,24,.28);
+}
+.cta.blue{background:linear-gradient(135deg,var(--blue) 0%,var(--blue-2) 100%);color:#fff;
+  box-shadow:0 18px 44px rgba(29,111,255,.3)}
+.cta-sub{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--ink-3);
+  margin-top:14px;text-align:center}
+@media(min-width:900px){.cta,.cta-sub{text-align:center}}
+
+/* dentro */
+.inside{position:relative;z-index:2;border-top:1px solid var(--line);background:var(--bg-2);padding:70px 0}
+.inside h2{font-size:clamp(28px,4.6vw,40px);max-width:18ch}
+.list{display:grid;grid-template-columns:1fr;gap:16px;margin-top:36px}
+@media(min-width:760px){.list{grid-template-columns:1fr 1fr;gap:18px}}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+.item .n{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--blue-2);font-weight:700}
+.item h3{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.02em;margin:10px 0 8px}
+.item p{font-size:15.5px;color:var(--ink-2);line-height:1.55}
+
+/* depois */
+.after{position:relative;z-index:2;padding:70px 0 40px}
+.after .box{border:1px solid var(--line-2);border-radius:22px;background:var(--surface);padding:38px 30px}
+@media(min-width:760px){.after .box{padding:52px 56px}}
+.after h2{font-size:clamp(26px,4.2vw,38px);max-width:20ch;margin-top:14px}
+.after p{color:var(--ink-2);margin-top:18px;max-width:56ch}
+.price{font-family:var(--mono);font-size:13px;letter-spacing:.12em;color:var(--ink-3);
+  margin-top:18px;text-transform:uppercase}
+.price b{color:var(--ink);font-weight:700}
+
+footer{position:relative;z-index:2;border-top:1px solid var(--line);margin-top:50px;padding:34px 0 60px;
+  font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--ink-3);text-align:center}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+
+<div class="bar"><div class="wrap">
+  <div class="brand">MÁQUINA DE <span>SITES</span></div>
+  <div class="ig">@ANDERSONLSBRAGA</div>
+</div></div>
+
+<section class="hero"><div class="wrap"><div class="grid">
+  <img class="cover" src="capa.png" alt="Capa do material O Método da Entrega Invertida" width="1080" height="1350">
+  <div>
+    <div class="eyebrow">Material gratuito · sem cadastro</div>
+    <h1>O Método da<br>Entrega <span class="hl">Invertida</span></h1>
+    <p class="sub">Como criar sites premium com IA e fechar clientes locais entregando o site pronto antes de cobrar.</p>
+    <div class="facts">
+      <span class="fact">18 páginas</span>
+      <span class="fact">9 min de leitura</span>
+      <span class="fact">PDF</span>
+    </div>
+    <a class="cta" id="btnBaixar" href="metodo-da-entrega-invertida.pdf" target="_blank" rel="noopener">BAIXAR O PDF AGORA</a>
+    <div class="cta-sub">Não precisa e-mail, não precisa cadastro. Abre direto.</div>
+  </div>
+</div></div></section>
+
+<section class="inside"><div class="wrap">
+  <div class="eyebrow">O que tem dentro</div>
+  <h2>Quatro coisas que dá para usar hoje.</h2>
+  <div class="list">
+    <div class="item"><div class="n">01</div><h3>O filtro dos 5 critérios</h3>
+      <p>Como escolher, no Google Maps da sua cidade, os negócios que têm caixa e realmente respondem. Escolher errado custa o método inteiro.</p></div>
+    <div class="item"><div class="n">02</div><h3>O checklist do site</h3>
+      <p>O que o site precisa ter para o dono se reconhecer em três segundos, e a regra do que nunca pode ser inventado.</p></div>
+    <div class="item"><div class="n">03</div><h3>A mensagem pronta</h3>
+      <p>O texto exato de WhatsApp que faz o dono abrir o link, mais os quatro erros que matam a conversa antes dela nascer.</p></div>
+    <div class="item"><div class="n">04</div><h3>O plano de 7 dias</h3>
+      <p>O que fazer em cada dia da primeira semana, com meta de atividade, que é a única parte que depende só de você.</p></div>
+  </div>
+</div></section>
+
+<section class="after"><div class="wrap"><div class="box">
+  <div class="eyebrow">Depois de ler</div>
+  <h2>O método é seu. A máquina é o atalho.</h2>
+  <p>Tudo que está no PDF você consegue fazer sozinho. Vai levar alguns meses de tentativa e erro até o site sair no padrão certo e a mensagem começar a ser respondida. A MÁQUINA DE SITES é esse caminho já montado: 6 módulos em vídeo, o sistema instalável que executa o passo a passo, acervo de 7 nichos e o desafio do primeiro site no ar em 60 minutos.</p>
+  <div class="price">De R$ 297 por <b>R$ 97</b> · pagamento único · 7 dias de garantia</div>
+  <a class="cta blue" id="btnOferta" href="https://maquinadesites.online/?utm_source=instagram&amp;utm_medium=organico&amp;utm_campaign=andersonlsbraga&amp;utm_content=pagina-material&amp;utm_term=pos-material">VER A MÁQUINA COMPLETA</a>
+</div></div></section>
+
+<footer>ANDERSON BRAGA · SB BUSINESS · MAQUINADESITES.ONLINE</footer>
+
+<script>
+// Evento custom de download. Nao usa Lead de proposito: Lead fica livre
+// pra campanha de conversao, e BaixouMaterial vira publico de remarketing.
+document.getElementById('btnBaixar').addEventListener('click', function(){
+  if (window.fbq) { fbq('trackCustom', 'BaixouMaterial', { material: 'entrega-invertida' }); }
+});
+document.getElementById('btnOferta').addEventListener('click', function(){
+  if (window.fbq) { fbq('trackCustom', 'CliqueOfertaMaterial'); }
+});
+</script>
+</body>
+</html>
