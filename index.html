@@ -34,29 +34,29 @@ if (META_PIXEL_ID) {
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/sites/hype-1.jpg">
 <style>
 :root{
-  --bg:#04060C;
-  --bg-2:#080D18;
-  --surface:#0C1322;
-  --surface-2:#111A2D;
-  --line:#1B2740;
-  --line-2:#2A3A5C;
-  --ink:#EDF2FB;
-  --ink-2:#93A3C0;
-  --ink-3:#61708C;
-  --blue:#1D6FFF;
-  --blue-2:#4D9BFF;
-  --blue-glow:rgba(29,111,255,.45);
-  --orange:#FF7A18;
-  --orange-2:#FFA24D;
-  --orange-glow:rgba(255,122,24,.4);
-  --green:#22C77E;
+  --bg:#050608;
+  --bg-2:#0A0C11;
+  --surface:#0F1218;
+  --surface-2:#151922;
+  --line:rgba(255,255,255,.08);
+  --line-2:rgba(255,255,255,.14);
+  --ink:#F5F2EC;
+  --ink-2:#A7ABB5;
+  --ink-3:#6E7380;
+  --orange:#FF6B1A;
+  --orange-2:#FF9A4D;
+  --orange-glow:rgba(255,107,26,.42);
+  --blue:#4D8DFF;
+  --green:#2BD67B;
   --display:'Archivo',system-ui,-apple-system,sans-serif;
+  --serif:'Instrument Serif',Georgia,serif;
   --body:'Inter',system-ui,-apple-system,sans-serif;
   --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
-  --wrap:1120px;
+  --wrap:1180px;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -67,328 +67,377 @@ body{
 }
 img{max-width:100%;display:block;height:auto;}
 a{color:inherit;text-decoration:none;}
-.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 22px;}
-h1,h2,h3,h4{font-family:var(--display);font-weight:900;letter-spacing:-.035em;line-height:1.02;text-wrap:balance;}
-.mono{font-family:var(--mono);}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 20px;}
+h1,h2,h3,h4{font-family:var(--display);font-weight:900;letter-spacing:-.04em;line-height:1;text-wrap:balance;}
+.it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em;}
 .eyebrow{
-  font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.22em;
-  text-transform:uppercase;color:var(--blue-2);
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--orange-2);
 }
-.hl{color:var(--blue-2);}
-.hl-o{color:var(--orange-2);}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange);box-shadow:0 0 12px var(--orange);}
+.hl{color:var(--orange-2);}
 strong{font-weight:600;color:#fff;}
+
+/* grão sutil por cima de tudo: tira a cara de "tela chapada" */
+body::before{
+  content:"";position:fixed;inset:0;z-index:100;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
 
 /* ---------- barra de urgência ---------- */
 .topbar{
-  background:linear-gradient(90deg,var(--orange) 0%,#FF9A2E 50%,var(--orange) 100%);
-  color:#160A00;text-align:center;padding:9px 16px;
-  font-family:var(--mono);font-size:12.5px;font-weight:700;letter-spacing:.06em;
+  background:var(--orange);color:#1A0800;text-align:center;padding:9px 16px;
+  font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em;
   position:relative;z-index:60;
 }
 
 /* ---------- botões ---------- */
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
   font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:-.01em;
-  padding:19px 34px;border-radius:14px;border:0;cursor:pointer;
-  background:linear-gradient(180deg,#FF8F35,var(--orange));
-  color:#1A0A00;
-  box-shadow:0 10px 30px var(--orange-glow),inset 0 1px 0 rgba(255,255,255,.35);
-  transition:transform .18s ease,box-shadow .18s ease;
-  text-align:center;line-height:1.15;
+  padding:20px 34px;border-radius:999px;border:0;cursor:pointer;
+  background:linear-gradient(180deg,#FF8A3D,var(--orange));
+  color:#170700;
+  box-shadow:0 14px 40px var(--orange-glow),inset 0 1px 0 rgba(255,255,255,.4),inset 0 -2px 0 rgba(0,0,0,.12);
+  transition:transform .2s ease,box-shadow .2s ease;
+  text-align:center;line-height:1.15;position:relative;overflow:hidden;
 }
-.btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px var(--orange-glow),inset 0 1px 0 rgba(255,255,255,.4);}
-.btn:focus-visible{outline:3px solid var(--blue-2);outline-offset:3px;}
-.btn-lg{font-size:19px;padding:22px 40px;width:100%;max-width:520px;}
+.btn::after{
+  content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);
+  transform:skewX(-20deg);animation:brilho 3.6s ease-in-out infinite;
+}
+@keyframes brilho{0%,55%{left:-60%;}85%,100%{left:130%;}}
+.btn:hover{transform:translateY(-2px);box-shadow:0 20px 50px var(--orange-glow),inset 0 1px 0 rgba(255,255,255,.45);}
+.btn:focus-visible{outline:3px solid #fff;outline-offset:3px;}
+.btn .seta{transition:transform .2s ease;}
+.btn:hover .seta{transform:translateX(4px);}
+.btn-lg{font-size:19px;padding:23px 40px;width:100%;max-width:520px;}
 .btn-sub{
-  display:block;margin-top:12px;font-family:var(--mono);font-size:12.5px;
-  color:var(--ink-3);letter-spacing:.04em;
+  display:block;margin-top:14px;font-family:var(--mono);font-size:12px;
+  color:var(--ink-3);letter-spacing:.05em;
 }
 
 /* ---------- seções ---------- */
-section{padding:86px 0;position:relative;}
-.sec-tag{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
-.sec-tag::after{content:"";flex:1;height:1px;background:var(--line);}
-h2{font-size:clamp(30px,5.4vw,50px);margin-bottom:16px;}
-.lead{font-size:clamp(17px,2.2vw,20px);color:var(--ink-2);max-width:62ch;}
+section{padding:110px 0;position:relative;}
+.head{text-align:center;max-width:820px;margin:0 auto;}
+h2{font-size:clamp(34px,5.6vw,62px);margin:18px 0 18px;}
+.lead{font-size:clamp(17px,2.1vw,20px);color:var(--ink-2);max-width:60ch;margin:0 auto;}
+
+/* ---------- moldura de navegador (usada no hero) ---------- */
+.browser{
+  position:relative;border-radius:14px;overflow:hidden;
+  background:#0B0D12;border:1px solid var(--line-2);
+  box-shadow:0 40px 80px -20px rgba(0,0,0,.8),0 0 0 1px rgba(0,0,0,.4);
+}
+.browser .bar{
+  display:flex;align-items:center;gap:7px;height:34px;padding:0 14px;
+  background:#14171E;border-bottom:1px solid var(--line);
+}
+.browser .bar i{width:10px;height:10px;border-radius:50%;background:#2A2E38;}
+.browser .bar i:nth-child(1){background:#FF5F57;}
+.browser .bar i:nth-child(2){background:#FEBC2E;}
+.browser .bar i:nth-child(3){background:#28C840;}
+.browser .bar .url{
+  flex:1;margin-left:10px;height:20px;border-radius:6px;background:#0B0D12;
+  font-family:var(--mono);font-size:10.5px;color:var(--ink-3);
+  display:flex;align-items:center;padding:0 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.shot{position:relative;aspect-ratio:16/10;background:#0B0D12;overflow:hidden;}
+.shot img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;
+  opacity:0;transform:scale(1.04);transition:opacity .9s ease,transform 5s ease;
+}
+.shot img.on{opacity:1;transform:scale(1);}
+.shot img:first-child{opacity:1;}
+.js .shot img:first-child:not(.on){opacity:0;}
+
+.phone{
+  position:absolute;width:24%;aspect-ratio:390/844;border-radius:22px;overflow:hidden;
+  border:5px solid #1B1E26;background:#000;
+  box-shadow:0 30px 60px -10px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.08);
+}
+.phone img{width:100%;height:100%;object-fit:cover;object-position:top;}
 
 /* ---------- HERO ---------- */
 .hero{
-  padding:66px 0 74px;
+  padding:48px 0 0;overflow:hidden;text-align:center;
   background:
-    radial-gradient(1100px 620px at 78% 18%,rgba(29,111,255,.22),transparent 62%),
-    radial-gradient(760px 460px at 12% 82%,rgba(255,122,24,.13),transparent 66%),
+    radial-gradient(900px 520px at 50% -5%,rgba(255,107,26,.22),transparent 65%),
+    radial-gradient(700px 500px at 90% 60%,rgba(77,141,255,.10),transparent 65%),
     var(--bg);
-  overflow:hidden;
 }
-.hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:52px;align-items:center;}
-/* filho de grid tem min-width:auto e estoura a coluna quando a imagem é larga */
-.hero-grid>*{min-width:0;}
-.hero h1{font-size:clamp(38px,6.4vw,74px);margin:20px 0 22px;}
-.hero p.sub{font-size:clamp(17px,2.1vw,20.5px);color:var(--ink-2);max-width:52ch;}
-.hero-cta{margin-top:34px;}
-.hero-art{position:relative;}
-.hero-art img{width:100%;border-radius:20px;border:1px solid var(--line-2);box-shadow:0 40px 90px rgba(0,0,0,.6);}
-.hero-art::after{
-  content:"";position:absolute;inset:-14%;border-radius:50%;z-index:-1;
-  background:radial-gradient(circle,var(--blue-glow),transparent 66%);filter:blur(48px);
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(ellipse 70% 55% at 50% 30%,#000 20%,transparent 75%);
+  mask-image:radial-gradient(ellipse 70% 55% at 50% 30%,#000 20%,transparent 75%);
+  opacity:.55;
 }
+.hero .wrap{position:relative;display:flex;flex-direction:column;align-items:center;}
+.pill{
+  display:inline-flex;align-items:center;gap:10px;padding:7px 16px 7px 8px;border-radius:999px;
+  background:rgba(255,255,255,.04);border:1px solid var(--line-2);
+  font-size:13.5px;color:var(--ink-2);backdrop-filter:blur(8px);
+}
+.pill b{background:var(--green);color:#03140A;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.12em;padding:4px 9px;border-radius:999px;font-weight:700;}
+.hero h1{font-size:clamp(42px,6.6vw,92px);margin:22px auto 22px;max-width:15ch;}
+.hero h1 .it{display:block;}
+.hero h1 .it{font-size:1.08em;color:var(--orange-2);}
+.hero p.sub{font-size:clamp(17px,2.1vw,21px);color:var(--ink-2);max-width:56ch;margin:0 auto;}
+.hero-cta{margin-top:30px;display:flex;flex-direction:column;align-items:center;}
 .trust{
-  display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:26px;
-  font-family:var(--mono);font-size:12.5px;color:var(--ink-3);letter-spacing:.04em;
+  display:flex;flex-wrap:wrap;justify-content:center;gap:10px 24px;margin-top:22px;
+  font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.04em;
 }
 .trust span{display:flex;align-items:center;gap:7px;}
-.tick{color:var(--green);font-weight:700;}
+.tick{color:var(--green);font-weight:700;font-style:normal;}
+
+/* palco com os sites reais em leque */
+.stage{
+  position:relative;width:100%;margin:56px auto 0;max-width:1100px;height:clamp(300px,52vw,600px);
+  perspective:1800px;
+}
+.stage .browser{position:absolute;width:56%;}
+.stage .s1{left:22%;top:0;z-index:3;transform:rotateX(8deg);}
+.stage .s2{left:0;top:12%;z-index:2;transform:rotateY(18deg) rotateZ(-3deg) scale(.86);opacity:.9;}
+.stage .s3{right:0;top:12%;z-index:2;transform:rotateY(-18deg) rotateZ(3deg) scale(.86);opacity:.9;}
+.stage .phone{right:16%;top:30%;z-index:4;width:15%;transform:rotateZ(4deg);}
+.stage::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:45%;z-index:5;pointer-events:none;
+  background:linear-gradient(180deg,transparent,var(--bg) 92%);
+}
+.tag-float{
+  position:absolute;z-index:6;display:flex;align-items:center;gap:10px;
+  padding:10px 16px;border-radius:14px;background:rgba(15,18,24,.86);backdrop-filter:blur(12px);
+  border:1px solid var(--line-2);box-shadow:0 20px 40px rgba(0,0,0,.5);
+  font-family:var(--display);font-weight:800;font-size:15px;letter-spacing:-.01em;text-align:left;line-height:1.2;
+  animation:flutua 6s ease-in-out infinite;
+}
+.tag-float small{display:block;font-family:var(--mono);font-weight:500;font-size:10.5px;color:var(--ink-3);letter-spacing:.08em;}
+.tag-float .dot{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex:none;
+  background:rgba(43,214,123,.15);color:var(--green);font-size:15px;}
+.tag-float.t1{left:4%;top:4%;}
+.tag-float.t2{right:3%;top:62%;animation-delay:-3s;}
+@keyframes flutua{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+
+/* ---------- faixa de números ---------- */
+.nums{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2);padding:0;}
+.nums .wrap{display:grid;grid-template-columns:repeat(4,1fr);}
+.num{padding:34px 18px;text-align:center;border-right:1px solid var(--line);}
+.num:last-child{border-right:0;}
+.num b{display:block;font-family:var(--display);font-weight:900;font-size:clamp(28px,3.8vw,44px);letter-spacing:-.04em;line-height:1;color:#fff;}
+.num span{display:block;margin-top:8px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.08em;text-transform:uppercase;}
+
+/* ---------- letreiro ---------- */
+.marquee{padding:26px 0;overflow:hidden;border-bottom:1px solid var(--line);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
+.marquee .trilho{display:flex;width:max-content;gap:48px;animation:corre 38s linear infinite;}
+.marquee span{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.02em;color:var(--ink-3);white-space:nowrap;display:flex;align-items:center;gap:48px;}
+.marquee span::after{content:"✦";color:var(--orange);font-size:14px;}
+@keyframes corre{to{transform:translateX(-50%);}}
 
 /* ---------- dor ---------- */
 .pain{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:38px;}
+.quotes{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:54px;}
 .quote{
-  background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
-  font-size:18px;color:var(--ink-2);position:relative;
+  background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px 24px;
+  font-size:16px;color:var(--ink-3);text-align:left;position:relative;
 }
-.quote b{display:block;color:#fff;font-weight:600;font-size:19px;margin-bottom:6px;}
-.punch{
-  margin-top:44px;padding:30px 32px;border-radius:16px;
-  background:linear-gradient(135deg,rgba(255,122,24,.12),rgba(255,122,24,.03));
-  border:1px solid rgba(255,122,24,.3);
-}
-.punch p{font-family:var(--display);font-weight:800;font-size:clamp(21px,3.1vw,30px);
-  line-height:1.22;letter-spacing:-.03em;}
+.quote::before{content:"“";position:absolute;top:6px;right:18px;font-family:var(--serif);font-size:70px;line-height:1;color:rgba(255,255,255,.07);}
+.quote b{display:block;color:#fff;font-family:var(--display);font-weight:800;letter-spacing:-.02em;font-size:20px;line-height:1.2;margin-bottom:12px;}
+.punch{margin:64px auto 0;max-width:900px;text-align:center;}
+.punch p{font-family:var(--display);font-weight:800;font-size:clamp(24px,3.6vw,40px);line-height:1.15;letter-spacing:-.035em;}
+.punch .it{color:var(--orange-2);font-size:1.12em;}
 
 /* ---------- mecanismo ---------- */
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:20px;margin-top:44px;}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:60px;counter-reset:passo;}
 .step{
-  background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px 26px;
-  position:relative;overflow:hidden;
+  background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--line);
+  border-radius:24px;padding:34px 30px 34px;text-align:left;position:relative;overflow:hidden;
 }
-.step::before{
-  content:"";position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--blue),var(--orange));
-}
-.step .n{
-  font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.2em;
-  color:var(--blue-2);display:block;margin-bottom:14px;
-}
-.step h3{font-size:23px;margin-bottom:10px;}
+.step .n{font-family:var(--display);font-weight:900;font-size:86px;line-height:.8;letter-spacing:-.06em;
+  color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.16);display:block;margin-bottom:26px;}
+.step h3{font-size:26px;margin-bottom:12px;}
 .step p{color:var(--ink-2);font-size:16px;}
+.step::after{content:"";position:absolute;left:30px;right:30px;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--orange),transparent);}
 
 /* ---------- crenças ---------- */
-.beliefs{display:flex;flex-direction:column;gap:18px;margin-top:44px;}
-.belief{
-  display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start;
-  background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px 30px;
-}
-.belief .mark{
-  width:46px;height:46px;flex:none;border-radius:12px;display:grid;place-items:center;
-  font-family:var(--display);font-weight:900;font-size:20px;
-  background:linear-gradient(160deg,var(--blue),#0B44B8);color:#fff;
-  box-shadow:0 8px 22px var(--blue-glow);
-}
-.belief h3{font-size:21px;margin-bottom:8px;}
-.belief p{color:var(--ink-2);font-size:16.5px;}
-.belief .said{
-  display:block;font-family:var(--mono);font-size:12.5px;color:var(--ink-3);
-  letter-spacing:.05em;margin-bottom:9px;text-transform:uppercase;
-}
+.beliefs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:60px;}
+.belief{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:32px 28px;text-align:left;}
+.belief .said{display:block;font-family:var(--serif);font-style:italic;font-size:22px;line-height:1.25;color:var(--ink-3);margin-bottom:20px;
+  padding-bottom:20px;border-bottom:1px dashed var(--line-2);}
+.belief h3{font-size:22px;margin-bottom:12px;line-height:1.1;}
+.belief p{color:var(--ink-2);font-size:15.5px;}
 
 /* ---------- módulos ---------- */
 .mods-wrap{
-  margin-top:46px;overflow:hidden;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+  margin-top:60px;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
 }
-.mods{display:flex;width:max-content;gap:22px;animation:modsLeft 52s linear infinite;}
+.mods{display:flex;width:max-content;gap:20px;animation:modsLeft 56s linear infinite;}
 .mods-wrap:hover .mods{animation-play-state:paused;}
 @keyframes modsLeft{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-.mod{
-  flex:0 0 296px;
-  background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;
-  transition:transform .22s ease,border-color .22s ease;
-}
-.mod:hover{transform:translateY(-4px);border-color:var(--line-2);}
+.mod{flex:0 0 280px;background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;text-align:left;
+  transition:transform .25s ease,border-color .25s ease;}
+.mod:hover{transform:translateY(-5px);border-color:var(--line-2);}
 .mod img{width:100%;aspect-ratio:2/3;object-fit:cover;}
-.mod .body{padding:22px 24px 26px;}
+.mod .body{padding:22px 22px 26px;}
 .mod h3{font-size:20px;margin-bottom:8px;}
-.mod p{color:var(--ink-2);font-size:15.5px;}
+.mod p{color:var(--ink-2);font-size:15px;}
 
 /* ---------- stack ---------- */
 .stack{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-.stack-list{margin-top:40px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--surface);}
-.stack-item{
-  display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;
-  padding:20px 26px;border-bottom:1px solid var(--line);
-}
-.stack-item:last-child{border-bottom:0;}
-.stack-item .ck{
-  width:26px;height:26px;border-radius:8px;flex:none;display:grid;place-items:center;
-  background:rgba(34,199,126,.14);border:1px solid rgba(34,199,126,.4);
-  color:var(--green);font-weight:700;font-size:14px;margin-top:2px;
-}
-.stack-item b{display:block;font-family:var(--display);font-weight:800;font-size:18px;
-  letter-spacing:-.02em;margin-bottom:3px;}
-.stack-item span{color:var(--ink-2);font-size:15.5px;}
-.compare{
-  margin-top:34px;padding:30px 32px;border-radius:18px;text-align:center;
-  background:linear-gradient(135deg,rgba(29,111,255,.14),rgba(29,111,255,.04));
-  border:1px solid rgba(29,111,255,.32);
-}
-.compare p{font-family:var(--display);font-weight:800;font-size:clamp(20px,3vw,28px);
-  letter-spacing:-.028em;line-height:1.25;}
-.compare small{display:block;margin-top:12px;font-family:var(--mono);font-size:12.5px;
-  color:var(--ink-3);letter-spacing:.05em;}
+.stack-list{margin:56px auto 0;max-width:860px;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.stack-item{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;text-align:left;
+  padding:22px 22px;border-radius:18px;background:var(--surface);border:1px solid var(--line);}
+.stack-item:first-child,.stack-item:nth-child(2){border-color:rgba(255,107,26,.3);background:linear-gradient(180deg,rgba(255,107,26,.07),var(--surface));}
+.stack-item .ck{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;
+  background:rgba(43,214,123,.12);border:1px solid rgba(43,214,123,.35);color:var(--green);font-weight:700;font-size:14px;}
+.stack-item b{display:block;font-family:var(--display);font-weight:800;font-size:17.5px;letter-spacing:-.02em;margin-bottom:4px;line-height:1.25;}
+.stack-item span{color:var(--ink-2);font-size:15px;line-height:1.55;}
+.compare{margin:40px auto 0;max-width:860px;padding:40px 32px;border-radius:26px;text-align:center;
+  background:radial-gradient(500px 200px at 50% 0%,rgba(255,107,26,.18),transparent 70%),var(--surface);
+  border:1px solid rgba(255,107,26,.28);}
+.compare p{font-family:var(--display);font-weight:900;font-size:clamp(24px,3.6vw,38px);letter-spacing:-.035em;line-height:1.12;}
+.compare .it{color:var(--orange-2);font-size:1.1em;}
+.compare small{display:block;margin-top:14px;font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.05em;}
 
 /* ---------- para quem ---------- */
-.fit{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px;}
-.fit-card{border-radius:18px;padding:30px 30px 32px;border:1px solid var(--line);background:var(--surface);}
-.fit-card.yes{border-color:rgba(34,199,126,.35);}
-.fit-card.no{border-color:rgba(255,80,80,.28);}
-.fit-card h3{font-size:20px;margin-bottom:18px;}
-.fit-card ul{list-style:none;display:flex;flex-direction:column;gap:13px;}
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:56px;}
+.fit-card{border-radius:24px;padding:34px 32px;border:1px solid var(--line);background:var(--surface);text-align:left;}
+.fit-card.yes{border-color:rgba(43,214,123,.3);background:linear-gradient(180deg,rgba(43,214,123,.06),var(--surface));}
+.fit-card.no{border-color:rgba(255,90,90,.24);}
+.fit-card h3{font-size:24px;margin-bottom:22px;}
+.fit-card ul{list-style:none;display:flex;flex-direction:column;gap:15px;}
 .fit-card li{display:grid;grid-template-columns:auto 1fr;gap:12px;font-size:16px;color:var(--ink-2);}
 .fit-card .s{font-weight:700;}
 .yes .s{color:var(--green);}
 .no .s{color:#FF6B6B;}
 
 /* ---------- oferta ---------- */
-.offer{
-  background:
-    radial-gradient(900px 520px at 50% 0%,rgba(255,122,24,.16),transparent 64%),
-    var(--bg);
-  text-align:center;
-}
+.offer{text-align:center;overflow:hidden;
+  background:radial-gradient(900px 560px at 50% 10%,rgba(255,107,26,.2),transparent 64%),var(--bg);}
 .price-card{
-  max-width:640px;margin:44px auto 0;padding:44px 34px 40px;border-radius:24px;
-  background:var(--surface);border:1px solid var(--line-2);
-  box-shadow:0 40px 90px rgba(0,0,0,.55);
+  position:relative;max-width:620px;margin:56px auto 0;padding:52px 36px 44px;border-radius:32px;
+  background:linear-gradient(180deg,#14171F,#0D1016);border:1px solid var(--line-2);
+  box-shadow:0 50px 100px -20px rgba(0,0,0,.8);
 }
+.price-card::before{
+  content:"";position:absolute;inset:-1px;border-radius:32px;padding:1px;pointer-events:none;
+  background:conic-gradient(from 180deg,transparent 0 30%,var(--orange) 45%,transparent 60% 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+}
+.price-badge{position:absolute;top:-16px;left:50%;transform:translateX(-50%);white-space:nowrap;
+  background:var(--orange);color:#170700;font-family:var(--mono);font-weight:700;font-size:11.5px;
+  letter-spacing:.14em;padding:8px 16px;border-radius:999px;}
+.price-mini{list-style:none;display:flex;flex-direction:column;gap:10px;margin:0 auto 30px;max-width:380px;text-align:left;}
+.price-mini li{display:flex;gap:10px;font-size:15px;color:var(--ink-2);}
+.price-mini li::before{content:"✓";color:var(--green);font-weight:700;}
 .price-old{font-family:var(--mono);font-size:16px;color:var(--ink-3);text-decoration:line-through;}
-.price-now{font-family:var(--display);font-weight:900;letter-spacing:-.05em;line-height:1;
-  font-size:clamp(62px,12vw,96px);margin:6px 0 4px;
-  background:linear-gradient(180deg,#fff,#9CC0FF);-webkit-background-clip:text;background-clip:text;color:transparent;}
-.price-cond{font-family:var(--mono);font-size:13px;color:var(--ink-2);letter-spacing:.05em;margin-bottom:28px;}
-.guarantee{
-  max-width:640px;margin:32px auto 0;padding:26px 28px;border-radius:18px;
-  border:1px dashed var(--line-2);background:rgba(255,255,255,.02);text-align:left;
-  display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;
-}
-.guarantee .seal{
-  width:64px;height:64px;border-radius:50%;display:grid;place-items:center;flex:none;
+.price-now{font-family:var(--display);font-weight:900;letter-spacing:-.06em;line-height:1;
+  font-size:clamp(76px,14vw,120px);margin:4px 0 6px;color:#fff;}
+.price-now small{font-size:.38em;letter-spacing:-.02em;vertical-align:.95em;margin-right:6px;color:var(--ink-2);}
+.price-cond{font-family:var(--mono);font-size:12.5px;color:var(--ink-2);letter-spacing:.05em;margin-bottom:30px;}
+.guarantee{max-width:620px;margin:28px auto 0;padding:28px 30px;border-radius:24px;
+  border:1px dashed var(--line-2);background:rgba(255,255,255,.02);
+  display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;text-align:left;}
+.guarantee .seal{width:70px;height:70px;border-radius:50%;display:grid;place-items:center;flex:none;
   border:2px solid var(--green);color:var(--green);
-  font-family:var(--display);font-weight:900;font-size:15px;line-height:1;text-align:center;
-}
-.guarantee h3{font-size:19px;margin-bottom:6px;}
+  font-family:var(--display);font-weight:900;font-size:15px;line-height:1;text-align:center;}
+.guarantee h3{font-size:20px;margin-bottom:6px;}
 .guarantee p{color:var(--ink-2);font-size:15.5px;}
 
 /* ---------- faq ---------- */
-.faq{margin-top:44px;border-top:1px solid var(--line);}
-details{border-bottom:1px solid var(--line);}
-summary{
-  cursor:pointer;list-style:none;padding:22px 44px 22px 0;position:relative;
-  font-family:var(--display);font-weight:700;font-size:18.5px;letter-spacing:-.02em;
-}
+.faq{margin:56px auto 0;max-width:820px;display:flex;flex-direction:column;gap:10px;}
+details{border:1px solid var(--line);border-radius:18px;background:var(--surface);transition:border-color .2s ease;}
+details[open]{border-color:var(--line-2);}
+summary{cursor:pointer;list-style:none;padding:22px 60px 22px 26px;position:relative;text-align:left;
+  font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.02em;}
 summary::-webkit-details-marker{display:none;}
-summary::after{
-  content:"+";position:absolute;right:8px;top:50%;transform:translateY(-50%);
-  font-family:var(--mono);font-size:24px;color:var(--blue-2);font-weight:500;
-  transition:transform .2s ease;
-}
-/* aberto: o mesmo "+" girado vira um "x", sem precisar de outro caractere */
+summary::after{content:"+";position:absolute;right:24px;top:50%;transform:translateY(-50%);
+  font-family:var(--mono);font-size:24px;color:var(--orange-2);font-weight:500;transition:transform .2s ease;}
 details[open] summary::after{transform:translateY(-50%) rotate(45deg);}
-details p{padding:0 0 24px;color:var(--ink-2);font-size:16.5px;max-width:74ch;}
-summary:focus-visible{outline:2px solid var(--blue-2);outline-offset:2px;border-radius:6px;}
+details p{padding:0 26px 24px;color:var(--ink-2);font-size:16px;text-align:left;}
+summary:focus-visible{outline:2px solid var(--orange-2);outline-offset:2px;border-radius:18px;}
 
 /* ---------- fechamento ---------- */
-.final{text-align:center;background:var(--bg-2);border-top:1px solid var(--line);}
-.final h2{max-width:20ch;margin:0 auto 18px;}
-.final .lead{margin:0 auto 34px;}
+.final{text-align:center;background:var(--bg-2);border-top:1px solid var(--line);overflow:hidden;}
+.final h2{max-width:18ch;margin:0 auto 20px;}
+.final h2 .it{color:var(--orange-2);}
+.final .lead{margin:0 auto 36px;}
+.final .hero-cta{margin-top:0;}
 
-footer{padding:44px 0 120px;text-align:center;border-top:1px solid var(--line);}
-footer p{font-family:var(--mono);font-size:12px;color:var(--ink-3);line-height:2;letter-spacing:.04em;}
+footer{padding:44px 0 130px;text-align:center;border-top:1px solid var(--line);}
+footer p{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:2;letter-spacing:.04em;max-width:90ch;margin:0 auto;}
 
 /* ---------- barra fixa ---------- */
 .sticky{
-  position:fixed;left:0;right:0;bottom:0;z-index:70;
-  background:rgba(8,13,24,.94);backdrop-filter:blur(14px);
-  border-top:1px solid var(--line-2);padding:12px 16px;
+  position:fixed;left:12px;right:12px;bottom:12px;z-index:70;max-width:640px;margin:0 auto;
+  background:rgba(15,18,24,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--line-2);border-radius:999px;padding:8px 8px 8px 22px;
   display:flex;align-items:center;justify-content:space-between;gap:14px;
-  transform:translateY(110%);transition:transform .3s ease;
+  box-shadow:0 20px 50px rgba(0,0,0,.6);
+  transform:translateY(140%);transition:transform .35s ease;
 }
 .sticky.on{transform:translateY(0);}
-.sticky .p{font-family:var(--display);font-weight:800;font-size:17px;white-space:nowrap;}
+.sticky .p{font-family:var(--display);font-weight:800;font-size:18px;white-space:nowrap;}
 .sticky .p s{color:var(--ink-3);font-weight:500;font-size:13px;margin-right:6px;}
-.sticky .btn{padding:14px 22px;font-size:15px;}
+.sticky .btn{padding:14px 24px;font-size:15px;}
 
 /* ---------- reveal ---------- */
 .reveal{opacity:1;transform:none;}
-.js .reveal{opacity:0;transform:translateY(24px);
-  transition:opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94);}
+.js .reveal{opacity:0;transform:translateY(28px);
+  transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);}
 .js .reveal.vis{opacity:1;transform:none;}
 
-/* ============================================================
-   CENTRALIZAÇÃO
-   Tudo centralizado, com largura de leitura travada para o texto
-   corrido não virar linha longa demais.
-   ============================================================ */
-section .wrap,
-.hero-grid > div:first-child{text-align:center;}
-
-/* eyebrow com filete dos dois lados */
-.sec-tag{justify-content:center;}
-.sec-tag::before{content:"";flex:0 1 90px;height:1px;background:var(--line);}
-.sec-tag::after{flex:0 1 90px;}
-
-/* parágrafos longos: centralizados mas com medida controlada */
-.lead,.hero p.sub{margin-left:auto;margin-right:auto;}
-.belief p,.step p,.mod p,.quote,.fit-card li{margin-left:auto;margin-right:auto;max-width:46ch;}
-details p{margin-left:auto;margin-right:auto;max-width:62ch;}
-
-/* hero */
-.trust{justify-content:center;}
-.hero-cta{display:flex;flex-direction:column;align-items:center;}
-
-/* crenças: número acima do texto */
-.belief{grid-template-columns:1fr;justify-items:center;gap:16px;text-align:center;}
-.belief .mark{margin:0 auto;}
-
-/* passos e módulos */
-.step .n{text-align:center;}
-.mod .body{text-align:center;}
-
-/* stack: check acima do item */
-.stack-item{display:block;text-align:center;padding:22px 26px;}
-.stack-item .ck{margin:0 auto 10px;}
-
-/* para quem é: símbolo inline antes do texto */
-.fit-card ul{align-items:center;}
-.fit-card li{display:block;}
-.fit-card .s{margin-right:9px;}
-
-/* faq: pergunta centralizada, sinal continua na direita */
-summary{padding:22px 46px;}
-
-/* garantia: selo acima */
-.guarantee{grid-template-columns:1fr;justify-items:center;text-align:center;gap:16px;}
-
-@media (max-width:900px){
-  .hero-grid{grid-template-columns:1fr;gap:36px;}
-  .hero-art{order:-1;}
-  .fit{grid-template-columns:1fr;}
-  section{padding:64px 0;}
-  .belief{grid-template-columns:1fr;gap:14px;}
+@media (max-width:980px){
+  .quotes{grid-template-columns:1fr 1fr;}
+  .steps,.beliefs{grid-template-columns:1fr;}
+  .nums .wrap{grid-template-columns:1fr 1fr;}
+  .num:nth-child(2){border-right:0;}
+  .num:nth-child(-n+2){border-bottom:1px solid var(--line);}
+}
+@media (max-width:760px){
+  section{padding:76px 0;}
+  .stack-list,.fit{grid-template-columns:1fr;}
+  .hero{padding-top:34px;}
+  .stage{order:3;height:auto;margin:34px auto 30px;perspective:none;padding-bottom:40px;}
+  .hero p.sub{order:4;}
+  .hero-cta{order:5;}
+  .trust{order:6;margin-bottom:56px;}
+  .pill .longo{display:none;}
+  .topbar{font-size:10.5px;letter-spacing:.04em;padding:8px 10px;}
+  .stage .browser.s1{position:relative;left:auto;width:100%;transform:none;}
+  .stage .s2,.stage .s3{display:none;}
+  .stage .phone{width:30%;right:-2%;top:auto;bottom:0;}
+  .stage::after{height:25%;}
+  .tag-float{font-size:13px;padding:8px 12px;}
+  .tag-float.t1{left:-2%;top:-18px;}
+  .tag-float.t2{display:none;}
 }
 @media (max-width:520px){
   body{font-size:16px;}
   .btn{width:100%;}
-  .price-card{padding:34px 22px 30px;}
-  .guarantee{grid-template-columns:1fr;text-align:center;}
-  .guarantee .seal{margin:0 auto;}
+  .quotes{grid-template-columns:1fr;}
+  .price-card{padding:44px 22px 32px;}
+  .guarantee{grid-template-columns:1fr;text-align:center;justify-items:center;}
+  .browser .bar{height:26px;}
+  .browser .bar .url{display:none;}
+  .sticky{padding-left:18px;}
+  .sticky .btn{width:auto;}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;}
   html{scroll-behavior:auto;}
   .js .reveal{opacity:1;transform:none;}
-  .mods{animation:none;}
   .mods-wrap{overflow-x:auto;}
 }
 </style>
@@ -400,34 +449,60 @@ summary{padding:22px 46px;}
 
 <!-- ==================== HERO ==================== -->
 <header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow">Método da Entrega Invertida</span>
-      <h1>Pare de tentar vender sites.<br><span class="hl">Entregue primeiro.</span></h1>
-      <p class="sub">O dono do negócio não abre proposta. Mas ele abre o <strong>site dele</strong>,
-        com o nome dele, a nota do Google dele e o WhatsApp dele funcionando.
-        É esse o método. E a IA monta em <strong>40 minutos</strong>.</p>
-      <div class="hero-cta">
-        <a class="btn btn-lg" href="#oferta" data-cta>QUERO A MÁQUINA POR R$ 97</a>
-        <span class="btn-sub">Acesso imediato · pagamento único · 7 dias de garantia</span>
-      </div>
-      <div class="trust">
-        <span><i class="tick">✓</i> Sem saber programar</span>
-        <span><i class="tick">✓</i> Sem mensalidade de ferramenta</span>
-        <span><i class="tick">✓</i> Hospedagem gratuita</span>
-      </div>
+  <div class="wrap">
+    <span class="pill"><b>VENDIDOS</b><span>Sites <span class="longo">meus </span>de R$ 1.000 a R$ 3.000</span></span>
+    <h1>Pare de tentar vender sites. <span class="it">Entregue primeiro.</span></h1>
+    <p class="sub">O dono do negócio não abre proposta. Mas ele abre o <strong>site dele</strong>,
+      com o nome dele, a nota do Google dele e o WhatsApp dele funcionando.
+      É esse o método. E a IA monta em <strong>40 minutos</strong>.</p>
+    <div class="hero-cta">
+      <a class="btn btn-lg" href="#oferta" data-cta>QUERO A MÁQUINA POR R$ 97 <span class="seta">→</span></a>
+      <span class="btn-sub">Acesso imediato · pagamento único · 7 dias de garantia</span>
     </div>
-    <div class="hero-art">
-      <img src="assets/hero.jpg" alt="Máquina de Sites, sistema de criação de sites com IA" fetchpriority="high" width="1200" height="1200">
+    <div class="trust">
+      <span><i class="tick">✓</i> Sem saber programar</span>
+      <span><i class="tick">✓</i> Sem mensalidade de ferramenta</span>
+      <span><i class="tick">✓</i> Hospedagem gratuita</span>
+    </div>
+
+    <div class="stage" aria-label="Sites reais feitos e vendidos">
+      <div class="tag-float t1"><span class="dot">✓</span><div>Site vendido<small>DE R$ 1.000 A R$ 3.000</small></div></div>
+      <div class="tag-float t2"><span class="dot">⚡</span><div>Montado com IA<small>EM 40 MINUTOS</small></div></div>
+      <div class="browser s2"><div class="bar"><i></i><i></i><i></i><span class="url">maissaudelab.com.br</span></div>
+        <div class="shot" data-slides><img src="assets/sites/lab-1.jpg" alt="Site do Laboratório Mais Saúde" width="1000" height="625"><img src="assets/sites/lab-2.jpg" alt="" loading="lazy"><img src="assets/sites/lab-3.jpg" alt="" loading="lazy"></div></div>
+      <div class="browser s3"><div class="bar"><i></i><i></i><i></i><span class="url">frutayce</span></div>
+        <div class="shot" data-slides><img src="assets/sites/frutayce-1.jpg" alt="Site da Frutayce" width="1000" height="625"><img src="assets/sites/frutayce-3.jpg" alt="" loading="lazy"><img src="assets/sites/frutayce-4.jpg" alt="" loading="lazy"></div></div>
+      <div class="browser s1"><div class="bar"><i></i><i></i><i></i><span class="url">hype-drink</span></div>
+        <div class="shot" data-slides><img src="assets/sites/hype-1.jpg" alt="Site da Hype Drink" width="1000" height="625" fetchpriority="high"><img src="assets/sites/hype-2.jpg" alt="" loading="lazy"><img src="assets/sites/hype-4.jpg" alt="" loading="lazy"></div></div>
+      <div class="phone"><img src="assets/sites/clinica-mob.jpg" alt="Site da Clínica Mais Saúde no celular" width="390" height="844"></div>
     </div>
   </div>
 </header>
 
+<!-- ==================== NÚMEROS ==================== -->
+<section class="nums">
+  <div class="wrap">
+    <div class="num"><b>40 min</b><span>por site com a máquina</span></div>
+    <div class="num"><b>R$ 1 a 3 mil</b><span>valor dos sites vendidos</span></div>
+    <div class="num"><b>R$ 0</b><span>de hospedagem</span></div>
+    <div class="num"><b>0</b><span>linhas de código</span></div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="trilho">
+    <span>Clínicas</span><span>Laboratórios</span><span>Bebidas</span><span>Fábricas</span><span>Academias</span><span>Imobiliárias</span><span>Barbearias</span><span>Distribuidoras</span>
+    <span>Clínicas</span><span>Laboratórios</span><span>Bebidas</span><span>Fábricas</span><span>Academias</span><span>Imobiliárias</span><span>Barbearias</span><span>Distribuidoras</span>
+  </div>
+</div>
+
 <!-- ==================== A DOR ==================== -->
 <section class="pain">
   <div class="wrap">
-    <div class="sec-tag"><span class="eyebrow">O que sempre acontece</span></div>
-    <h2 class="reveal">Você já tentou vender um site.<br>E ouviu uma dessas.</h2>
+    <div class="head">
+      <span class="eyebrow">O que sempre acontece</span>
+      <h2 class="reveal">Você já tentou vender um site. E ouviu uma dessas.</h2>
+    </div>
     <div class="quotes">
       <div class="quote reveal"><b>"Vou pensar e te falo."</b>Nunca falou.</div>
       <div class="quote reveal"><b>"Já tenho Instagram, não preciso."</b>Ele precisa. Só não viu.</div>
@@ -435,8 +510,7 @@ summary{padding:22px 46px;}
       <div class="quote reveal"><b>"Quanto custa?"</b>Você fala o preço. Ele some.</div>
     </div>
     <div class="punch reveal">
-      <p>O problema nunca foi o seu preço.<br>
-      Foi que você pediu para ele <span class="hl-o">imaginar</span> uma coisa que ainda não existia.</p>
+      <p>O problema nunca foi o seu preço. Foi que você pediu para ele <span class="it">imaginar</span> uma coisa que ainda não existia.</p>
     </div>
   </div>
 </section>
@@ -444,32 +518,34 @@ summary{padding:22px 46px;}
 <!-- ==================== A VIRADA ==================== -->
 <section>
   <div class="wrap">
-    <div class="sec-tag"><span class="eyebrow">A virada</span></div>
-    <h2 class="reveal">Ninguém compra "um site".<br>As pessoas compram <span class="hl">o site delas.</span></h2>
-    <p class="lead reveal">Quando o dono abre o link e vê o próprio negócio na tela, com a
-      fachada, o endereço certo, as 4,8 estrelas que ele levou anos pra conquistar e o botão de
-      WhatsApp abrindo a conversa dele, a pergunta muda. Ela deixa de ser <em>"será que vale a pena?"</em>
-      e vira <strong>"quanto custa pra colocar isso no ar hoje?"</strong></p>
-    <p class="lead reveal" style="margin-top:22px">Isso sempre funcionou. O que impedia era a conta:
-      fazer um site premium de graça, na esperança de vender, custava uma semana de trabalho.
-      Ninguém faz isso vinte vezes. <strong>Com a máquina montada, o mesmo site sai em 40 minutos</strong>.
-      E aí a conta vira.</p>
+    <div class="head">
+      <span class="eyebrow">A virada</span>
+      <h2 class="reveal">Ninguém compra "um site". As pessoas compram <span class="it hl">o site delas.</span></h2>
+      <p class="lead reveal">Quando o dono abre o link e vê o próprio negócio na tela, com a
+        fachada, o endereço certo, as 4,8 estrelas que ele levou anos pra conquistar e o botão de
+        WhatsApp abrindo a conversa dele, a pergunta muda. Ela deixa de ser <em>"será que vale a pena?"</em>
+        e vira <strong>"quanto custa pra colocar isso no ar hoje?"</strong></p>
+      <p class="lead reveal" style="margin-top:22px">Isso sempre funcionou. O que impedia era a conta:
+        fazer um site premium de graça, na esperança de vender, custava uma semana de trabalho.
+        Ninguém faz isso vinte vezes. <strong>Com a máquina montada, o mesmo site sai em 40 minutos</strong>.
+        E aí a conta vira.</p>
+    </div>
 
     <div class="steps">
       <div class="step reveal">
-        <span class="n">TEMPO 01</span>
+        <span class="n">01</span>
         <h3>Pesquisa</h3>
         <p>Você acha, no Google Maps da sua cidade, os negócios com nota alta e sem site.
           Eles existem às dezenas, e são os que têm caixa e orgulho da operação.</p>
       </div>
       <div class="step reveal">
-        <span class="n">TEMPO 02</span>
+        <span class="n">02</span>
         <h3>Entrega</h3>
         <p>A IA monta o site com os dados reais dele e você publica numa URL pública,
           de graça. Nada de mockup em imagem: o site funciona de verdade.</p>
       </div>
       <div class="step reveal">
-        <span class="n">TEMPO 03</span>
+        <span class="n">03</span>
         <h3>Cobrança</h3>
         <p>Você manda no WhatsApp dele. Ele abre, reconhece o próprio negócio e responde.
           Só então se fala em preço, sobre algo que ele já viu pronto.</p>
@@ -481,43 +557,36 @@ summary{padding:22px 46px;}
 <!-- ==================== QUEBRA DE CRENÇAS ==================== -->
 <section class="pain">
   <div class="wrap">
-    <div class="sec-tag"><span class="eyebrow">Antes que você pense</span></div>
-    <h2 class="reveal">As três coisas que você<br>está pensando agora.</h2>
+    <div class="head">
+      <span class="eyebrow">Antes que você pense</span>
+      <h2 class="reveal">As três coisas que você está pensando agora.</h2>
+    </div>
 
     <div class="beliefs">
       <div class="belief reveal">
-        <div class="mark">01</div>
-        <div>
-          <span class="said">"IA faz site genérico, todo mundo percebe"</span>
-          <h3>Faz sim, quando você só pede "um site bonito".</h3>
-          <p>O que você recebe aqui não é um prompt. É um <strong>sistema de design</strong> com
-            paleta calculada a partir da marca real do cliente, seis arquiteturas de página
-            que se revezam e uma regra dura: <strong>nenhum site pode repetir a composição do
-            anterior</strong>. É exatamente isso que separa o resultado premium do template
-            que qualquer um reconhece.</p>
-        </div>
+        <span class="said">"IA faz site genérico, todo mundo percebe."</span>
+        <h3>Faz sim, quando você só pede "um site bonito".</h3>
+        <p>O que você recebe aqui não é um prompt. É um <strong>sistema de design</strong> com
+          paleta calculada a partir da marca real do cliente, seis arquiteturas de página
+          que se revezam e uma regra dura: <strong>nenhum site pode repetir a composição do
+          anterior</strong>. É exatamente isso que separa o resultado premium do template
+          que qualquer um reconhece.</p>
       </div>
       <div class="belief reveal">
-        <div class="mark">02</div>
-        <div>
-          <span class="said">"Eu não sei programar nem desenhar"</span>
-          <h3>Você não vai escrever uma linha de código.</h3>
-          <p>Você instala a máquina uma vez, fala o nome da empresa, e ela executa sozinha o
-            passo a passo inteiro: pesquisa a identidade visual, escolhe a composição, busca as
-            fotos, monta e testa. Seu trabalho é <strong>escolher o negócio certo e apertar
-            enviar</strong>.</p>
-        </div>
+        <span class="said">"Eu não sei programar nem desenhar."</span>
+        <h3>Você não vai escrever uma linha de código.</h3>
+        <p>Você instala a máquina uma vez, fala o nome da empresa, e ela executa sozinha o
+          passo a passo inteiro: pesquisa a identidade visual, escolhe a composição, busca as
+          fotos, monta e testa. Seu trabalho é <strong>escolher o negócio certo e apertar
+          enviar</strong>.</p>
       </div>
       <div class="belief reveal">
-        <div class="mark">03</div>
-        <div>
-          <span class="said">"Na minha cidade não tem cliente pra isso"</span>
-          <h3>Abre o Google Maps agora e conta.</h3>
-          <p>Digite o seu bairro e um nicho qualquer: clínica, distribuidora, imobiliária,
-            barbearia. Conte quantos têm <strong>nota acima de 4,5 e nenhum site</strong>. Em
-            qualquer cidade do Brasil esse número passa de trinta. Cada um deles é uma pessoa
-            que já provou que sabe tocar um negócio e ainda não tem onde ser encontrada.</p>
-        </div>
+        <span class="said">"Na minha cidade não tem cliente pra isso."</span>
+        <h3>Abre o Google Maps agora e conta.</h3>
+        <p>Digite o seu bairro e um nicho qualquer: clínica, distribuidora, imobiliária,
+          barbearia. Conte quantos têm <strong>nota acima de 4,5 e nenhum site</strong>. Em
+          qualquer cidade do Brasil esse número passa de trinta. Cada um deles é uma pessoa
+          que já provou que sabe tocar um negócio e ainda não tem onde ser encontrada.</p>
       </div>
     </div>
   </div>
@@ -526,10 +595,12 @@ summary{padding:22px 46px;}
 <!-- ==================== MÓDULOS ==================== -->
 <section>
   <div class="wrap">
-    <div class="sec-tag"><span class="eyebrow">O que tem dentro</span></div>
-    <h2 class="reveal">Seis módulos. Do zero<br>ao site no ar e cobrado.</h2>
-    <p class="lead reveal">Direto ao ponto, sem aula de teoria. Todo módulo termina com uma coisa
-      pronta na sua mão.</p>
+    <div class="head">
+      <span class="eyebrow">O que tem dentro</span>
+      <h2 class="reveal">Seis módulos. Do zero ao site <span class="it hl">no ar e cobrado.</span></h2>
+      <p class="lead reveal">Direto ao ponto, sem aula de teoria. Todo módulo termina com uma coisa
+        pronta na sua mão.</p>
+    </div>
 
     <div class="mods-wrap">
       <div class="mods">
@@ -570,37 +641,37 @@ summary{padding:22px 46px;}
             as respostas para as objeções que vêm depois.</p></div>
       </article>
       <article class="mod reveal" aria-hidden="true">
-        <img src="assets/mod-01.jpg" alt="Módulo 01: A Estratégia" loading="lazy">
+        <img src="assets/mod-01.jpg" alt="" loading="lazy">
         <div class="body"><h3>A Estratégia</h3>
           <p>Por que a entrega invertida funciona, as regras que te protegem e quanto cobrar
             antes de mandar a primeira mensagem.</p></div>
       </article>
       <article class="mod reveal" aria-hidden="true">
-        <img src="assets/mod-02.jpg" alt="Módulo 02: Montando a Máquina" loading="lazy">
+        <img src="assets/mod-02.jpg" alt="" loading="lazy">
         <div class="body"><h3>Montando a Máquina</h3>
           <p>A instalação completa, do zero absoluto, com tela de Mac e de Windows. Ao fim
             deste módulo a máquina está ligada.</p></div>
       </article>
       <article class="mod reveal" aria-hidden="true">
-        <img src="assets/mod-03.jpg" alt="Módulo 03: Um Site na Prática" loading="lazy">
+        <img src="assets/mod-03.jpg" alt="" loading="lazy">
         <div class="body"><h3>Um Site na Prática</h3>
           <p>Gravação contínua: um negócio real escolhido no mapa, o site montado do começo
             ao fim e publicado, sem corte.</p></div>
       </article>
       <article class="mod reveal" aria-hidden="true">
-        <img src="assets/mod-nichos.jpg" alt="Módulo Nichos que Pagam Bem" loading="lazy">
+        <img src="assets/mod-nichos.jpg" alt="" loading="lazy">
         <div class="body"><h3>Nichos que Pagam Bem</h3>
           <p>Quais negócios pagam, quais só dão trabalho, e como escolher um nicho da sua
             cidade para dominar em vez de atirar para todo lado.</p></div>
       </article>
       <article class="mod reveal" aria-hidden="true">
-        <img src="assets/mod-hospedagem.jpg" alt="Módulo Hospedagem e Domínios" loading="lazy">
+        <img src="assets/mod-hospedagem.jpg" alt="" loading="lazy">
         <div class="body"><h3>Hospedagem e Domínios</h3>
           <p>Como publicar de graça, para sempre, e como apontar o domínio próprio do cliente
             no dia em que ele pagar.</p></div>
       </article>
       <article class="mod reveal" aria-hidden="true">
-        <img src="assets/mod-prospeccao.jpg" alt="Módulo Prospecção que Gera Resultado" loading="lazy">
+        <img src="assets/mod-prospeccao.jpg" alt="" loading="lazy">
         <div class="body"><h3>Prospecção que Gera Resultado</h3>
           <p>Encontrar, abordar e fechar. O formato de mensagem que faz o dono responder, e
             as respostas para as objeções que vêm depois.</p></div>
@@ -613,48 +684,50 @@ summary{padding:22px 46px;}
 <!-- ==================== STACK ==================== -->
 <section class="stack" id="stack">
   <div class="wrap">
-    <div class="sec-tag"><span class="eyebrow">Tudo que entra hoje</span></div>
-    <h2 class="reveal">Você não está comprando<br>um curso. É a máquina inteira.</h2>
+    <div class="head">
+      <span class="eyebrow">Tudo que entra hoje</span>
+      <h2 class="reveal">Você não está comprando um curso. <span class="it hl">É a máquina inteira.</span></h2>
+    </div>
 
-    <div class="stack-list reveal">
-      <div class="stack-item"><span class="ck">✓</span><div>
-        <b>Os 6 módulos em vídeo</b>
-        <span>Da instalação ao fechamento, sem enrolação.</span></div></div>
-      <div class="stack-item"><span class="ck">✓</span><div>
+    <div class="stack-list">
+      <div class="stack-item reveal"><span class="ck">✓</span><div>
         <b>A máquina instalável</b>
         <span>O sistema que roda dentro da IA e executa o passo a passo sozinho. É o coração
           do produto, não um PDF com dicas.</span></div></div>
-      <div class="stack-item"><span class="ck">✓</span><div>
+      <div class="stack-item reveal"><span class="ck">✓</span><div>
+        <b>Os 6 módulos em vídeo</b>
+        <span>Da instalação ao fechamento, sem enrolação.</span></div></div>
+      <div class="stack-item reveal"><span class="ck">✓</span><div>
         <b>Prompt de instalação pronto</b>
         <span>Você copia, cola e a máquina se instala. Menos de um minuto.</span></div></div>
-      <div class="stack-item"><span class="ck">✓</span><div>
+      <div class="stack-item reveal"><span class="ck">✓</span><div>
         <b>Acervo de 7 nichos prontos</b>
         <span>Paleta, serviços e fotos já validados por nicho. No primeiro site do nicho você
           leva uma hora; no quinto, vinte minutos.</span></div></div>
-      <div class="stack-item"><span class="ck">✓</span><div>
+      <div class="stack-item reveal"><span class="ck">✓</span><div>
         <b>Treinamento em 3 plataformas de IA</b>
         <span>Aprenda a usar o sistema em Claude Code, Codex do GPT e Antigravity do Google.
           Escolha a que preferir e domine todas as três.</span></div></div>
-      <div class="stack-item"><span class="ck">✓</span><div>
+      <div class="stack-item reveal"><span class="ck">✓</span><div>
         <b>Banco de referências premium</b>
         <span>Sites premiados com paleta e tipografia extraídas de verdade, para os seus nunca
           saírem com cara de template.</span></div></div>
-      <div class="stack-item"><span class="ck">✓</span><div>
+      <div class="stack-item reveal"><span class="ck">✓</span><div>
         <b>Desafio: Primeiro Site no Ar em 60 min</b>
         <span>Acompanhamento ao vivo e acesso ao grupo de alunos que já conseguiu. Seu site pronto,
           funcionando e publicado dentro de uma hora.</span></div></div>
-      <div class="stack-item"><span class="ck">✓</span><div>
+      <div class="stack-item reveal"><span class="ck">✓</span><div>
         <b>Guia de publicação gratuita</b>
         <span>URL pública no ar em 30 segundos, sem pagar hospedagem, e o passo do domínio
           próprio quando o cliente fechar.</span></div></div>
-      <div class="stack-item"><span class="ck">✓</span><div>
+      <div class="stack-item reveal"><span class="ck">✓</span><div>
         <b>Atualizações por 12 meses</b>
         <span>Nicho novo, referência nova, melhoria na máquina: entra na sua conta sem custo.</span></div></div>
     </div>
 
     <div class="compare reveal">
-      <p>Um único site cobrado a R$ 900<br>paga isso <span class="hl-o">nove vezes</span>.</p>
-      <small>Faixa praticada por freelancer para negócio local pequeno. O que você cobra é decisão sua.</small>
+      <p>Um único site vendido a R$ 1.000 paga isso <span class="it">mais de dez vezes.</span></p>
+      <small>O menor valor pelo qual meus sites foram vendidos. O que você cobra é decisão sua.</small>
     </div>
   </div>
 </section>
@@ -662,8 +735,10 @@ summary{padding:22px 46px;}
 <!-- ==================== PARA QUEM ==================== -->
 <section>
   <div class="wrap">
-    <div class="sec-tag"><span class="eyebrow">Antes de comprar</span></div>
-    <h2 class="reveal">Isso não é para todo mundo.</h2>
+    <div class="head">
+      <span class="eyebrow">Antes de comprar</span>
+      <h2 class="reveal">Isso não é para todo mundo.</h2>
+    </div>
     <div class="fit">
       <div class="fit-card yes reveal">
         <h3>É para você se…</h3>
@@ -690,12 +765,19 @@ summary{padding:22px 46px;}
 <section class="offer" id="oferta">
   <div class="wrap">
     <span class="eyebrow">Condição de lançamento</span>
-    <h2 class="reveal" style="margin-top:16px">Menos que um site<br>rende em uma tarde.</h2>
+    <h2 class="reveal">Menos que um site <span class="it hl">rende em uma tarde.</span></h2>
     <div class="price-card reveal">
+      <span class="price-badge">OFERTA DE LANÇAMENTO</span>
+      <ul class="price-mini">
+        <li>A máquina instalável + 6 módulos</li>
+        <li>Acervo de 7 nichos e banco de referências</li>
+        <li>Desafio do primeiro site em 60 minutos</li>
+        <li>12 meses de atualizações</li>
+      </ul>
       <div class="price-old">De R$ 297</div>
-      <div class="price-now">R$ 97</div>
+      <div class="price-now"><small>R$</small>97</div>
       <div class="price-cond">à vista no Pix ou cartão · pagamento único · acesso vitalício</div>
-      <a class="btn btn-lg" href="https://pay.kiwify.com.br/3gfOYoK" data-checkout data-cta data-local="oferta">QUERO COMEÇAR AGORA</a>
+      <a class="btn btn-lg" href="https://pay.kiwify.com.br/3gfOYoK" data-checkout data-cta data-local="oferta">QUERO COMEÇAR AGORA <span class="seta">→</span></a>
       <span class="btn-sub">Acesso liberado na hora, mesmo às 3 da manhã</span>
     </div>
 
@@ -713,8 +795,10 @@ summary{padding:22px 46px;}
 <!-- ==================== FAQ ==================== -->
 <section>
   <div class="wrap">
-    <div class="sec-tag"><span class="eyebrow">Dúvidas</span></div>
-    <h2 class="reveal">O que perguntam antes de comprar</h2>
+    <div class="head">
+      <span class="eyebrow">Dúvidas</span>
+      <h2 class="reveal">O que perguntam antes de comprar</h2>
+    </div>
     <div class="faq">
       <details><summary>Preciso saber programar?</summary>
         <p>Não. Você não escreve código em nenhum momento. Você instala a máquina, diz o nome
@@ -751,12 +835,14 @@ summary{padding:22px 46px;}
 <!-- ==================== FECHAMENTO ==================== -->
 <section class="final">
   <div class="wrap">
-    <h2 class="reveal">Enquanto você decide,<br>alguém está mandando o site dele.</h2>
-    <p class="lead reveal" style="margin-bottom:34px">Os negócios com nota alta e sem site da sua
+    <h2 class="reveal">Enquanto você decide, alguém está mandando <span class="it">o site dele.</span></h2>
+    <p class="lead reveal">Os negócios com nota alta e sem site da sua
       cidade continuam lá. A diferença entre você e a pessoa que vai fechar com eles é uma
       tarde de instalação.</p>
-    <a class="btn btn-lg reveal" href="https://pay.kiwify.com.br/3gfOYoK" data-checkout data-cta data-local="fechamento">COMEÇAR POR R$ 97</a>
-    <span class="btn-sub">7 dias de garantia · acesso imediato · pagamento único</span>
+    <div class="hero-cta">
+      <a class="btn btn-lg reveal" href="https://pay.kiwify.com.br/3gfOYoK" data-checkout data-cta data-local="fechamento">COMEÇAR POR R$ 97 <span class="seta">→</span></a>
+      <span class="btn-sub">7 dias de garantia · acesso imediato · pagamento único</span>
+    </div>
   </div>
 </section>
 
@@ -765,6 +851,7 @@ summary{padding:22px 46px;}
     <p>MÁQUINA DE SITES · Método da Entrega Invertida<br>
     Este produto ensina um método de prestação de serviço. Resultados dependem da execução
     individual, do mercado local e do esforço de prospecção de cada aluno.<br>
+    Os valores de venda exibidos referem-se a projetos reais do autor e não representam promessa de ganho.<br>
     Não há garantia de faturamento. Não somos afiliados às plataformas e ferramentas citadas.</p>
   </div>
 </footer>
@@ -872,6 +959,27 @@ window.addEventListener('scroll', function(){
   var naOferta = r.top < window.innerHeight && r.bottom > 0;
   sticky.classList.toggle('on', passouDobra && !naOferta);
 }, {passive:true});
+</script>
+<script>
+/* Vitrine: cada moldura troca de tela sozinha, em tempos diferentes,
+   e só enquanto está visível (economiza bateria e dados no celular). */
+(function(){
+  document.querySelectorAll('[data-slides] img:first-child').forEach(function(im){ im.classList.add('on'); });
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var shots = [].slice.call(document.querySelectorAll('[data-slides]'));
+  shots.forEach(function(s, n){
+    var imgs = s.querySelectorAll('img');
+    if (imgs.length < 2) return;
+    var i = 0, timer = null;
+    imgs[0].classList.add('on');
+    function passo(){ imgs[i].classList.remove('on'); i = (i + 1) % imgs.length; imgs[i].classList.add('on'); }
+    function liga(){ if (!timer) timer = setInterval(passo, 2800 + (n % 3) * 500); }
+    function desliga(){ clearInterval(timer); timer = null; }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting ? liga() : desliga(); }); }, {threshold:.25}).observe(s);
+    } else { liga(); }
+  });
+})();
 </script>
 </body>
 </html>
