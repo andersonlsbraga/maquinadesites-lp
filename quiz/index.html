@@ -432,12 +432,17 @@ var repasse = new URLSearchParams();
   var v = entrada.get(k); if (v) repasse.set(k, v);
 });
 if (!repasse.get('utm_content')) repasse.set('utm_content', 'quiz');
+/* sck é o campo de origem da Kiwify: toda venda que passa pelo quiz chega marcada,
+   mesmo que o anúncio não tenha mandado UTM nenhuma. */
+repasse.set('sck', 'quiz');
 var destino = CHECKOUT_URL + '?' + repasse.toString();
 document.querySelectorAll('[data-checkout]').forEach(function(a){ a.href = destino; });
 document.getElementById('ver-pagina').href = '/' + (location.search || '');
 
-function metaTrack(evento, dados){ if (window.fbq && window.META_PIXEL_ID) fbq('track', evento, dados || {}); }
-function metaCustom(evento, dados){ if (window.fbq && window.META_PIXEL_ID) fbq('trackCustom', evento, dados || {}); }
+/* Eventos só saem do domínio oficial: teste local ou prévia não suja o pixel. */
+var DOMINIO_OK = /(^|\.)maquinadesites\.online$/.test(location.hostname);
+function metaTrack(evento, dados){ if (DOMINIO_OK && window.fbq && window.META_PIXEL_ID) fbq('track', evento, dados || {}); }
+function metaCustom(evento, dados){ if (DOMINIO_OK && window.fbq && window.META_PIXEL_ID) fbq('trackCustom', evento, dados || {}); }
 
 /* ------------------------------------------------------------------
    ROTEIRO: quebra-gelo, dor, desejo e ponte, com microconteúdos no meio.
