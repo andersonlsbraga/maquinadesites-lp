@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Máquina de Sites | Descubra seu caminho com IA</title>
+<meta name="description" content="Responda 7 perguntas rápidas e veja como a Máquina de Sites, a Prospecção Automática e o Dando Vida a Sistemas com IA se encaixam no seu momento.">
+<meta property="og:title" content="Qual é o seu caminho com IA?">
+<meta property="og:description" content="7 perguntas, 1 minuto. Veja como vender sites e colocar sistemas no ar com IA.">
+<meta property="og:image" content="https://maquinadesites.online/assets/hero.jpg">
+<meta property="og:url" content="https://maquinadesites.online/quiz/">
+<link rel="canonical" href="https://maquinadesites.online/quiz/">
+
+<!-- ==================================================================
+     META PIXEL
+     Mesmo bloco da página principal, copiado sem alteração.
+     ================================================================== -->
+<script>
+var META_PIXEL_ID = "4452223498369342";
+
+if (META_PIXEL_ID) {
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', META_PIXEL_ID);
+  fbq('track', 'PageView');
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050608;--surface:#0F1218;--surface-2:#151922;
+  --line:rgba(255,255,255,.08);--line-2:rgba(255,255,255,.14);
+  --ink:#F5F2EC;--ink-2:#A7ABB5;--ink-3:#6E7380;
+  --orange:#FF6B1A;--orange-2:#FF9A4D;--orange-glow:rgba(255,107,26,.42);
+  --blue:#8DB5FF;--green:#2BD67B;
+  --display:'Archivo',system-ui,sans-serif;--serif:'Instrument Serif',Georgia,serif;
+  --body:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  min-height:100vh;background:
+    radial-gradient(900px 520px at 50% -10%,rgba(255,107,26,.2),transparent 65%),
+    radial-gradient(700px 500px at 100% 100%,rgba(77,141,255,.10),transparent 65%),var(--bg);
+  color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+.it{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--orange-2);}
+.wrap{max-width:640px;margin:0 auto;padding:28px 16px 60px;}
+.topo{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:26px;}
+.marca{font-family:var(--display);font-weight:900;letter-spacing:-.03em;font-size:17px;}
+.marca span{color:var(--orange);}
+.passo{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.08em;}
+.barra{height:6px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden;margin-bottom:34px;}
+.barra i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--orange),var(--orange-2));transition:width .4s ease;}
+h1,h2{font-family:var(--display);font-weight:900;letter-spacing:-.04em;line-height:1.05;text-wrap:balance;}
+.tela{display:none;animation:entra .45s cubic-bezier(.2,.7,.2,1);}
+.tela.on{display:block;}
+@keyframes entra{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+.intro{text-align:center;padding-top:20px;}
+.intro .pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;
+  padding:7px 14px;border-radius:99px;border:1px solid var(--line-2);color:var(--ink-2);}
+.intro h1{font-size:clamp(34px,8vw,54px);margin:22px 0 16px;}
+.intro p{color:var(--ink-2);max-width:46ch;margin:0 auto;}
+.pergunta h2{font-size:clamp(26px,6vw,36px);margin-bottom:10px;}
+.pergunta .ajuda{color:var(--ink-3);font-size:15px;margin-bottom:24px;}
+.opcoes{display:flex;flex-direction:column;gap:10px;}
+.op{display:flex;align-items:center;gap:14px;width:100%;text-align:left;cursor:pointer;
+  padding:18px 18px;border-radius:16px;background:var(--surface);border:1px solid var(--line-2);
+  color:var(--ink);font:500 16.5px/1.35 var(--body);transition:border-color .15s ease,background .15s ease,transform .15s ease;}
+.op:hover{border-color:rgba(255,107,26,.55);background:var(--surface-2);}
+.op:active{transform:scale(.99);}
+.op:focus-visible{outline:2px solid var(--orange-2);outline-offset:2px;}
+.op .l{flex:none;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
+  font:700 13px var(--mono);background:rgba(255,255,255,.05);color:var(--ink-2);}
+.op.sel{border-color:var(--orange);background:rgba(255,107,26,.10);}
+.op.sel .l{background:var(--orange);color:#170700;}
+.voltar{margin-top:20px;background:none;border:0;color:var(--ink-3);font:500 14px var(--body);cursor:pointer;}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+  font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-.01em;text-align:center;line-height:1.15;
+  padding:21px 28px;border-radius:999px;border:0;cursor:pointer;color:#170700;
+  background:linear-gradient(180deg,#FF8A3D,var(--orange));
+  box-shadow:0 14px 40px var(--orange-glow),inset 0 1px 0 rgba(255,255,255,.4);}
+.btn:focus-visible{outline:3px solid #fff;outline-offset:3px;}
+.intro .btn{margin-top:34px;}
+.sub{display:block;text-align:center;margin-top:12px;font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.04em;}
+.analise{text-align:center;padding:60px 0;}
+.analise .roda{width:54px;height:54px;margin:0 auto 24px;border-radius:50%;
+  border:3px solid rgba(255,255,255,.1);border-top-color:var(--orange);animation:gira 1s linear infinite;}
+@keyframes gira{to{transform:rotate(360deg);}}
+.analise p{color:var(--ink-2);font-family:var(--mono);font-size:13px;letter-spacing:.05em;}
+.resultado .tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;
+  letter-spacing:.14em;padding:6px 12px;border-radius:99px;background:rgba(43,214,123,.14);color:#BFF5D8;}
+.resultado h2{font-size:clamp(30px,7vw,44px);margin:16px 0 14px;}
+.resultado .intro-res{color:var(--ink-2);}
+.plano{list-style:none;margin:26px 0 30px;display:flex;flex-direction:column;gap:10px;}
+.plano li{padding:16px 18px;border-radius:16px;background:var(--surface);border:1px solid var(--line);font-size:15.5px;color:var(--ink-2);}
+.plano li b{display:block;color:#fff;font-family:var(--display);font-weight:800;font-size:16.5px;letter-spacing:-.02em;margin-bottom:3px;}
+.oferta{position:relative;padding:30px 24px 26px;border-radius:26px;text-align:center;
+  background:linear-gradient(180deg,#14171F,#0D1016);border:1px solid rgba(255,107,26,.35);
+  box-shadow:0 40px 80px -20px rgba(0,0,0,.8);}
+.oferta .duo{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:22px;text-align:left;}
+.oferta .duo .pa small{color:var(--green);}
+@media (max-width:420px){.oferta .duo{grid-template-columns:1fr;}}
+.oferta .duo div{padding:14px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid var(--line);}
+.oferta .duo small{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--ink-3);}
+.oferta .duo b{display:block;font-family:var(--display);font-weight:800;font-size:16px;letter-spacing:-.02em;margin-top:4px;line-height:1.2;}
+.oferta .duo .dv small{color:var(--blue);}
+.oferta .de{font-family:var(--mono);font-size:14px;color:var(--ink-3);text-decoration:line-through;}
+.oferta .por{font-family:var(--display);font-weight:900;font-size:72px;letter-spacing:-.06em;line-height:1;margin:2px 0 4px;}
+.oferta .por small{font-size:.34em;vertical-align:1em;margin-right:4px;color:var(--ink-2);letter-spacing:0;}
+.oferta .cond{font-family:var(--mono);font-size:12px;color:var(--ink-2);margin-bottom:22px;}
+.garantia{display:flex;gap:14px;align-items:center;margin-top:18px;padding:16px 18px;border-radius:16px;border:1px dashed var(--line-2);text-align:left;}
+.garantia .s{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--green);
+  color:var(--green);font:900 11px/1 var(--display);text-align:center;}
+.garantia p{font-size:14px;color:var(--ink-2);}
+.mais-info{display:block;text-align:center;margin-top:22px;color:var(--ink-3);font-size:14px;text-decoration:underline;text-underline-offset:3px;}
+footer{text-align:center;font-family:var(--mono);font-size:11px;color:var(--ink-3);line-height:1.9;padding:0 16px 40px;max-width:640px;margin:0 auto;}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="topo">
+    <span class="marca">MÁQUINA DE SITES <span>·</span> 3 EM 1</span>
+    <span class="passo" id="passo"></span>
+  </div>
+  <div class="barra" aria-hidden="true"><i id="barra"></i></div>
+
+  <section class="tela on intro" id="t-intro">
+    <span class="pill">7 PERGUNTAS · 1 MINUTO</span>
+    <h1>Qual é o seu caminho <span class="it">com IA?</span></h1>
+    <p>Vender sites pra negócios da sua cidade, achar clientes no automático ou colocar no ar um sistema que você criou.
+      Responda e veja o plano que faz sentido pra você agora.</p>
+    <button class="btn" type="button" id="comecar">COMEÇAR →</button>
+    <span class="sub">Sem cadastro, sem e-mail</span>
+  </section>
+
+  <section class="tela pergunta" id="t-pergunta" aria-live="polite">
+    <h2 id="p-titulo"></h2>
+    <p class="ajuda" id="p-ajuda"></p>
+    <div class="opcoes" id="p-opcoes"></div>
+    <button class="voltar" type="button" id="voltar">← voltar</button>
+  </section>
+
+  <section class="tela analise" id="t-analise">
+    <div class="roda" aria-hidden="true"></div>
+    <p>Montando o seu plano…</p>
+  </section>
+
+  <section class="tela resultado" id="t-resultado">
+    <span class="tag">✓ SEU PLANO</span>
+    <h2 id="r-titulo"></h2>
+    <p class="intro-res" id="r-intro"></p>
+    <ul class="plano" id="r-plano"></ul>
+
+    <div class="oferta" id="oferta">
+      <div class="duo">
+        <div><small>PRODUTO 1</small><b>Máquina de Sites</b></div>
+        <div class="pa"><small>PRODUTO 2</small><b>Prospecção Automática</b></div>
+        <div class="dv"><small>PRODUTO 3</small><b>Dando Vida a Sistemas com IA</b></div>
+      </div>
+      <div class="de">De R$ 691 (R$ 297 + R$ 197 + R$ 197)</div>
+      <div class="por"><small>R$</small>97</div>
+      <div class="cond">os 3 produtos · pagamento único · acesso imediato</div>
+      <a class="btn" href="https://pay.kiwify.com.br/3gfOYoK" data-checkout data-local="quiz">QUERO OS 3 POR R$ 97 →</a>
+      <div class="garantia"><span class="s">7<br>DIAS</span>
+        <p>Seguiu o método e não funcionou pra você? Pede o dinheiro de volta em até 7 dias e recebe tudo.</p></div>
+    </div>
+    <a class="mais-info" href="/" id="ver-pagina">Quero ver a página completa antes</a>
+  </section>
+</main>
+
+<footer>MÁQUINA DE SITES · Método da Entrega Invertida<br>
+Resultados dependem da execução individual e do mercado local. Não há garantia de faturamento.</footer>
+
+<script>
+/* ------------------------------------------------------------------
+   LINK DO CHECKOUT NA KIWIFY. Mesmo checkout de R$ 97 da página principal.
+   ------------------------------------------------------------------ */
+const CHECKOUT_URL = "https://pay.kiwify.com.br/3gfOYoK";
+/* Mesmos dados de produto da página principal, para a Meta ler os dois como o mesmo produto. */
+const PRODUTO = { nome: "Maquina de Sites", id: "89zpxmz", valor: 97.99, moeda: "BRL" };
+
+/* Repassa UTMs e fbclid para o checkout. Se a pessoa chegou sem utm_content,
+   marca "quiz" para a venda ficar identificável na Kiwify. */
+var entrada = new URLSearchParams(location.search);
+var repasse = new URLSearchParams();
+['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(function(k){
+  var v = entrada.get(k); if (v) repasse.set(k, v);
+});
+if (!repasse.get('utm_content')) repasse.set('utm_content', 'quiz');
+var destino = CHECKOUT_URL + '?' + repasse.toString();
+document.querySelectorAll('[data-checkout]').forEach(function(a){ a.href = destino; });
+/* o link "ver a página completa" leva as mesmas UTMs */
+document.getElementById('ver-pagina').href = '/' + (location.search || '');
+
+function metaTrack(evento, dados){ if (window.fbq && window.META_PIXEL_ID) fbq('track', evento, dados || {}); }
+function metaCustom(evento, dados){ if (window.fbq && window.META_PIXEL_ID) fbq('trackCustom', evento, dados || {}); }
+
+/* ------------------------------------------------------------------
+   PERGUNTAS
+   ------------------------------------------------------------------ */
+var PERGUNTAS = [
+  { id:'objetivo', t:'O que você quer fazer com IA?', a:'Escolha o que mais pesa hoje.',
+    o:[['sites','Vender sites pra negócios da minha cidade'],['sistema','Colocar no ar um sistema que eu criei com IA'],['ambos','Vender sites e também colocar sistemas no ar'],['descobrindo','Ainda estou descobrindo']] },
+  { id:'experiencia', t:'Você já criou alguma coisa com IA?', a:'Site, sistema, calculadora, qualquer coisa.',
+    o:[['nunca','Nunca criei nada'],['preso','Já criei, mas ficou preso no chat da IA'],['publicou','Já criei e publiquei']] },
+  { id:'codigo', t:'Quanto você sabe de programação?', a:'Sem resposta errada aqui.',
+    o:[['zero','Nada, zero'],['basico','O básico'],['sabe','Sei programar']] },
+  { id:'ia', t:'Qual IA você usa hoje?', a:'',
+    o:[['nenhuma','Nenhuma ainda'],['gpt','ChatGPT ou Codex'],['claude','Claude'],['google','Gemini ou Antigravity']] },
+  { id:'abordagem', t:'Se o site do negócio ficasse pronto, você mandaria no WhatsApp do dono?', a:'É assim que a Entrega Invertida fecha venda.',
+    o:[['sim','Sim, sem problema'],['roteiro','Mandaria com um roteiro pronto'],['nao','Prefiro não vender pra empresas']] },
+  { id:'tempo', t:'Quanto tempo por dia você consegue dedicar?', a:'',
+    o:[['30','Menos de 30 minutos'],['60','Cerca de 1 hora'],['120','2 horas ou mais']] },
+  { id:'trava', t:'O que mais te trava hoje?', a:'',
+    o:[['portfolio','Não tenho portfólio pra mostrar'],['clientes','Não sei pra quem vender nem como achar cliente'],['cobrar','Não sei quanto cobrar'],['publicar','Não sei publicar, ligar banco de dados ou domínio'],['comeco','Não sei por onde começar']] }
+];
+var R = {}, i = 0, iniciou = false;
+var $ = function(id){ return document.getElementById(id); };
+
+function mostra(id){
+  document.querySelectorAll('.tela').forEach(function(s){ s.classList.remove('on'); });
+  $(id).classList.add('on'); window.scrollTo({top:0, behavior:'smooth'});
+}
+function progresso(){
+  $('barra').style.width = Math.round(i / PERGUNTAS.length * 100) + '%';
+  $('passo').textContent = i < PERGUNTAS.length ? (i + 1) + ' de ' + PERGUNTAS.length : '';
+}
+function renderiza(){
+  var q = PERGUNTAS[i];
+  $('p-titulo').textContent = q.t;
+  $('p-ajuda').textContent = q.a; $('p-ajuda').style.display = q.a ? '' : 'none';
+  var box = $('p-opcoes'); box.innerHTML = '';
+  q.o.forEach(function(op, n){
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'op' + (R[q.id] === op[0] ? ' sel' : '');
+    b.innerHTML = '<span class="l">' + 'ABCDE'[n] + '</span><span></span>';
+    b.lastChild.textContent = op[1];
+    b.addEventListener('click', function(){ responde(q.id, op[0], b); });
+    box.appendChild(b);
+  });
+  $('voltar').style.visibility = i === 0 ? 'hidden' : 'visible';
+  progresso(); mostra('t-pergunta');
+}
+function responde(id, valor, el){
+  R[id] = valor; el.classList.add('sel');
+  if (!iniciou){ iniciou = true; metaCustom('QuizIniciado'); }
+  setTimeout(function(){
+    i++;
+    if (i < PERGUNTAS.length) renderiza(); else finaliza();
+  }, 220);
+}
+$('comecar').addEventListener('click', function(){ i = 0; renderiza(); });
+$('voltar').addEventListener('click', function(){ if (i > 0){ i--; renderiza(); } });
+
+/* ------------------------------------------------------------------
+   RESULTADO: monta o plano a partir das respostas
+   ------------------------------------------------------------------ */
+function finaliza(){
+  progresso(); $('barra').style.width = '100%';
+  mostra('t-analise');
+  setTimeout(montaResultado, 1400);
+}
+function item(titulo, texto){ return '<li><b>' + titulo + '</b>' + texto + '</li>'; }
+
+function montaResultado(){
+  var foco = R.objetivo;
+  if (R.abordagem === 'nao' && foco === 'sites') foco = 'ambos';
+  if (R.abordagem === 'nao' && foco === 'descobrindo') foco = 'sistema';
+  if (foco === 'descobrindo') foco = 'ambos';
+
+  var titulo, intro, plano = [];
+  if (foco === 'sites'){
+    titulo = 'Seu caminho começa pela <span class="it">Máquina de Sites.</span>';
+    intro = 'Você quer um serviço pra vender já. Em menos de 20 minutos o site fica pronto pra vender, a Prospecção Automática leva até o dono pelo WhatsApp e pelo e-mail, e você só fala de preço depois que ele viu funcionando.';
+  } else if (foco === 'sistema'){
+    titulo = 'Seu caminho começa pelo <span class="it">Dando Vida a Sistemas com IA.</span>';
+    intro = 'Você não precisa de mais uma ideia, precisa tirar a que já tem do chat. Publicar no GitHub, ligar o banco de dados, colocar no seu domínio e seguir editando com IA, com a versão nova indo pro ar sozinha.';
+  } else {
+    titulo = 'Você vai usar <span class="it">os três produtos.</span>';
+    intro = 'A Máquina de Sites te dá um serviço pra vender, a Prospecção Automática leva a oferta até o cliente pelo WhatsApp e pelo e-mail, e o Dando Vida coloca qualquer sistema no ar. Os três estão no mesmo acesso.';
+  }
+
+  if (R.ia === 'claude'){
+    plano.push(item('Sua IA já serve', 'Você usa Claude: o Claude Code pede no mínimo o plano Pro. Se quiser começar sem custo, Codex e Antigravity têm plano gratuito e a máquina roda neles também.'));
+  } else {
+    plano.push(item('Você começa sem pagar IA', 'A máquina roda no Codex e no Antigravity, que têm plano gratuito. O Claude Code fica como opção, a partir do plano Pro.'));
+  }
+
+  if (R.codigo === 'zero') plano.push(item('Zero código', 'Você não escreve uma linha. Instala uma vez, fala o que quer e a IA executa o passo a passo.'));
+  else if (R.codigo === 'basico') plano.push(item('Seu básico já sobra', 'Você não vai precisar dele pra montar, mas vai entender cada passo da publicação.'));
+  else plano.push(item('Você vai voar', 'Quem programa usa a máquina pra pular a parte repetitiva e entregar em minutos o que levava dias.'));
+
+  var trava = {
+    clientes: ['A Prospecção Automática resolve isso', 'Ela leva o site pronto até o dono do negócio pelo WhatsApp e pelo e-mail profissional, sem você mandar mensagem uma por uma.'],
+    portfolio: ['Portfólio deixa de ser problema', 'Na Entrega Invertida o site do próprio cliente é o portfólio. Ele vê o negócio dele pronto antes de pagar.'],
+    cobrar: ['Você sai sabendo quanto cobrar', 'Tem uma aula só sobre preço, no primeiro módulo, antes da primeira mensagem.'],
+    publicar: ['Publicar vira o passo mais fácil', 'GitHub, banco de dados e domínio próprio são exatamente o que o Dando Vida ensina, do zero.'],
+    comeco: ['Você ganha a ordem certa', 'Instala uma vez, deixa o primeiro site pronto em menos de 20 minutos e apresenta direto pra empresa.']
+  }[R.trava];
+  plano.push(item(trava[0], trava[1]));
+
+  if (R.experiencia === 'preso') plano.push(item('Aquele projeto preso no chat', 'É o seu primeiro exercício do Dando Vida. Você sai da aula com ele no ar, no seu domínio.'));
+
+  var tempo = { '30':'Com 30 minutos por dia, a instalação cabe num dia e o primeiro site no seguinte.',
+                '60':'Com 1 hora por dia, dá pra ter o primeiro site no ar ainda nesta semana.',
+                '120':'Com 2 horas por dia, dá pra ter o primeiro site publicado hoje mesmo.' }[R.tempo];
+  plano.push(item('Seu ritmo', tempo));
+
+  $('r-titulo').innerHTML = titulo;
+  $('r-intro').textContent = intro;
+  $('r-plano').innerHTML = plano.join('');
+  $('passo').textContent = '';
+  mostra('t-resultado');
+
+  metaCustom('QuizConcluido', { foco: foco, ia: R.ia, trava: R.trava });
+  metaTrack('ViewContent', {
+    content_name: PRODUTO.nome, content_ids: [PRODUTO.id], content_type: 'product',
+    value: PRODUTO.valor, currency: PRODUTO.moeda
+  });
+}
+
+/* InitiateCheckout no clique do botão de compra, igual à página principal */
+document.querySelectorAll('[data-checkout]').forEach(function(a){
+  a.addEventListener('click', function(){
+    metaTrack('InitiateCheckout', {
+      content_name: PRODUTO.nome, content_ids: [PRODUTO.id], content_type: 'product',
+      value: PRODUTO.valor, currency: PRODUTO.moeda, botao: a.dataset.local || 'nao-identificado'
+    });
+  });
+});
+</script>
+</body>
+</html>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Máquina de Sites | Entregue o site pronto e cobre depois</title>
-<meta name="description" content="O método da Entrega Invertida: crie sites premium com IA em 40 minutos, entregue pronto para o dono do negócio e cobre só depois que ele ver funcionando.">
+<meta name="description" content="O método da Entrega Invertida: em menos de 20 minutos a IA deixa o site pronto pra vender e apresentado direto pra empresa. Com Prospecção Automática e Dando Vida a Sistemas com IA no mesmo acesso.">
 <meta property="og:title" content="Máquina de Sites">
 <meta property="og:description" content="Pare de tentar vender sites. Entregue primeiro e cobre depois que o dono ver funcionando.">
 <meta property="og:image" content="https://maquinadesites.online/assets/hero.jpg">
@@ -220,8 +220,19 @@ h2{font-size:clamp(34px,5.6vw,62px);margin:18px 0 18px;}
 .tag-float small{display:block;font-family:var(--mono);font-weight:500;font-size:10.5px;color:var(--ink-3);letter-spacing:.08em;}
 .tag-float .dot{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex:none;
   background:rgba(43,214,123,.15);color:var(--green);font-size:15px;}
-.tag-float.t1{left:4%;top:4%;}
-.tag-float.t2{right:3%;top:62%;animation-delay:-3s;}
+.tag-float.t1{left:2%;top:2%;}
+.tag-float.t3{left:34%;top:74%;animation-delay:-1.5s;}
+.tag-float .dot.b{background:rgba(77,141,255,.16);color:#8DB5FF;}
+.tag-float .dot.o{background:rgba(255,107,26,.16);color:var(--orange-2);}
+.trio-hero{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 10px;}
+.trio-hero .tp{font-family:var(--display);font-weight:800;font-size:clamp(14px,1.6vw,17px);letter-spacing:-.01em;
+  padding:9px 16px;border-radius:999px;border:1px solid;background:rgba(255,255,255,.03);white-space:nowrap;}
+.trio-hero .tp.o{color:var(--orange-2);border-color:rgba(255,107,26,.5);background:rgba(255,107,26,.08);}
+.trio-hero .tp.b{color:#8DB5FF;border-color:rgba(77,141,255,.5);background:rgba(77,141,255,.08);}
+.trio-hero .tp.g{color:#7EE8AE;border-color:rgba(43,214,123,.5);background:rgba(43,214,123,.08);}
+.trio-hero .mais-h{font-family:var(--display);font-weight:900;color:var(--ink-3);font-size:18px;}
+.browser .leg{display:none;}
+.tag-float.t2{right:2%;top:58%;animation-delay:-3s;}
 @keyframes flutua{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
 
 /* ---------- faixa de números ---------- */
@@ -240,6 +251,93 @@ h2{font-size:clamp(34px,5.6vw,62px);margin:18px 0 18px;}
 .marquee span{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.02em;color:var(--ink-3);white-space:nowrap;display:flex;align-items:center;gap:48px;}
 .marquee span::after{content:"✦";color:var(--orange);font-size:14px;}
 @keyframes corre{to{transform:translateX(-50%);}}
+
+/* ---------- combo: os três produtos ---------- */
+.combo{background:radial-gradient(800px 420px at 50% 0%,rgba(255,107,26,.10),transparent 65%),var(--bg);}
+.duo{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch;margin-top:56px;}
+.prod{position:relative;border-radius:28px;padding:30px 28px 32px;text-align:left;overflow:hidden;
+  background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--line-2);}
+.prod .num-p{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.18em;color:var(--ink-3);}
+.prod h3{font-size:clamp(26px,3vw,34px);margin:10px 0 10px;}
+.prod p{color:var(--ink-2);font-size:16px;}
+.prod ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:18px;}
+.prod li{display:flex;gap:10px;font-size:15px;color:var(--ink-2);}
+.prod li::before{content:"✓";color:var(--green);font-weight:700;}
+.prod .vis{margin:-30px -28px 26px;height:200px;position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+.prod .vis img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.prod .etapa-p{position:absolute;top:14px;right:14px;z-index:2;font-family:var(--mono);font-size:10.5px;font-weight:700;
+  letter-spacing:.14em;padding:5px 10px;border-radius:99px;background:rgba(5,6,8,.75);border:1px solid var(--line-2);color:var(--ink-2);backdrop-filter:blur(6px);}
+.prod.p3{border-color:rgba(43,214,123,.32);}
+.prod.p3 .num-p{color:var(--green);}
+.prod.p3 .vis{background:radial-gradient(400px 200px at 50% 0%,rgba(43,214,123,.18),transparent 70%),#0B0D12;
+  display:flex;flex-direction:column;justify-content:center;gap:8px;padding:0 22px;}
+.bolha{align-self:flex-end;max-width:88%;padding:9px 12px;border-radius:12px 12px 3px 12px;background:#144D37;color:#E3FFF1;font-size:12.5px;line-height:1.35;}
+.mail-mini{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;background:#141821;border:1px solid var(--line-2);font-size:12px;color:var(--ink-2);}
+.mail-mini b{color:#fff;font-weight:600;}
+.prod.p2{border-color:rgba(77,141,255,.35);}
+.prod.p2 .num-p{color:var(--blue);}
+.prod.p2 .vis{background:radial-gradient(400px 200px at 50% 0%,rgba(77,141,255,.22),transparent 70%),#0B0D12;
+  display:flex;align-items:center;justify-content:center;gap:8px;padding:0 14px;flex-wrap:wrap;}
+.chip{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.04em;white-space:nowrap;
+  padding:9px 12px;border-radius:10px;background:#141821;border:1px solid var(--line-2);color:var(--ink);}
+.chip.ok{background:rgba(43,214,123,.12);border-color:rgba(43,214,123,.4);color:#BFF5D8;}
+.seta-chip{color:var(--blue);font-weight:700;}
+.mais{display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:40px;color:var(--orange);}
+.selo-combo{margin:34px auto 0;max-width:640px;text-align:center;padding:18px 22px;border-radius:999px;
+  border:1px dashed rgba(255,107,26,.45);font-family:var(--display);font-weight:800;font-size:clamp(16px,2.2vw,20px);}
+.selo-combo s{color:var(--ink-3);font-weight:600;margin-right:6px;}
+
+/* ---------- prospecção ---------- */
+.prosp{background:radial-gradient(900px 520px at 15% 10%,rgba(43,214,123,.10),transparent 62%),var(--bg);}
+.prosp .eyebrow{color:#7EE8AE;}
+.prosp .eyebrow::before{background:var(--green);box-shadow:0 0 12px var(--green);}
+.prosp .it.hl{color:#7EE8AE;}
+.canais{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:56px;}
+.canal,.inbox .row>div,.prod{min-width:0;}
+.canal{border-radius:26px;padding:28px 26px 30px;text-align:left;background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--line-2);}
+.canal .rot{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;color:#7EE8AE;}
+.canal h3{font-size:clamp(24px,2.8vw,30px);margin:10px 0 8px;}
+.canal p{color:var(--ink-2);font-size:16px;}
+.tela-mock{margin-top:22px;border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:9px;border:1px solid var(--line);}
+.tela-mock .ex{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);margin-bottom:2px;}
+.wpp{background:#0B141A;}
+.wpp .msg{align-self:flex-end;max-width:86%;padding:10px 13px 18px;border-radius:14px 14px 4px 14px;background:#005C4B;color:#E9FFF7;font-size:14px;line-height:1.4;position:relative;}
+.wpp .msg i{position:absolute;right:10px;bottom:4px;font-style:normal;font-size:10.5px;color:#9FD9C8;}
+.inbox{background:#0E1117;}
+.inbox .row{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:11px 12px;border-radius:12px;background:#151A22;border:1px solid var(--line);font-size:13.5px;}
+.inbox .av{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:700 12px var(--display);background:#1F2A3A;color:#9EC0FF;}
+.inbox .row b{display:block;color:#fff;font-weight:600;font-size:13.5px;}
+.inbox .row div span{color:var(--ink-3);font-size:12.5px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.inbox .st{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:#7EE8AE;}
+.prosp .nota-area{margin:34px auto 0;max-width:700px;text-align:center;color:var(--ink-2);font-size:16px;}
+
+/* ---------- dando vida ---------- */
+.vida{background:radial-gradient(900px 520px at 85% 10%,rgba(77,141,255,.12),transparent 62%),var(--bg-2);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.vida .eyebrow{color:#8DB5FF;}
+.vida .eyebrow::before{background:var(--blue);box-shadow:0 0 12px var(--blue);}
+.vida .hl,.vida .it.hl{color:#8DB5FF;}
+.preso{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:50px;}
+.preso div{padding:20px 20px;border-radius:18px;background:var(--surface);border:1px solid var(--line);
+  text-align:left;font-size:15.5px;color:var(--ink-2);}
+.preso b{display:block;color:#fff;font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:-.02em;margin-bottom:6px;line-height:1.2;}
+.etapas{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px;}
+.etapa{position:relative;padding:28px 24px 28px;border-radius:22px;text-align:left;
+  background:linear-gradient(180deg,rgba(77,141,255,.10),var(--surface));border:1px solid rgba(77,141,255,.28);}
+.etapa .n{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.18em;color:#8DB5FF;display:block;margin-bottom:14px;}
+.etapa h3{font-size:21px;margin-bottom:8px;line-height:1.1;}
+.etapa p{color:var(--ink-2);font-size:15px;}
+.vida .virada{margin:46px auto 0;max-width:860px;text-align:center;font-family:var(--display);font-weight:800;
+  font-size:clamp(22px,3.2vw,34px);line-height:1.15;letter-spacing:-.035em;}
+.vida .virada .it{color:#8DB5FF;}
+.exemplos{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:30px;}
+.exemplos span{padding:9px 16px;border-radius:999px;border:1px solid var(--line-2);font-size:14px;color:var(--ink-2);background:rgba(255,255,255,.02);}
+.ia-free{margin:40px auto 0;max-width:860px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.ia-free div{padding:18px;border-radius:18px;background:var(--surface);border:1px solid var(--line);text-align:center;}
+.ia-free b{display:block;font-family:var(--display);font-weight:800;font-size:18px;}
+.ia-free span{display:inline-block;margin-top:8px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;padding:4px 10px;border-radius:999px;}
+.ia-free .g{background:rgba(43,214,123,.14);color:#BFF5D8;}
+.ia-free .pg{background:rgba(255,255,255,.06);color:var(--ink-2);}
 
 /* ---------- dor ---------- */
 .pain{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
@@ -340,6 +438,7 @@ h2{font-size:clamp(34px,5.6vw,62px);margin:18px 0 18px;}
   letter-spacing:.14em;padding:8px 16px;border-radius:999px;}
 .price-mini{list-style:none;display:flex;flex-direction:column;gap:10px;margin:0 auto 30px;max-width:380px;text-align:left;}
 .price-mini li{display:flex;gap:10px;font-size:15px;color:var(--ink-2);}
+.price-mini li b{color:#fff;font-weight:600;}
 .price-mini li::before{content:"✓";color:var(--green);font-weight:700;}
 .price-old{font-family:var(--mono);font-size:16px;color:var(--ink-3);text-decoration:line-through;}
 .price-now{font-family:var(--display);font-weight:900;letter-spacing:-.06em;line-height:1;
@@ -399,6 +498,9 @@ footer p{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height
 .js .reveal.vis{opacity:1;transform:none;}
 
 @media (max-width:980px){
+  .duo{grid-template-columns:1fr;}
+  .canais{grid-template-columns:1fr;}
+  .preso,.etapas{grid-template-columns:1fr 1fr;}
   .quotes{grid-template-columns:1fr 1fr;}
   .steps,.beliefs{grid-template-columns:1fr;}
   .nums .wrap{grid-template-columns:1fr 1fr;}
@@ -407,7 +509,8 @@ footer p{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height
 }
 @media (max-width:760px){
   section{padding:76px 0;}
-  .stack-list,.fit{grid-template-columns:1fr;}
+  .stack-list,.fit,.ia-free{grid-template-columns:1fr;}
+  .preso,.etapas{grid-template-columns:1fr;}
   .hero{padding-top:34px;}
   .stage{order:3;height:auto;margin:34px auto 30px;perspective:none;padding-bottom:40px;}
   .hero p.sub{order:4;}
@@ -415,10 +518,18 @@ footer p{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height
   .trust{order:6;margin-bottom:56px;}
   .pill .longo{display:none;}
   .topbar{font-size:10.5px;letter-spacing:.04em;padding:8px 10px;}
-  .stage .browser.s1{position:relative;left:auto;width:100%;transform:none;}
-  .stage .s2,.stage .s3{display:none;}
-  .stage .phone{width:30%;right:-2%;top:auto;bottom:0;}
-  .stage::after{height:25%;}
+  .stage{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-bottom:0;}
+  .stage .browser,.stage .browser.s1{position:relative;left:auto;right:auto;top:auto;width:100%;transform:none;opacity:1;}
+  .stage .s1{grid-column:1 / -1;grid-row:1;}
+  .stage .s2{grid-row:2;grid-column:1;}
+  .stage .s3{grid-row:2;grid-column:2;}
+  .stage .phone,.stage .tag-float{display:none;}
+  .stage::after{display:none;}
+  .browser .leg{display:block;padding:8px 10px;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-top:1px solid var(--line);}
+  .browser .leg.o{color:var(--orange-2);}
+  .browser .leg.b{color:#8DB5FF;}
+  .browser .leg.g{color:#7EE8AE;}
+  .trio-hero .mais-h{display:none;}
   .tag-float{font-size:13px;padding:8px 12px;}
   .tag-float.t1{left:-2%;top:-18px;}
   .tag-float.t2{display:none;}
@@ -445,36 +556,46 @@ footer p{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height
 </head>
 <body>
 
-<div class="topbar">OFERTA DE LANÇAMENTO · DE R$ 297 POR R$ 97 · ACESSO IMEDIATO</div>
+<div class="topbar">OFERTA DE LANÇAMENTO · 3 PRODUTOS POR R$ 97 · ACESSO IMEDIATO</div>
 
 <!-- ==================== HERO ==================== -->
 <header class="hero">
   <div class="wrap">
-    <span class="pill"><b>VENDIDOS</b><span>Sites <span class="longo">meus </span>de R$ 1.000 a R$ 3.000</span></span>
+    <div class="trio-hero" aria-label="Três produtos no mesmo acesso">
+      <span class="tp o">Máquina de Sites</span><span class="mais-h">+</span>
+      <span class="tp b">Sistemas com IA</span><span class="mais-h">+</span>
+      <span class="tp g">Prospecção Automática</span>
+    </div>
     <h1>Pare de tentar vender sites. <span class="it">Entregue primeiro.</span></h1>
     <p class="sub">O dono do negócio não abre proposta. Mas ele abre o <strong>site dele</strong>,
       com o nome dele, a nota do Google dele e o WhatsApp dele funcionando.
-      É esse o método. E a IA monta em <strong>40 minutos</strong>.</p>
+      É esse o método. Em <strong>menos de 20 minutos</strong> o site está pronto pra vender e
+      apresentado direto pra empresa. No mesmo acesso: <strong>Prospecção Automática</strong> pelo
+      WhatsApp e pelo e-mail, e <strong>Dando Vida a Sistemas com IA</strong>.</p>
     <div class="hero-cta">
-      <a class="btn btn-lg" href="#oferta" data-cta>QUERO A MÁQUINA POR R$ 97 <span class="seta">→</span></a>
+      <a class="btn btn-lg" href="#oferta" data-cta>QUERO OS 3 POR R$ 97 <span class="seta">→</span></a>
       <span class="btn-sub">Acesso imediato · pagamento único · 7 dias de garantia</span>
     </div>
     <div class="trust">
       <span><i class="tick">✓</i> Sem saber programar</span>
-      <span><i class="tick">✓</i> Sem mensalidade de ferramenta</span>
+      <span><i class="tick">✓</i> Funciona com IA gratuita</span>
       <span><i class="tick">✓</i> Hospedagem gratuita</span>
     </div>
 
-    <div class="stage" aria-label="Sites reais feitos e vendidos">
-      <div class="tag-float t1"><span class="dot">✓</span><div>Site vendido<small>DE R$ 1.000 A R$ 3.000</small></div></div>
-      <div class="tag-float t2"><span class="dot">⚡</span><div>Montado com IA<small>EM 40 MINUTOS</small></div></div>
-      <div class="browser s2"><div class="bar"><i></i><i></i><i></i><span class="url">maissaudelab.com.br</span></div>
-        <div class="shot" data-slides><img src="assets/sites/lab-1.jpg" alt="Site do Laboratório Mais Saúde" width="1000" height="625"><img src="assets/sites/lab-2.jpg" alt="" loading="lazy"><img src="assets/sites/lab-3.jpg" alt="" loading="lazy"></div></div>
-      <div class="browser s3"><div class="bar"><i></i><i></i><i></i><span class="url">frutayce</span></div>
-        <div class="shot" data-slides><img src="assets/sites/frutayce-1.jpg" alt="Site da Frutayce" width="1000" height="625"><img src="assets/sites/frutayce-3.jpg" alt="" loading="lazy"><img src="assets/sites/frutayce-4.jpg" alt="" loading="lazy"></div></div>
+    <div class="stage" aria-label="Um site, um sistema e a prospecção feitos com a máquina">
+      <div class="tag-float t1"><span class="dot b">◆</span><div>Sistema com IA no ar<small>BANCO DE DADOS + DOMÍNIO</small></div></div>
+      <div class="tag-float t2"><span class="dot">✉</span><div>Prospecção automática<small>WHATSAPP + E-MAIL</small></div></div>
+      <div class="tag-float t3"><span class="dot o">✓</span><div>Site vendido<small>DE R$ 1.000 A R$ 3.000</small></div></div>
+      <div class="browser s2"><div class="bar"><i></i><i></i><i></i><span class="url">regulariza · sistema com IA</span></div>
+        <div class="shot" data-slides><img src="assets/sites/regulariza-1.jpg" alt="Regulariza, sistema de regularização de imóveis feito com IA" width="1000" height="625"></div>
+        <span class="leg b">Sistema com IA</span></div>
+      <div class="browser s3"><div class="bar"><i></i><i></i><i></i><span class="url">prospecção automática</span></div>
+        <div class="shot" data-slides><img src="assets/sites/prospeccao-1.jpg" alt="Painel de prospecção automática por WhatsApp e e-mail" width="1000" height="625"></div>
+        <span class="leg g">Prospecção Automática</span></div>
       <div class="browser s1"><div class="bar"><i></i><i></i><i></i><span class="url">hype-drink</span></div>
-        <div class="shot" data-slides><img src="assets/sites/hype-1.jpg" alt="Site da Hype Drink" width="1000" height="625" fetchpriority="high"><img src="assets/sites/hype-2.jpg" alt="" loading="lazy"><img src="assets/sites/hype-4.jpg" alt="" loading="lazy"></div></div>
-      <div class="phone"><img src="assets/sites/clinica-mob.jpg" alt="Site da Clínica Mais Saúde no celular" width="390" height="844"></div>
+        <div class="shot" data-slides><img src="assets/sites/hype-1.jpg" alt="Site da Hype Drink" width="1000" height="625" fetchpriority="high"><img src="assets/sites/hype-2.jpg" alt="" loading="lazy"><img src="assets/sites/hype-4.jpg" alt="" loading="lazy"></div>
+        <span class="leg o">Máquina de Sites</span></div>
+      <div class="phone"><img src="assets/sites/prospeccao-mob.jpg" alt="Mensagem de prospecção automática no WhatsApp" width="390" height="844"></div>
     </div>
   </div>
 </header>
@@ -482,10 +603,10 @@ footer p{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height
 <!-- ==================== NÚMEROS ==================== -->
 <section class="nums">
   <div class="wrap">
-    <div class="num"><b>40 min</b><span>por site com a máquina</span></div>
+    <div class="num"><b>&lt; 20 min</b><span>site pronto pra vender</span></div>
     <div class="num"><b>R$ 1 a 3 mil</b><span>valor dos sites vendidos</span></div>
     <div class="num"><b>R$ 0</b><span>de hospedagem</span></div>
-    <div class="num"><b>0</b><span>linhas de código</span></div>
+    <div class="num"><b>3 em 1</b><span>produtos no mesmo acesso</span></div>
   </div>
 </section>
 
@@ -495,6 +616,65 @@ footer p{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height
     <span>Clínicas</span><span>Laboratórios</span><span>Bebidas</span><span>Fábricas</span><span>Academias</span><span>Imobiliárias</span><span>Barbearias</span><span>Distribuidoras</span>
   </div>
 </div>
+
+<!-- ==================== OS DOIS PRODUTOS ==================== -->
+<section class="combo" id="produtos">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Um acesso, três produtos</span>
+      <h2 class="reveal">Criar, encontrar cliente e entregar. <span class="it hl">Tudo no mesmo acesso.</span></h2>
+      <p class="lead reveal">Um produto faz o site, outro leva até quem vai comprar, e o terceiro coloca
+        no ar qualquer sistema que você criar com IA.</p>
+    </div>
+    <div class="duo">
+      <article class="prod reveal">
+        <div class="vis"><img src="assets/sites/hype-1.jpg" alt="Site feito com a Máquina de Sites" loading="lazy" width="1000" height="625"></div>
+        <span class="num-p">PRODUTO 1 · CRIAR</span>
+        <h3>Máquina de Sites</h3>
+        <p>O método da Entrega Invertida: em menos de 20 minutos o site do negócio está pronto pra
+          vender, você apresenta direto pra empresa e cobra depois que o dono viu funcionando.</p>
+        <ul>
+          <li>A máquina instalável e 6 módulos</li>
+          <li>Acervo de 7 nichos prontos</li>
+          <li>Quanto cobrar e como apresentar</li>
+        </ul>
+      </article>
+      <article class="prod p3 reveal">
+        <div class="vis" aria-hidden="true">
+          <div class="bolha">Oi! Montei o site da sua empresa, dá uma olhada 👇</div>
+          <div class="mail-mini">✉ <span><b>Fiz o site da sua clínica</b> · posso te mostrar?</span></div>
+        </div>
+        <span class="num-p">PRODUTO 2 · ENCONTRAR CLIENTE</span>
+        <h3>Prospecção Automática</h3>
+        <p>O site pronto chega até o dono do negócio sem você mandar mensagem uma por uma.
+          Pelo WhatsApp e pelo e-mail profissional.</p>
+        <ul>
+          <li>Prospecção automática pelo WhatsApp</li>
+          <li>Prospecção automática por e-mail profissional</li>
+          <li>Passo a passo dentro da área de membros</li>
+        </ul>
+      </article>
+      <article class="prod p2 reveal">
+        <div class="vis" aria-hidden="true">
+          <span class="chip">Projeto no chat da IA</span><span class="seta-chip">→</span>
+          <span class="chip">GitHub</span><span class="seta-chip">→</span>
+          <span class="chip">Banco de dados</span><span class="seta-chip">→</span>
+          <span class="chip ok">seudominio.com.br</span>
+        </div>
+        <span class="num-p">PRODUTO 3 · ENTREGAR</span>
+        <h3>Dando Vida a Sistemas com IA</h3>
+        <p>Pra quem fez um projeto no Claude, no ChatGPT ou em outra IA e ficou preso no artefato.
+          Você coloca no ar de verdade, com seu domínio, e segue editando com IA.</p>
+        <ul>
+          <li>Publicação no GitHub</li>
+          <li>Conexão com banco de dados</li>
+          <li>Domínio próprio e atualização automática</li>
+        </ul>
+      </article>
+    </div>
+    <div class="selo-combo reveal"><s>R$ 691 separados</s> os três por R$ 97 no lançamento</div>
+  </div>
+</section>
 
 <!-- ==================== A DOR ==================== -->
 <section class="pain">
@@ -527,7 +707,7 @@ footer p{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height
         e vira <strong>"quanto custa pra colocar isso no ar hoje?"</strong></p>
       <p class="lead reveal" style="margin-top:22px">Isso sempre funcionou. O que impedia era a conta:
         fazer um site premium de graça, na esperança de vender, custava uma semana de trabalho.
-        Ninguém faz isso vinte vezes. <strong>Com a máquina montada, o mesmo site sai em 40 minutos</strong>.
+        Ninguém faz isso vinte vezes. <strong>Com a máquina montada, em menos de 20 minutos o site está pronto pra vender e apresentado direto pra empresa</strong>.
         E aí a conta vira.</p>
     </div>
 
@@ -592,12 +772,82 @@ footer p{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height
   </div>
 </section>
 
+<!-- ==================== PROSPECÇÃO AUTOMÁTICA ==================== -->
+<section class="prosp" id="prospeccao">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Produto 2 · Prospecção Automática</span>
+      <h2 class="reveal">O site está pronto. <span class="it hl">Agora ele chega sozinho até o dono.</span></h2>
+      <p class="lead reveal">Fazer o site é metade do caminho. A outra metade é falar com quem vai comprar,
+        sem passar o dia mandando mensagem uma por uma.</p>
+    </div>
+    <div class="canais">
+      <article class="canal reveal">
+        <span class="rot">CANAL 01</span>
+        <h3>Pelo WhatsApp</h3>
+        <p>A oferta com o site pronto vai direto pro WhatsApp do negócio, de forma automática.</p>
+        <div class="tela-mock wpp" aria-hidden="true">
+          <span class="ex">EXEMPLO</span>
+          <div class="msg">Oi! Tudo bem? Montei uma proposta de site pra Clínica Aurora, já com o endereço e a nota de vocês no Google.<i>09:12</i></div>
+          <div class="msg">Dá uma olhada: clinicaaurora.site<i>09:12</i></div>
+        </div>
+      </article>
+      <article class="canal reveal">
+        <span class="rot">CANAL 02</span>
+        <h3>Por e-mail profissional</h3>
+        <p>A mesma abordagem pelo e-mail, chegando com cara de empresa e não de corrente.</p>
+        <div class="tela-mock inbox" aria-hidden="true">
+          <span class="ex">EXEMPLO</span>
+          <div class="row"><span class="av">CA</span><div><b>Clínica Aurora</b><span>Fiz o site de vocês, posso te mostrar?</span></div><span class="st">ENVIADO</span></div>
+          <div class="row"><span class="av">BS</span><div><b>Barbearia Silva</b><span>O site da barbearia já está no ar, olha só</span></div><span class="st">ENVIADO</span></div>
+          <div class="row"><span class="av">DP</span><div><b>Distribuidora Ponto</b><span>Uma proposta pronta pra vocês</span></div><span class="st">ENVIADO</span></div>
+        </div>
+      </article>
+    </div>
+    <p class="nota-area reveal">Como configurar e usar cada canal, do zero, está explicado passo a passo
+      <strong>dentro da área de membros</strong>.</p>
+  </div>
+</section>
+
+<!-- ==================== DANDO VIDA ==================== -->
+<section class="vida" id="dando-vida">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Produto 3 · Dando Vida a Sistemas com IA</span>
+      <h2 class="reveal">Você criou um sistema com IA. <span class="it hl">E ele ainda mora no chat.</span></h2>
+      <p class="lead reveal">Calculadora, agenda, painel, app pra um cliente. A IA montou, ficou bonito,
+        funciona. Mas só existe dentro da conversa.</p>
+    </div>
+    <div class="preso">
+      <div class="reveal"><b>Toda mudança é no chat</b>Quer mexer numa vírgula? Volta pra conversa, pede, espera, copia.</div>
+      <div class="reveal"><b>O link não é seu</b>É um artefato dentro da plataforma da IA, não um endereço com a sua marca.</div>
+      <div class="reveal"><b>Os dados somem</b>Sem banco de dados, nada que alguém preenche fica guardado de verdade.</div>
+      <div class="reveal"><b>Não dá pra entregar</b>Você não manda pra um cliente algo que só abre dentro da sua conta.</div>
+    </div>
+    <div class="etapas">
+      <div class="etapa reveal"><span class="n">PASSO 01</span><h3>Publicar no GitHub</h3>
+        <p>Seu projeto sai do chat e vira um repositório seu, com histórico de cada versão.</p></div>
+      <div class="etapa reveal"><span class="n">PASSO 02</span><h3>Conectar o banco de dados</h3>
+        <p>Cadastro, login e informação salva de verdade, não só na tela de quem está usando.</p></div>
+      <div class="etapa reveal"><span class="n">PASSO 03</span><h3>Domínio próprio</h3>
+        <p>O sistema no ar no seu endereço, ou no endereço do seu cliente, com cadeado de segurança.</p></div>
+      <div class="etapa reveal"><span class="n">PASSO 04</span><h3>Editar com IA e já publicar</h3>
+        <p>Você pede a mudança pra IA e a versão nova vai pro ar sozinha. Sem voltar pro artefato.</p></div>
+    </div>
+    <p class="virada reveal">O que era um protótipo bonito vira <span class="it">um sistema que alguém usa.</span></p>
+    <div class="exemplos reveal" aria-label="Exemplos do que dá para colocar no ar">
+      <span>Agenda de atendimento</span><span>Calculadora de orçamento</span><span>Painel de clientes</span>
+      <span>Área de membros</span><span>Ferramenta interna da empresa</span><span>Sistema pra vender pra um cliente</span>
+    </div>
+  </div>
+</section>
+
 <!-- ==================== MÓDULOS ==================== -->
 <section>
   <div class="wrap">
     <div class="head">
       <span class="eyebrow">O que tem dentro</span>
-      <h2 class="reveal">Seis módulos. Do zero ao site <span class="it hl">no ar e cobrado.</span></h2>
+      <h2 class="reveal">Máquina de Sites: seis módulos. Do zero ao site <span class="it hl">no ar e cobrado.</span></h2>
       <p class="lead reveal">Direto ao ponto, sem aula de teoria. Todo módulo termina com uma coisa
         pronta na sua mão.</p>
     </div>
@@ -695,19 +945,26 @@ footer p{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height
         <span>O sistema que roda dentro da IA e executa o passo a passo sozinho. É o coração
           do produto, não um PDF com dicas.</span></div></div>
       <div class="stack-item reveal"><span class="ck">✓</span><div>
-        <b>Os 6 módulos em vídeo</b>
+        <b>Prospecção Automática</b>
+        <span>O segundo produto: prospecção automática pelo WhatsApp e por e-mail profissional.</span></div></div>
+      <div class="stack-item reveal"><span class="ck">✓</span><div>
+        <b>Dando Vida a Sistemas com IA</b>
+        <span>O terceiro produto inteiro: GitHub, banco de dados, domínio próprio e edição com IA
+          publicando sozinha.</span></div></div>
+      <div class="stack-item reveal"><span class="ck">✓</span><div>
+        <b>Os 6 módulos da Máquina de Sites</b>
         <span>Da instalação ao fechamento, sem enrolação.</span></div></div>
       <div class="stack-item reveal"><span class="ck">✓</span><div>
         <b>Prompt de instalação pronto</b>
         <span>Você copia, cola e a máquina se instala. Menos de um minuto.</span></div></div>
       <div class="stack-item reveal"><span class="ck">✓</span><div>
         <b>Acervo de 7 nichos prontos</b>
-        <span>Paleta, serviços e fotos já validados por nicho. No primeiro site do nicho você
-          leva uma hora; no quinto, vinte minutos.</span></div></div>
+        <span>Paleta, serviços e fotos já validados por nicho, pra cada site sair pronto pra vender
+          em menos de 20 minutos.</span></div></div>
       <div class="stack-item reveal"><span class="ck">✓</span><div>
         <b>Treinamento em 3 plataformas de IA</b>
-        <span>Aprenda a usar o sistema em Claude Code, Codex do GPT e Antigravity do Google.
-          Escolha a que preferir e domine todas as três.</span></div></div>
+        <span>Claude Code, Codex do GPT e Antigravity do Google. Codex e Antigravity têm plano
+          gratuito, então você começa sem pagar IA nenhuma.</span></div></div>
       <div class="stack-item reveal"><span class="ck">✓</span><div>
         <b>Banco de referências premium</b>
         <span>Sites premiados com paleta e tipografia extraídas de verdade, para os seus nunca
@@ -769,12 +1026,14 @@ footer p{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height
     <div class="price-card reveal">
       <span class="price-badge">OFERTA DE LANÇAMENTO</span>
       <ul class="price-mini">
-        <li>A máquina instalável + 6 módulos</li>
+        <li><b>Máquina de Sites:</b> a máquina instalável + 6 módulos</li>
+        <li><b>Prospecção Automática:</b> pelo WhatsApp e por e-mail</li>
+        <li><b>Dando Vida a Sistemas com IA:</b> do chat pro seu domínio</li>
         <li>Acervo de 7 nichos e banco de referências</li>
         <li>Desafio do primeiro site em 60 minutos</li>
         <li>12 meses de atualizações</li>
       </ul>
-      <div class="price-old">De R$ 297</div>
+      <div class="price-old">De R$ 691 (R$ 297 + R$ 197 + R$ 197)</div>
       <div class="price-now"><small>R$</small>97</div>
       <div class="price-cond">à vista no Pix ou cartão · pagamento único · acesso vitalício</div>
       <a class="btn btn-lg" href="https://pay.kiwify.com.br/3gfOYoK" data-checkout data-cta data-local="oferta">QUERO COMEÇAR AGORA <span class="seta">→</span></a>
@@ -804,12 +1063,25 @@ footer p{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height
         <p>Não. Você não escreve código em nenhum momento. Você instala a máquina, diz o nome
           da empresa e ela executa. Se você sabe copiar, colar e abrir um navegador, consegue.</p></details>
       <details><summary>Preciso pagar alguma ferramenta além disso?</summary>
-        <p>Você precisa de uma conta na IA que roda a máquina, que tem plano pago mensal, e é
-          isso. Hospedagem é gratuita e ensinada dentro do curso. Não tem mensalidade de
-          construtor de site, não tem licença de template.</p></details>
+        <p>Não precisa. A máquina roda em três IAs: <strong>Codex e Antigravity têm plano
+          gratuito</strong>, e o Claude Code pede no mínimo o plano Pro. Hospedagem é gratuita e
+          ensinada dentro do curso. Não tem mensalidade de construtor de site, não tem licença de
+          template.</p></details>
+      <details><summary>Como funciona a Prospecção Automática?</summary>
+        <p>Ela leva a sua oferta, com o site pronto, até o dono do negócio de forma automática, pelo
+          WhatsApp e por e-mail profissional. A configuração de cada canal está explicada passo a passo
+          dentro da área de membros.</p></details>
+      <details><summary>O que é o Dando Vida a Sistemas com IA?</summary>
+        <p>É um dos três produtos que vêm no mesmo acesso. Serve pra quem já criou um projeto no Claude,
+          no ChatGPT ou em outra IA e ele ficou preso no chat. Você aprende a publicar no GitHub,
+          conectar banco de dados, colocar no seu domínio e continuar editando com IA, com a versão
+          nova indo pro ar sozinha.</p></details>
+      <details><summary>Preciso já ter um sistema pronto pra aproveitar o Dando Vida?</summary>
+        <p>Não. Se você ainda não tem, os sites que você monta na Máquina de Sites já servem de
+          projeto pra praticar. E se tem, melhor ainda: você sai da aula com ele no ar.</p></details>
       <details><summary>Quanto tempo até o primeiro site?</summary>
-        <p>A instalação leva cerca de 40 minutos. O primeiro site, umas duas horas, porque você
-          ainda está aprendendo. Do terceiro em diante, entre 20 e 40 minutos.</p></details>
+        <p>A instalação é feita uma vez só. Depois dela, em menos de 20 minutos você tem um site
+          pronto pra vender e apresentado direto pra empresa.</p></details>
       <details><summary>Funciona na minha cidade, que é pequena?</summary>
         <p>Cidade pequena costuma ser melhor: menos concorrência e mais negócio bom sem site.
           Faça o teste antes de comprar: abra o Google Maps, procure um nicho e conte quantos
@@ -840,7 +1112,7 @@ footer p{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height
       cidade continuam lá. A diferença entre você e a pessoa que vai fechar com eles é uma
       tarde de instalação.</p>
     <div class="hero-cta">
-      <a class="btn btn-lg reveal" href="https://pay.kiwify.com.br/3gfOYoK" data-checkout data-cta data-local="fechamento">COMEÇAR POR R$ 97 <span class="seta">→</span></a>
+      <a class="btn btn-lg reveal" href="https://pay.kiwify.com.br/3gfOYoK" data-checkout data-cta data-local="fechamento">LEVAR OS 3 POR R$ 97 <span class="seta">→</span></a>
       <span class="btn-sub">7 dias de garantia · acesso imediato · pagamento único</span>
     </div>
   </div>
@@ -857,7 +1129,7 @@ footer p{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height
 </footer>
 
 <div class="sticky" id="sticky">
-  <span class="p"><s>R$ 297</s> R$ 97</span>
+  <span class="p"><s>R$ 691</s> 3 por R$ 97</span>
   <a class="btn" href="https://pay.kiwify.com.br/3gfOYoK" data-checkout data-cta data-local="barra-fixa">QUERO COMEÇAR</a>
 </div>
 
