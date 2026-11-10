@@ -134,8 +134,6 @@ em,.hl{font-style:normal;color:var(--or)}
 /* ===== CONFIG ===== */
 /* Checkout de R$ 97 na Kiwify (mesmo da página principal). */
 const CHECKOUT_URL='https://pay.kiwify.com.br/3gfOYoK';
-/* Convite do grupo VIP do WhatsApp (bônus de quem deixa o contato). */
-const GRUPO_URL='https://chat.whatsapp.com/B5dbcw1bLQvBgvt9q1TApy';
 /* Apps Script da planilha "Leads Quiz - Máquina de Sites" (fonte: 08. Leads Quiz/apps-script.gs).
    O mesmo WhatsApp vira uma linha só: etapa "início" e depois "concluiu". */
 const LEAD_URL='https://script.google.com/macros/s/AKfycbwgdxdIRLWQvyfM-7tMuNAQ9etZUd9h1IGSXuPHKxJEIO6WLrdJdtUD8cpH-WttcT8Q/exec';
@@ -224,9 +222,8 @@ const CAMPOS=`<div class="field"><label>Primeiro nome</label><input id="nome" au
  <div class="field"><label>E-mail</label><input id="mail" type="email" inputmode="email" autocomplete="email" placeholder="seu@email.com"></div>
  <input class="hp" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
  <div class="err" id="err" role="alert"></div>`;
-const BONUS=`<div class="bonus"><h3>🎁 Grupo VIP no WhatsApp</h3><ul>
- <li>Novidades em primeira mão</li><li>Os nichos que mais compram site</li><li>Os sistemas que as empresas mais compram</li>
- <li><b>Um bônus especial só pra quem está no grupo</b></li></ul></div>`;
+const BONUS=`<div class="bonus"><h3>🎁 Bônus surpresa</h3><ul>
+ <li>Exclusivo pra quem responde o quiz</li><li><b>Ele chega no WhatsApp que você informar</b></li></ul></div>`;
 const LGPD=`<p class="lock">🔒 Seus dados ficam só com a gente. Ao enviar, você aceita receber o seu resultado e novidades por WhatsApp e e-mail. Pra sair, é só pedir.</p>`;
 
 /* ===== RENDER ===== */
@@ -252,13 +249,13 @@ function q(s,d){
   if(!iniciou){iniciou=true;pxc('QuizIniciado')}
   setTimeout(()=>go(i+1),220)});
 }
-/* captura logo depois da 1ª resposta: bônus do grupo em troca do contato (pode pular) */
+/* captura logo depois da 1ª resposta: bônus surpresa em troca do contato (pode pular) */
 function captura(s,d){
  d.innerHTML=`<span class="tag verde">🎁 Bônus pra quem responde</span>
- <h2>Antes de continuar: pra onde eu mando o seu bônus?</h2>
- <p class="sub">Deixa seu contato e, no final do quiz, você <b>libera o acesso ao grupo VIP</b>:</p>
+ <h2>Antes de continuar: pra onde eu mando o seu bônus surpresa?</h2>
+ <p class="sub">Deixa seu contato e <b>garanta um bônus surpresa</b>, só pra quem responde o quiz:</p>
  ${BONUS}${CAMPOS}
- <button class="btn green" id="ok">Liberar meu bônus e continuar</button>${LGPD}
+ <button class="btn green" id="ok">Garantir meu bônus e continuar</button>${LGPD}
  <button class="pular" id="pula">Continuar sem o bônus</button>`;
  mascaraFone(d.querySelector('#zap'));
  d.querySelector('#ok').onclick=()=>{const c=lerContato(d);if(!c)return;contato=c;
@@ -332,10 +329,9 @@ function oferta(s,d){
  <div class="price"><s>De R$ 691</s><b>R$ 97</b><small>os 3 produtos · pagamento único · acesso imediato</small></div>
  <a class="btn green" id="comprar" href="${DESTINO}">Quero os 3 por R$ 97</a>
  <div class="garantia"><span class="s">7<br>DIAS</span><p><b>O risco é meu.</b> Seguiu o método e não funcionou pra você? Pede o dinheiro de volta em até 7 dias.</p></div>
- ${contato?`<div class="grupo">${BONUS}<a class="btn" id="grupo" href="${GRUPO_URL}" target="_blank" rel="noopener">Entrar no grupo VIP</a></div>`:''}
+ ${contato?`<div class="bonus" style="margin-top:22px"><h3>🎁 Seu bônus surpresa está garantido</h3><ul><li>Fique de olho no seu WhatsApp</li></ul></div>`:''}
  <p class="note">Resultados variam e dependem da sua dedicação. Não há promessa de ganho.</p>`;
  d.querySelector('#comprar').onclick=()=>px('InitiateCheckout',{content_name:PRODUTO.nome,content_ids:[PRODUTO.id],content_type:'product',value:PRODUTO.valor,currency:PRODUTO.moeda,botao:'quiz-novo'});
- const g=d.querySelector('#grupo');if(g)g.onclick=()=>pxc('GrupoVIP');
 }
 backBtn.onclick=()=>{if(H.length){i=H.pop();
  while((S[i].t==='load'||(S[i].t==='captura'&&contato))&&H.length)i=H.pop();render()}};
