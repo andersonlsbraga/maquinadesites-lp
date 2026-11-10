@@ -197,8 +197,21 @@ const app=document.getElementById('app'),prog=document.getElementById('prog'),ba
 /* ===== CONTATO (planilha) ===== */
 function mascaraFone(el){el.addEventListener('input',()=>{let d=el.value.replace(/\D/g,'').replace(/^55(?=\d{10,11}$)/,'').slice(0,11),f=d;
  if(d.length>2)f='('+d.slice(0,2)+') '+d.slice(2);if(d.length>7)f='('+d.slice(0,2)+') '+d.slice(2,d.length-4)+'-'+d.slice(-4);el.value=f})}
+/* erros comuns de domínio: corrige sozinho e avisa a pessoa */
+const DOMINIOS={'gmal.com':'gmail.com','gmial.com':'gmail.com','gmai.com':'gmail.com','gamil.com':'gmail.com','gmail.co':'gmail.com','gmail.con':'gmail.com','gmail.com.br':'gmail.com','gnail.com':'gmail.com',
+ 'hotmial.com':'hotmail.com','hotmai.com':'hotmail.com','hotmal.com':'hotmail.com','hotmail.co':'hotmail.com','hotmail.con':'hotmail.com','hotmil.com':'hotmail.com',
+ 'outlok.com':'outlook.com','outloo.com':'outlook.com','outlook.con':'outlook.com','outlook.co':'outlook.com','yahoo.con':'yahoo.com','yaho.com':'yahoo.com','yahoo.co':'yahoo.com','icloud.con':'icloud.com','iclod.com':'icloud.com'};
+function corrigeEmail(e){
+ e=e.trim().toLowerCase().replace(/\s+/g,'');
+ const m=e.match(/^([^@]+)@(.+)$/);if(!m)return e;
+ let dom=DOMINIOS[m[2]]||m[2];
+ dom=dom.replace(/\.con$/,'.com').replace(/\.cm$/,'.com').replace(/\.comm$/,'.com').replace(/\.com\.b$/,'.com.br');
+ return m[1]+'@'+dom;
+}
 function lerContato(d){
- const nome=d.querySelector('#nome').value.trim(),email=d.querySelector('#mail').value.trim(),zap=d.querySelector('#zap').value.replace(/\D/g,'');
+ const campoMail=d.querySelector('#mail'),digitado=campoMail.value.trim(),email=corrigeEmail(digitado);
+ if(email!==digitado.toLowerCase()&&digitado){campoMail.value=email;d.querySelector('#err').textContent='Corrigimos seu e-mail para '+email+'. Confere e toca de novo.';campoMail.focus();return null}
+ const nome=d.querySelector('#nome').value.trim(),zap=d.querySelector('#zap').value.replace(/\D/g,'');
  const ok={nome:nome.length>=2,mail:/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email),zap:zap.length===10||zap.length===11};
  Object.keys(ok).forEach(k=>d.querySelector('#'+k).parentNode.classList.toggle('erro',!ok[k]));
  if(!ok.nome||!ok.mail||!ok.zap){d.querySelector('#err').textContent=!ok.nome?'Escreve seu nome.':!ok.zap?'Confere o WhatsApp com DDD.':'Confere o e-mail.';return null}
@@ -211,7 +224,8 @@ function enviaLead(etapa){
  if(!contato||!LEAD_URL||!DOMINIO_OK)return Promise.resolve();
  const utm={};repasse.forEach((v,k)=>{if(k!=='fbclid')utm[k]=v});
  const fim=etapa!=='inicio';
- const resp=fim?Object.assign({},A,{trava:CURTO(A.trava),meta:CURTO(A.renda),agora:CURTO(A.comprometimento)}):{};
+ const ck=n=>(document.cookie.match('(?:^|; )'+n+'=([^;]*)')||[])[1]||'';
+ const resp=fim?Object.assign({},A,{trava:CURTO(A.trava),meta:CURTO(A.renda),agora:CURTO(A.comprometimento),_fbclid:Q.get('fbclid')||'',_fbp:ck('_fbp')}):{};
  const corpo=JSON.stringify({nome:contato.nome,email:contato.email,whatsapp:contato.whatsapp,hp:contato.hp,etapa:fim?'concluiu':'inicio',
   respostas:resp,foco:fim?CURTO((A.sexo||'')+' '+(A.idade||'')):'',utm,pagina:location.pathname+location.search});
  /* text/plain + no-cors: o Google não aceita a pré-checagem de CORS, então envia sem ler a resposta */
