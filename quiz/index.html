@@ -2,11 +2,12 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Máquina de Sites | Descubra seu caminho com IA</title>
-<meta name="description" content="Responda em 2 minutos e receba um diagnóstico do seu momento com IA: vender sites, prospectar no automático e criar software com IA.">
-<meta property="og:title" content="Qual é o seu caminho com IA?">
-<meta property="og:description" content="2 minutos, diagnóstico personalizado. Sites, prospecção automática e software com IA.">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050608">
+<title>Máquina de Sites | Descubra se você está pronto</title>
+<meta name="description" content="Responda e descubra se você está pronto para fazer renda criando sites com IA para negócios da sua cidade.">
+<meta property="og:title" content="Descubra se você está pronto pra vender sites com IA">
+<meta property="og:description" content="Responda o quiz e veja o seu nível de prontidão para a Máquina de Sites.">
 <meta property="og:image" content="https://maquinadesites.online/assets/hero.jpg">
 <meta property="og:url" content="https://maquinadesites.online/quiz/">
 <link rel="canonical" href="https://maquinadesites.online/quiz/">
@@ -27,794 +28,318 @@ if (META_PIXEL_ID) {
   fbq('init', META_PIXEL_ID);
   fbq('track', 'PageView');
 }
-</script>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<!-- Quiz principal da Máquina de Sites (10/11/2026). Estrutura e visual do modelo feito pelo
+     assistente (andersonlsbraga.github.io/quiz-maquina-teste), com checkout Kiwify, oferta 3 em 1,
+     pixel, captura de contato no início e planilha "Leads Quiz - Máquina de Sites". -->
 <style>
-:root{
-  --bg:#050608;--surface:#0F1218;--surface-2:#151922;
-  --line:rgba(255,255,255,.08);--line-2:rgba(255,255,255,.14);
-  --ink:#F5F2EC;--ink-2:#A7ABB5;--ink-3:#6E7380;
-  --orange:#FF6B1A;--orange-2:#FF9A4D;--orange-glow:rgba(255,107,26,.42);
-  --blue:#8DB5FF;--green:#2BD67B;--green-2:#7EE8AE;
-  --display:'Archivo',system-ui,sans-serif;--serif:'Instrument Serif',Georgia,serif;
-  --body:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
-}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{
-  min-height:100vh;background:
-    radial-gradient(900px 520px at 50% -10%,rgba(255,107,26,.2),transparent 65%),
-    radial-gradient(700px 500px at 100% 100%,rgba(77,141,255,.10),transparent 65%),var(--bg);
-  color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
-}
-a{color:inherit;text-decoration:none;}
-img{display:block;max-width:100%;height:auto;}
-.it{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--orange-2);}
-.wrap{max-width:640px;margin:0 auto;padding:24px 16px 60px;}
-.topo{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px;}
-.marca{font-family:var(--display);font-weight:900;letter-spacing:-.03em;font-size:16px;}
-.marca span{color:var(--orange);}
-.passo{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.08em;}
-.barra{height:6px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden;margin-bottom:30px;}
-.barra i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--orange),var(--orange-2));transition:width .4s ease;}
-h1,h2,h3{font-family:var(--display);font-weight:900;letter-spacing:-.04em;line-height:1.05;text-wrap:balance;}
-.tela{display:none;animation:entra .45s cubic-bezier(.2,.7,.2,1);}
-.tela.on{display:block;}
-@keyframes entra{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
-
-/* intro */
-.intro{text-align:center;padding-top:14px;}
-.trio{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;}
-.trio span{font-family:var(--display);font-weight:800;font-size:13px;padding:6px 12px;border-radius:99px;border:1px solid;}
-.trio .o{color:var(--orange-2);border-color:rgba(255,107,26,.45);background:rgba(255,107,26,.07);}
-.trio .b{color:var(--blue);border-color:rgba(77,141,255,.45);background:rgba(77,141,255,.07);}
-.trio .g{color:var(--green-2);border-color:rgba(43,214,123,.45);background:rgba(43,214,123,.07);}
-.intro h1{font-size:clamp(34px,8vw,54px);margin:22px 0 16px;}
-.intro p{color:var(--ink-2);max-width:46ch;margin:0 auto;}
-.recompensa{list-style:none;display:flex;flex-direction:column;gap:8px;max-width:360px;margin:24px auto 0;text-align:left;}
-.recompensa li{display:flex;gap:10px;font-size:15.5px;color:var(--ink-2);}
-.recompensa li::before{content:"✓";color:var(--green);font-weight:700;}
-
-.provas-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:24px 0 4px;}
-.provas-mini figure{border-radius:12px;overflow:hidden;border:1px solid var(--line-2);background:var(--surface);}
-.provas-mini img{aspect-ratio:16/10;object-fit:cover;object-position:top;width:100%;}
-.provas-mini figcaption{padding:7px 6px;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.06em;text-align:center;}
-.provas-mini .o{color:var(--orange-2);}.provas-mini .b{color:var(--blue);}.provas-mini .g{color:var(--green-2);}
-.atrito{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;margin-top:14px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3);}
-.atrito span::before{content:"✓ ";color:var(--green);}
-.gancho{margin-top:18px;padding:14px 16px;border-radius:14px;border:1px dashed var(--line-2);font-size:15px;color:var(--ink-2);}
-.gancho b{color:#fff;}
-.ajuda b{color:var(--ink-2);font-weight:600;}
-.depoimento{margin-top:18px;border-radius:16px;overflow:hidden;border:1px solid var(--line-2);}
-.depoimento figcaption{padding:10px 14px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink-3);background:var(--surface);}
-.zero{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px;}
-.zero div{padding:16px;border-radius:16px;background:var(--surface);border:1px solid var(--line);}
-.zero small{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--ink-3);}
-.zero b{display:block;font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-.02em;margin:6px 0 4px;}
-.zero p{font-size:14px;color:var(--ink-2);line-height:1.45;}
-
-/* bônus do grupo VIP (intro e resultado) */
-.bonus{margin:24px auto 0;max-width:460px;padding:16px 18px;border-radius:18px;text-align:left;
-  background:linear-gradient(180deg,rgba(43,214,123,.10),rgba(43,214,123,.04));border:1px solid rgba(43,214,123,.38);}
-.bonus .rot{display:block;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--green-2);margin-bottom:6px;}
-.bonus p{font-size:15px;color:var(--ink-2);margin:0;max-width:none;}
-.bonus b{color:#fff;}
-.bonus h3{font-size:clamp(22px,5.4vw,28px);margin:2px 0 8px;}
-.bonus ul{list-style:none;display:flex;flex-direction:column;gap:6px;margin:10px 0 0;}
-.bonus li{display:flex;gap:9px;font-size:15px;color:var(--ink-2);}
-.bonus li::before{content:"✓";color:var(--green);font-weight:700;}
-.btn.verde{margin-top:16px;color:#04150B;background:linear-gradient(180deg,#5BE79A,var(--green));box-shadow:0 14px 40px rgba(43,214,123,.28),inset 0 1px 0 rgba(255,255,255,.4);}
-.resultado .bonus{max-width:none;margin-top:26px;}
-
-/* contato antes do resultado */
-.contato .tag{display:inline-flex;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;
-  padding:6px 12px;border-radius:99px;margin-bottom:14px;background:rgba(43,214,123,.14);color:#BFF5D8;}
-.contato h2{font-size:clamp(26px,6.4vw,36px);margin-bottom:12px;}
-.contato > p{color:var(--ink-2);margin-bottom:20px;}
-.campo{display:block;margin-bottom:12px;}
-.campo span{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--ink-3);margin-bottom:6px;}
-.campo input{width:100%;padding:17px 18px;border-radius:16px;background:var(--surface);border:1px solid var(--line-2);
-  color:var(--ink);font:500 17px var(--body);}
-.campo input:focus{outline:none;border-color:var(--orange);background:var(--surface-2);}
-.campo.erro input{border-color:#FF5F57;}
-.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
-.msg-erro{min-height:20px;font-size:14px;color:#FF8A80;margin:2px 0 6px;}
-.lgpd{margin-top:14px;font-size:12.5px;color:var(--ink-3);line-height:1.5;text-align:center;}
-.contato .btn[disabled]{opacity:.6;cursor:wait;}
-.bonus form{margin-top:16px;}
-.bonus .campo span{color:var(--green-2);opacity:.85;}
-.bonus .btn{margin-top:4px;}
-.pular{display:block;margin:16px auto 0;background:none;border:0;color:var(--ink-3);font:500 14px var(--body);
-  text-decoration:underline;text-underline-offset:3px;cursor:pointer;}
-.intro .lgpd{margin-top:10px;font-size:12px;}
-
-/* perguntas */
-.bloco{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--orange-2);margin-bottom:12px;}
-.pergunta h2{font-size:clamp(26px,6vw,34px);margin-bottom:10px;}
-.pergunta .ajuda{color:var(--ink-3);font-size:15px;margin-bottom:22px;}
-.opcoes{display:flex;flex-direction:column;gap:10px;}
-.op{display:flex;align-items:center;gap:14px;width:100%;text-align:left;cursor:pointer;
-  padding:17px 18px;border-radius:16px;background:var(--surface);border:1px solid var(--line-2);
-  color:var(--ink);font:500 16.5px/1.35 var(--body);transition:border-color .15s ease,background .15s ease,transform .15s ease;}
-.op:hover{border-color:rgba(255,107,26,.55);background:var(--surface-2);}
-.op:active{transform:scale(.99);}
-.op:focus-visible{outline:2px solid var(--orange-2);outline-offset:2px;}
-.op .l{flex:none;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
-  font:700 13px var(--mono);background:rgba(255,255,255,.05);color:var(--ink-2);}
-.op.sel{border-color:var(--orange);background:rgba(255,107,26,.10);}
-.op.sel .l{background:var(--orange);color:#170700;}
-.voltar{margin-top:18px;background:none;border:0;color:var(--ink-3);font:500 14px var(--body);cursor:pointer;}
-
-/* microconteúdo entre perguntas */
-.micro .tag{display:inline-flex;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;
-  padding:6px 12px;border-radius:99px;margin-bottom:14px;}
-.micro .tag.o{background:rgba(255,107,26,.12);color:var(--orange-2);}
-.micro .tag.b{background:rgba(77,141,255,.14);color:var(--blue);}
-.micro .tag.g{background:rgba(43,214,123,.14);color:var(--green-2);}
-.micro h2{font-size:clamp(26px,6.4vw,36px);margin-bottom:12px;}
-.micro p{color:var(--ink-2);}
-.micro .moldura{margin:22px 0 24px;border-radius:14px;overflow:hidden;border:1px solid var(--line-2);background:#0B0D12;
-  box-shadow:0 30px 60px -20px rgba(0,0,0,.8);}
-.micro .moldura .bar{display:flex;align-items:center;gap:6px;height:28px;padding:0 12px;background:#14171E;border-bottom:1px solid var(--line);}
-.micro .moldura .bar i{width:9px;height:9px;border-radius:50%;background:#2A2E38;}
-.micro .moldura .bar i:nth-child(1){background:#FF5F57;}.micro .moldura .bar i:nth-child(2){background:#FEBC2E;}.micro .moldura .bar i:nth-child(3){background:#28C840;}
-.micro .moldura .bar span{margin-left:8px;font-family:var(--mono);font-size:10.5px;color:var(--ink-3);}
-.micro .ia3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:22px 0 24px;}
-.micro .ia3 div{padding:16px 10px;border-radius:14px;background:var(--surface);border:1px solid var(--line);text-align:center;}
-.micro .ia3 b{display:block;font-family:var(--display);font-size:16px;}
-.micro .ia3 span{display:inline-block;margin-top:8px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;padding:4px 8px;border-radius:99px;}
-.micro .ia3 .gr{background:rgba(43,214,123,.14);color:var(--green-2);}
-.micro .ia3 .pg{background:rgba(255,255,255,.06);color:var(--ink-2);}
-
-.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
-  font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-.01em;text-align:center;line-height:1.15;
-  padding:20px 28px;border-radius:999px;border:0;cursor:pointer;color:#170700;
-  background:linear-gradient(180deg,#FF8A3D,var(--orange));
-  box-shadow:0 14px 40px var(--orange-glow),inset 0 1px 0 rgba(255,255,255,.4);}
-.btn:focus-visible{outline:3px solid #fff;outline-offset:3px;}
-.btn.sec{background:var(--surface-2);color:var(--ink);box-shadow:none;border:1px solid var(--line-2);}
-.intro .btn{margin-top:30px;}
-.sub{display:block;text-align:center;margin-top:12px;font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.04em;}
-
-/* análise */
-.analise{text-align:center;padding:40px 0;}
-.analise .roda{width:54px;height:54px;margin:0 auto 22px;border-radius:50%;
-  border:3px solid rgba(255,255,255,.1);border-top-color:var(--orange);animation:gira 1s linear infinite;}
-@keyframes gira{to{transform:rotate(360deg);}}
-.analise ul{list-style:none;display:inline-flex;flex-direction:column;gap:10px;text-align:left;}
-.analise li{font-family:var(--mono);font-size:13px;color:var(--ink-3);letter-spacing:.03em;transition:color .3s ease;}
-.analise li.ok{color:var(--ink);}
-.analise li.ok::before{content:"✓ ";color:var(--green);}
-
-/* resultado + pitch */
-.resultado .tag{display:inline-flex;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;
-  letter-spacing:.14em;padding:6px 12px;border-radius:99px;background:rgba(43,214,123,.14);color:#BFF5D8;}
-.resultado h2{font-size:clamp(30px,7vw,42px);margin:16px 0 14px;}
-.espelho{margin:18px 0 6px;padding:20px 22px;border-radius:18px;border-left:3px solid var(--orange);
-  background:rgba(255,107,26,.06);font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.4;color:#F3E9E1;}
-.plano{list-style:none;margin:22px 0 10px;display:flex;flex-direction:column;gap:10px;}
-.plano li{padding:16px 18px;border-radius:16px;background:var(--surface);border:1px solid var(--line);font-size:15.5px;color:var(--ink-2);}
-.plano li b{display:block;color:#fff;font-family:var(--display);font-weight:800;font-size:16.5px;letter-spacing:-.02em;margin-bottom:3px;}
-.bloco-p{margin-top:46px;}
-.bloco-p > .rot{display:block;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--ink-3);margin-bottom:10px;}
-.bloco-p h3{font-size:clamp(24px,5.6vw,30px);margin-bottom:10px;}
-.bloco-p > p{color:var(--ink-2);}
-.prova{display:flex;flex-direction:column;gap:14px;margin-top:20px;}
-.prova figure{border-radius:16px;overflow:hidden;border:1px solid var(--line-2);background:var(--surface);}
-.prova figcaption{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px 14px;font-size:14.5px;color:var(--ink-2);}
-.prova figcaption b{color:#fff;font-family:var(--display);font-weight:800;letter-spacing:-.02em;}
-.prova .selo{flex:none;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.1em;padding:5px 10px;border-radius:99px;}
-.prova .selo.o{background:rgba(255,107,26,.14);color:var(--orange-2);}
-.prova .selo.b{background:rgba(77,141,255,.16);color:var(--blue);}
-.prova .selo.g{background:rgba(43,214,123,.14);color:var(--green-2);}
-.mec{list-style:none;counter-reset:m;display:flex;flex-direction:column;gap:10px;margin-top:18px;}
-.mec li{counter-increment:m;display:grid;grid-template-columns:auto 1fr;gap:14px;padding:16px 18px;border-radius:16px;background:var(--surface);border:1px solid var(--line);font-size:15.5px;color:var(--ink-2);}
-.mec li::before{content:counter(m);width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font:700 14px var(--mono);background:rgba(255,107,26,.14);color:var(--orange-2);}
-.mec b{display:block;color:#fff;font-family:var(--display);font-weight:800;letter-spacing:-.02em;}
-.oferta{position:relative;margin-top:20px;padding:30px 22px 26px;border-radius:26px;text-align:center;
-  background:linear-gradient(180deg,#14171F,#0D1016);border:1px solid rgba(255,107,26,.35);box-shadow:0 40px 80px -20px rgba(0,0,0,.8);}
-.oferta .itens{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:22px;text-align:left;}
-.oferta .itens li{display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid var(--line);font-size:15px;}
-.oferta .itens li span{color:var(--ink-3);font-family:var(--mono);font-size:13px;text-decoration:line-through;white-space:nowrap;}
-.oferta .itens li b{font-weight:600;}
-.oferta .de{font-family:var(--mono);font-size:14px;color:var(--ink-3);text-decoration:line-through;}
-.oferta .por{font-family:var(--display);font-weight:900;font-size:76px;letter-spacing:-.06em;line-height:1;margin:2px 0 4px;}
-.oferta .por small{font-size:.34em;vertical-align:1em;margin-right:4px;color:var(--ink-2);letter-spacing:0;}
-.oferta .cond{font-family:var(--mono);font-size:12px;color:var(--ink-2);margin-bottom:22px;}
-.garantia{display:flex;gap:14px;align-items:center;padding:18px;border-radius:16px;border:1px dashed var(--line-2);text-align:left;margin-top:18px;}
-.garantia .s{flex:none;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--green);
-  color:var(--green);font:900 12px/1 var(--display);text-align:center;}
-.garantia p{font-size:15px;color:var(--ink-2);}
-.garantia b{color:#fff;}
-.faq{display:flex;flex-direction:column;gap:8px;margin-top:16px;}
-details{border:1px solid var(--line);border-radius:14px;background:var(--surface);}
-summary{cursor:pointer;list-style:none;padding:16px 46px 16px 18px;position:relative;font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:-.01em;}
-summary::-webkit-details-marker{display:none;}
-summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:20px;color:var(--orange-2);transition:transform .2s ease;}
-details[open] summary::after{transform:translateY(-50%) rotate(45deg);}
-details p{padding:0 18px 16px;color:var(--ink-2);font-size:15px;}
-.final-cta{margin-top:30px;}
-.mais-info{display:block;text-align:center;margin-top:20px;color:var(--ink-3);font-size:14px;text-decoration:underline;text-underline-offset:3px;}
-
-/* botão de compra fixo, só no resultado */
-.fixo{position:fixed;left:10px;right:10px;bottom:10px;z-index:50;max-width:620px;margin:0 auto;
-  display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 8px 8px 18px;border-radius:999px;
-  background:rgba(15,18,24,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line-2);
-  box-shadow:0 20px 50px rgba(0,0,0,.6);transform:translateY(150%);transition:transform .35s ease;}
-.fixo.on{transform:none;}
-.fixo .p{font-family:var(--display);font-weight:800;font-size:16px;white-space:nowrap;}
-.fixo .p s{color:var(--ink-3);font-weight:500;font-size:12px;margin-right:4px;}
-.fixo .btn{width:auto;padding:13px 20px;font-size:15px;}
-body.com-fixo .wrap{padding-bottom:110px;}
-footer{text-align:center;font-family:var(--mono);font-size:11px;color:var(--ink-3);line-height:1.9;padding:0 16px 40px;max-width:640px;margin:0 auto;}
-body.com-fixo footer{padding-bottom:110px;}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
+:root{--bg:#050608;--s:#0F1218;--s2:#151922;--line:rgba(255,255,255,.12);--ink:#F5F2EC;--ink2:#A7ABB5;--ink3:#6E7380;--or:#FF6B1A;--or2:#FF9A4D;--green:#2BD67B;--red:#ff5a5a;--blue:#8DB5FF}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;min-height:100%}
+body{display:flex;flex-direction:column;align-items:center}
+.wrap{width:100%;max-width:480px;padding:14px 16px calc(40px + env(safe-area-inset-bottom));min-height:100vh}
+.top{display:flex;align-items:center;gap:10px;height:34px}
+.back{background:none;border:0;color:var(--ink);font-size:22px;width:28px;height:28px;cursor:pointer;visibility:hidden}
+.bar{flex:1;height:8px;background:var(--s2);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--or),var(--or2));border-radius:99px;transition:width .4s}
+.step{animation:in .35s ease both;padding-top:20px}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.tag{display:block;background:rgba(255,107,26,.12);border:1px solid rgba(255,107,26,.35);color:var(--or2);font:800 12px Archivo,sans-serif;letter-spacing:.04em;text-transform:uppercase;text-align:center;padding:12px;border-radius:12px;margin-bottom:18px}
+.tag.verde{background:rgba(43,214,123,.1);border-color:rgba(43,214,123,.4);color:var(--green)}
+h1,h2{font-family:Archivo,sans-serif;font-weight:900;line-height:1.1;text-align:center;letter-spacing:-.01em}
+h1{font-size:31px;text-transform:uppercase}
+h2{font-size:25px}
+em,.hl{font-style:normal;color:var(--or)}
+.g{color:var(--green)}
+.sub{color:var(--ink2);text-align:center;font-size:15px;line-height:1.5;margin:12px 0 0}
+.sub b{color:var(--ink)}
+.opts{display:grid;gap:10px;margin-top:22px}
+.opts.two{grid-template-columns:1fr 1fr}
+.opt{display:flex;align-items:center;gap:12px;background:var(--s);border:1.5px solid var(--line);color:var(--ink);font:500 16px Inter,sans-serif;text-align:left;padding:16px;border-radius:14px;cursor:pointer;transition:.15s}
+.opt:active,.opt.sel{border-color:var(--or);background:rgba(255,107,26,.1);transform:scale(.99)}
+.opt .e{font-size:24px;line-height:1}
+.opts.two .opt{flex-direction:column;justify-content:center;text-align:center;padding:22px 10px;font-weight:600}
+.opts.two .opt .e{font-size:44px}
+.btn{display:block;width:100%;background:var(--or);color:#fff;border:0;font:800 17px Archivo,sans-serif;text-transform:uppercase;letter-spacing:.02em;padding:18px;border-radius:14px;cursor:pointer;margin-top:24px;box-shadow:0 8px 30px rgba(255,107,26,.35);animation:pulse 1.8s infinite;text-align:center;text-decoration:none}
+.btn.green{background:var(--green);color:#04210f;box-shadow:0 8px 30px rgba(43,214,123,.3)}
+.btn[disabled]{opacity:.6;cursor:wait;animation:none}
+@keyframes pulse{50%{transform:scale(1.02)}}
+.card{background:var(--s);border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:16px}
+.card h3{font:800 17px Archivo,sans-serif;margin-bottom:6px}
+.card p{color:var(--ink2);font-size:14.5px;line-height:1.5}
+.big{font:900 56px Archivo,sans-serif;color:var(--or);line-height:1}
+.flow{display:grid;gap:0;margin-top:22px}
+.flow div{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px dashed var(--line)}
+.flow div:last-child{border:0}
+.flow b{flex:none;width:34px;height:34px;border-radius:50%;background:var(--or);color:#fff;font:900 15px Archivo,sans-serif;display:grid;place-items:center}
+.flow span{font-size:15px;line-height:1.45;color:var(--ink2)}
+.flow span strong{color:var(--ink);display:block;font-size:16px;margin-bottom:2px}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.vs>div{border-radius:14px;padding:14px;font-size:13.5px;line-height:1.45}
+.vs .a{background:rgba(255,90,90,.08);border:1px solid rgba(255,90,90,.3)}
+.vs .d{background:rgba(43,214,123,.08);border:1px solid rgba(43,214,123,.35)}
+.vs h4{font:800 14px Archivo,sans-serif;text-transform:uppercase;margin-bottom:8px}
+.vs .a h4{color:var(--red)}.vs .d h4{color:var(--green)}
+.vs li{margin:0 0 7px 16px;color:var(--ink2)}
+.meter{margin-top:14px}.meter label{font-size:13px;color:var(--ink2);display:flex;justify-content:space-between;margin-bottom:5px}
+.meter i{display:block;height:9px;border-radius:9px;background:var(--s2);overflow:hidden}.meter i s{display:block;height:100%;width:0;border-radius:9px;transition:width 1.2s}
+.res{background:linear-gradient(135deg,var(--green),#17a85c);color:#04210f;font:900 22px Archivo,sans-serif;text-transform:uppercase;text-align:center;padding:22px 16px;border-radius:18px;line-height:1.15}
+.score{display:flex;align-items:center;justify-content:center;gap:16px;margin:22px 0 4px}
+.ring{width:118px;height:118px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--or) calc(var(--p)*1%),var(--s2) 0)}
+.ring span{width:94px;height:94px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font:900 32px Archivo,sans-serif}
+.load{text-align:center;padding-top:60px}
+.load .pct{font:900 64px Archivo,sans-serif;color:var(--or)}
+.load ul{list-style:none;margin-top:26px;text-align:left}
+.load li{padding:10px 0;color:var(--ink2);font-size:15px;opacity:.3;transition:.4s}
+.load li.on{opacity:1;color:var(--ink)}.load li.on::before{content:"✓ ";color:var(--green);font-weight:800}
+.field{margin-top:14px}.field label{display:block;font-size:13px;color:var(--ink2);margin-bottom:6px}
+.field input{width:100%;background:var(--s);border:1.5px solid var(--line);color:var(--ink);font:500 17px Inter,sans-serif;padding:16px;border-radius:12px;outline:0}
+.field input:focus{border-color:var(--or)}
+.field.erro input{border-color:var(--red)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.err{color:var(--red);font-size:13px;margin-top:10px;text-align:center;min-height:16px}
+.lock{font-size:12.5px;color:var(--ink2);text-align:center;margin-top:12px;line-height:1.5}
+.pular{display:block;margin:14px auto 0;background:none;border:0;color:var(--ink3);font:500 14px Inter,sans-serif;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.bonus{background:linear-gradient(180deg,rgba(43,214,123,.10),rgba(43,214,123,.03));border:1px solid rgba(43,214,123,.38);border-radius:16px;padding:16px 18px;margin-top:18px}
+.bonus h3{font:800 16px Archivo,sans-serif;color:var(--green);margin-bottom:8px}
+.bonus ul{list-style:none}
+.bonus li{position:relative;padding:4px 0 4px 24px;font-size:14.5px;color:var(--ink2);line-height:1.4}
+.bonus li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:900}
+.bonus b{color:var(--ink)}
+.price{text-align:center;margin-top:18px}.price s{color:var(--ink2);font-size:17px}.price b{display:block;font:900 52px Archivo,sans-serif;color:var(--green);line-height:1.1}
+.price small{color:var(--ink2);font-size:13px}
+.ul{list-style:none;margin-top:18px}.ul li{padding:9px 0 9px 30px;position:relative;font-size:15px;line-height:1.4;border-bottom:1px solid var(--line)}
+.ul li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:900}
+.itens{list-style:none;margin-top:18px}
+.itens li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;margin-top:8px;border-radius:12px;background:var(--s);border:1px solid var(--line);font-size:15px}
+.itens li b{font-weight:600}
+.itens li span{color:var(--ink3);font-size:13.5px;text-decoration:line-through;white-space:nowrap}
+.itens li small{display:block;color:var(--ink2);font-size:12.5px;font-weight:400;margin-top:2px}
+.garantia{display:flex;gap:14px;align-items:center;padding:16px;border-radius:14px;border:1px dashed var(--line);margin-top:18px}
+.garantia .s{flex:none;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--green);color:var(--green);font:900 11px/1.05 Archivo,sans-serif;text-align:center}
+.garantia p{font-size:14px;color:var(--ink2);line-height:1.45}.garantia b{color:var(--ink)}
+.grupo{margin-top:22px}
+.grupo .btn{margin-top:14px;animation:none}
+.note{font-size:12px;color:var(--ink3);text-align:center;margin-top:22px;line-height:1.5}
 </style>
 </head>
 <body>
-<main class="wrap">
-  <div class="topo">
-    <span class="marca">MÁQUINA DE SITES <span>·</span> 3 EM 1</span>
-    <span class="passo" id="passo"></span>
-  </div>
-  <div class="barra" aria-hidden="true"><i id="barra"></i></div>
-
-  <!-- PROMESSA E RECOMPENSA -->
-  <section class="tela on intro" id="t-intro">
-    <div class="trio"><span class="o">Sites</span><span class="g">Prospecção Automática</span><span class="b">Software com IA</span></div>
-    <h1>Existe um jeito de vender site <span class="it">sem mandar proposta.</span></h1>
-    <p>O dono do negócio responde sozinho, e quase ninguém que tenta vender site conhece. Responda
-      2 minutos e descubra se ele serve pra você e qual dos 3 caminhos combina com o seu momento.</p>
-    <div class="provas-mini" aria-label="Exemplos reais">
-      <figure><img src="/assets/sites/hype-1.jpg" alt="Site da Hype Drink" width="1000" height="625"><figcaption class="o">SITE VENDIDO</figcaption></figure>
-      <figure><img src="/assets/sites/prospeccao-1.jpg" alt="Painel da prospecção automática" width="1000" height="625"><figcaption class="g">PROSPECÇÃO</figcaption></figure>
-      <figure><img src="/assets/sites/regulariza-1.jpg" alt="Regulariza, software com IA" width="1000" height="625"><figcaption class="b">SOFTWARE COM IA</figcaption></figure>
-    </div>
-    <ul class="recompensa">
-      <li>Seu diagnóstico personalizado</li>
-      <li>O caminho que combina com você: sites, prospecção ou software</li>
-      <li>Seu plano pros próximos dias</li>
-    </ul>
-    <div class="bonus">
-      <span class="rot">🎁 BÔNUS DE QUEM RESPONDE</span>
-      <p>Acesso ao <b>grupo VIP no WhatsApp</b>: novidades em primeira mão, os nichos que mais compram
-        site, os sistemas que as empresas mais compram e <b>um bônus especial só pra quem está no grupo</b>.</p>
-      <form id="f-inicio" novalidate>
-        <label class="campo"><span>SEU NOME</span><input id="i-nome" name="nome" autocomplete="given-name" required></label>
-        <label class="campo"><span>WHATSAPP COM DDD</span><input id="i-whats" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(00) 00000-0000" required></label>
-        <label class="campo"><span>SEU MELHOR E-MAIL</span><input id="i-email" name="email" type="email" inputmode="email" autocomplete="email" required></label>
-        <input class="hp" id="i-hp" name="empresa" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <p class="msg-erro" id="i-erro" role="alert"></p>
-        <button class="btn verde" type="submit" id="i-enviar">LIBERAR MEU BÔNUS E COMEÇAR →</button>
-      </form>
-    </div>
-    <p class="lgpd">Seus dados ficam só com a gente. Ao enviar, você aceita receber seu diagnóstico e novidades por WhatsApp e e-mail. Pra sair, é só pedir.</p>
-    <button class="pular" type="button" id="comecar">Responder sem o bônus</button>
-    <div class="atrito"><span>2 minutos</span><span>gratuito</span><span>bônus no final</span></div>
-  </section>
-
-  <!-- PERGUNTA (renderizada pelo script) -->
-  <section class="tela pergunta" id="t-pergunta" aria-live="polite">
-    <span class="bloco" id="p-bloco"></span>
-    <h2 id="p-titulo"></h2>
-    <p class="ajuda" id="p-ajuda"></p>
-    <div class="opcoes" id="p-opcoes"></div>
-    <button class="voltar" type="button" data-voltar>← voltar</button>
-  </section>
-
-  <!-- MICROCONTEÚDOS -->
-  <section class="tela micro" id="m-ia">
-    <span class="tag g">BOA NOTÍCIA</span>
-    <h2>Você não precisa pagar IA <span class="it">pra começar.</span></h2>
-    <p>A máquina roda em três IAs. Duas delas têm plano gratuito.</p>
-    <div class="ia3">
-      <div><b>Codex</b><span class="gr">GRATUITO</span></div>
-      <div><b>Antigravity</b><span class="gr">GRATUITO</span></div>
-      <div><b>Claude Code</b><span class="pg">PLANO PRO</span></div>
-    </div>
-    <button class="btn" type="button" data-seguir>CONTINUAR →</button>
-    <p class="gancho">Daqui a 2 perguntas eu te mostro <b>por que o dono do negócio ignora proposta</b>, e o que faz ele responder.</p>
-    <button class="voltar" type="button" data-voltar>← voltar</button>
-  </section>
-
-  <section class="tela micro" id="m-site">
-    <span class="tag o">POR QUE NINGUÉM RESPONDE PROPOSTA</span>
-    <h2>O dono não compra uma ideia. <span class="it">Ele compra o site dele pronto.</span></h2>
-    <p>Na Entrega Invertida você faz o site primeiro e apresenta direto pra empresa. Com a máquina,
-      ele fica pronto pra vender em menos de 20 minutos.</p>
-    <div class="moldura"><div class="bar"><i></i><i></i><i></i><span>hype-drink · site vendido de R$ 1 a 3 mil</span></div>
-      <img src="/assets/sites/hype-1.jpg" alt="Site da Hype Drink feito com a Máquina de Sites" width="1000" height="625" loading="lazy"></div>
-    <button class="btn" type="button" data-seguir>CONTINUAR →</button>
-    <p class="gancho">Mas aí vem a dúvida: <b>como o site chega até o dono sem você mandar mensagem uma por uma?</b> Já já.</p>
-    <button class="voltar" type="button" data-voltar>← voltar</button>
-  </section>
-
-  <section class="tela micro" id="m-prosp">
-    <span class="tag g">PROSPECÇÃO AUTOMÁTICA</span>
-    <h2>Sem mandar mensagem <span class="it">uma por uma.</span></h2>
-    <p>O site pronto chega até o dono do negócio de forma automática, pelo WhatsApp e pelo e-mail
-      profissional. O passo a passo está dentro da área de membros.</p>
-    <div class="moldura"><div class="bar"><i></i><i></i><i></i><span>prospecção automática</span></div>
-      <img src="/assets/sites/prospeccao-1.jpg" alt="Painel de prospecção automática por WhatsApp e e-mail" width="1000" height="625" loading="lazy"></div>
-    <figure class="depoimento"><img src="/assets/sites/aluno-prospeccao.jpg" alt="Mensagem de um aluno dizendo que fechou o primeiro contrato com a prospecção automática" width="700" height="513" loading="lazy">
-      <figcaption>MENSAGEM DE UM ALUNO, NO WHATSAPP</figcaption></figure>
-    <button class="btn" type="button" data-seguir style="margin-top:22px">CONTINUAR →</button>
-    <p class="gancho">E tem um terceiro caminho, que <b>não é site</b> e costuma valer mais. Ele aparece daqui a 3 perguntas.</p>
-    <button class="voltar" type="button" data-voltar>← voltar</button>
-  </section>
-
-  <section class="tela micro" id="m-software">
-    <span class="tag b">ISSO NÃO É UM SITE</span>
-    <h2>É um software feito com IA <span class="it">e vendido como sistema.</span></h2>
-    <p>O Regulariza controla a regularização de imóveis de uma imobiliária: etapas, prazos, histórico
-      e documentos, com login da equipe e banco de dados. Foi criado com IA e colocado no ar com o
-      Dando Vida a Sistemas com IA.</p>
-    <div class="moldura"><div class="bar"><i></i><i></i><i></i><span>regulariza · software com IA</span></div>
-      <img src="/assets/sites/regulariza-1.jpg" alt="Tela de acesso do Regulariza, software de regularização de imóveis" width="1000" height="625" loading="lazy"></div>
-    <button class="btn" type="button" data-seguir>FALTAM 3 PERGUNTAS →</button>
-    <button class="voltar" type="button" data-voltar>← voltar</button>
-  </section>
-
-  <!-- CONTATO: depois da última pergunta, antes do resultado -->
-  <section class="tela contato" id="t-contato">
-    <span class="tag">✓ SEU DIAGNÓSTICO ESTÁ PRONTO</span>
-    <h2>Pra onde eu mando seu diagnóstico <span class="it">e o convite do grupo?</span></h2>
-    <p>O resultado aparece aqui na tela logo em seguida, junto com o acesso ao grupo VIP e ao bônus exclusivo de quem está lá.</p>
-    <form id="f-contato" novalidate>
-      <label class="campo"><span>SEU NOME</span><input id="c-nome" name="nome" autocomplete="given-name" required></label>
-      <label class="campo"><span>WHATSAPP COM DDD</span><input id="c-whats" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(00) 00000-0000" required></label>
-      <label class="campo"><span>SEU MELHOR E-MAIL</span><input id="c-email" name="email" type="email" inputmode="email" autocomplete="email" required></label>
-      <input class="hp" id="c-hp" name="empresa" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <p class="msg-erro" id="c-erro" role="alert"></p>
-      <button class="btn" type="submit" id="c-enviar">VER MEU DIAGNÓSTICO →</button>
-    </form>
-    <p class="lgpd">Seus dados ficam só com a gente. Ao enviar, você aceita receber seu diagnóstico e novidades por WhatsApp e e-mail. Pra sair, é só pedir.</p>
-    <button class="voltar" type="button" id="c-voltar">← voltar</button>
-  </section>
-
-  <!-- AVALIAÇÃO -->
-  <section class="tela analise" id="t-analise">
-    <div class="roda" aria-hidden="true"></div>
-    <ul id="a-lista">
-      <li>Lendo suas respostas</li>
-      <li>Cruzando seu perfil com os 3 produtos</li>
-      <li>Montando seu plano</li>
-    </ul>
-  </section>
-
-  <!-- RESULTADO + PITCH -->
-  <section class="tela resultado" id="t-resultado">
-    <span class="tag">✓ SEU DIAGNÓSTICO</span>
-    <h2 id="r-titulo"></h2>
-    <p class="espelho" id="r-espelho"></p>
-    <ul class="plano" id="r-plano"></ul>
-
-    <div class="bonus" id="r-grupo">
-      <span class="rot">🎁 SEU BÔNUS ESTÁ LIBERADO</span>
-      <h3>Entre no grupo VIP <span class="it">do WhatsApp.</span></h3>
-      <ul>
-        <li>Novidades em primeira mão</li>
-        <li>Os nichos que mais compram site</li>
-        <li>Os sistemas que as empresas mais compram</li>
-        <li>Um bônus especial só pra quem está no grupo</li>
-      </ul>
-      <a class="btn verde" id="r-grupo-link" href="#" target="_blank" rel="noopener">ENTRAR NO GRUPO VIP →</a>
-    </div>
-
-    <div class="bloco-p">
-      <span class="rot">QUEM ESTÁ POR TRÁS</span>
-      <h3>Isso não é teoria. <span class="it">É o que eu faço.</span></h3>
-      <p>Sites que eu fiz e vendi de R$ 1.000 a R$ 3.000, um software criado com IA e a prospecção
-        que leva tudo até o cliente.</p>
-      <div class="prova">
-        <figure><img src="/assets/sites/hype-1.jpg" alt="Site da Hype Drink" width="1000" height="625" loading="lazy">
-          <figcaption><span><b>Hype Drink</b> · site</span><span class="selo o">VENDIDO R$ 1 A 3 MIL</span></figcaption></figure>
-        <figure><img src="/assets/sites/regulariza-1.jpg" alt="Regulariza, software de regularização de imóveis" width="1000" height="625" loading="lazy">
-          <figcaption><span><b>Regulariza</b> · software com IA</span><span class="selo b">SISTEMA NO AR</span></figcaption></figure>
-        <figure><img src="/assets/sites/prospeccao-1.jpg" alt="Painel de prospecção automática" width="1000" height="625" loading="lazy">
-          <figcaption><span><b>Prospecção</b> · WhatsApp + e-mail</span><span class="selo g">AUTOMÁTICA</span></figcaption></figure>
-      </div>
-      <figure class="depoimento"><img src="/assets/sites/aluno-prospeccao.jpg" alt="Mensagem de um aluno dizendo que fechou o primeiro contrato" width="700" height="513" loading="lazy">
-        <figcaption>ALUNO QUE FECHOU O PRIMEIRO CONTRATO COM A PROSPECÇÃO AUTOMÁTICA</figcaption></figure>
-    </div>
-
-    <div class="bloco-p">
-      <span class="rot">COMO FUNCIONA</span>
-      <h3>Três produtos, <span class="it">um caminho só.</span></h3>
-      <ol class="mec">
-        <li><span><b>Criar</b>A Máquina de Sites deixa o site pronto pra vender em menos de 20 minutos, com os dados reais da empresa.</span></li>
-        <li><span><b>Encontrar o cliente</b>A Prospecção Automática leva o site até o dono pelo WhatsApp e pelo e-mail profissional.</span></li>
-        <li><span><b>Cobrar depois</b>O dono vê o negócio dele pronto e só então se fala em preço.</span></li>
-        <li><span><b>Ir além do site</b>Com o Dando Vida a Sistemas com IA você coloca software no ar, com banco de dados e domínio próprio, pra vender como sistema.</span></li>
-      </ol>
-    </div>
-
-    <div class="bloco-p">
-      <span class="rot">QUANTO VAI TE CUSTAR</span>
-      <h3>Pouco tempo, zero código <span class="it">e risco nenhum.</span></h3>
-      <div class="zero">
-        <div><small>TEMPO</small><b>&lt; 20 min</b><p>por site pronto pra vender, depois de instalar uma vez.</p></div>
-        <div><small>ESFORÇO</small><b>1 prompt</b><p>pra instalar a máquina. Você copia, cola e ela se monta.</p></div>
-        <div><small>CUSTO</small><b>IA grátis</b><p>Codex e Antigravity têm plano gratuito. O resto é R$ 97, uma vez.</p></div>
-        <div><small>RISCO</small><b>7 dias</b><p>de garantia. Não funcionou pra você, o dinheiro volta inteiro.</p></div>
-      </div>
-    </div>
-
-    <div class="bloco-p" id="oferta">
-      <span class="rot">SUA OFERTA</span>
-      <h3>Os 3 produtos <span class="it">por menos de R$ 100.</span></h3>
-      <div class="oferta">
-        <ul class="itens">
-          <li><b>Máquina de Sites</b><span>R$ 297</span></li>
-          <li><b>Prospecção Automática</b><span>R$ 197</span></li>
-          <li><b>Dando Vida a Sistemas com IA</b><span>R$ 197</span></li>
-        </ul>
-        <div class="de">De R$ 691</div>
-        <div class="por"><small>R$</small>97</div>
-        <div class="cond">os 3 produtos · pagamento único · acesso imediato</div>
-        <a class="btn" href="https://pay.kiwify.com.br/3gfOYoK" data-checkout data-local="quiz">QUERO OS 3 POR R$ 97 →</a>
-        <div class="garantia"><span class="s">7<br>DIAS</span>
-          <p><b>O risco é meu.</b> Seguiu o método e não funcionou pra você? Pede o dinheiro de volta em
-            até 7 dias e recebe tudo, sem pergunta chata.</p></div>
-      </div>
-    </div>
-
-    <div class="bloco-p">
-      <span class="rot">DÚVIDAS</span>
-      <h3>Antes de você decidir</h3>
-      <div class="faq">
-        <details><summary>Preciso saber programar?</summary>
-          <p>Não. Você instala a máquina uma vez, fala o que quer e a IA executa o passo a passo.</p></details>
-        <details><summary>Preciso pagar alguma IA?</summary>
-          <p>Não precisa. Codex e Antigravity têm plano gratuito. O Claude Code pede no mínimo o plano Pro.</p></details>
-        <details><summary>Qual a diferença entre site e software?</summary>
-          <p>O site apresenta o negócio. O software é um sistema que a empresa usa no dia a dia, com login
-            e banco de dados, como o Regulariza. O Dando Vida te ensina a colocar esse tipo de sistema no ar.</p></details>
-        <details><summary>Como recebo o acesso?</summary>
-          <p>Assim que o pagamento é aprovado, o login chega no seu e-mail. Pix cai na hora.</p></details>
-      </div>
-    </div>
-
-    <div class="final-cta">
-      <a class="btn" href="https://pay.kiwify.com.br/3gfOYoK" data-checkout data-local="quiz-final">COMEÇAR AGORA POR R$ 97 →</a>
-      <span class="sub">7 dias de garantia · acesso imediato · pagamento único</span>
-    </div>
-    <a class="mais-info" href="/" id="ver-pagina">Quero ver a página completa antes</a>
-  </section>
-</main>
-
-<div class="fixo" id="fixo" aria-hidden="true">
-  <span class="p"><s>R$ 691</s> 3 por R$ 97</span>
-  <a class="btn" href="https://pay.kiwify.com.br/3gfOYoK" data-checkout data-local="quiz-fixo" tabindex="-1">QUERO COMEÇAR</a>
+<div class="wrap">
+  <div class="top"><button class="back" id="back" aria-label="Voltar">←</button><div class="bar"><i id="prog"></i></div></div>
+  <div id="app"></div>
 </div>
-
-<footer>MÁQUINA DE SITES · Método da Entrega Invertida<br>
-Os valores de venda citados são de projetos reais do autor e não representam promessa de ganho.<br>
-Resultados dependem da execução individual e do mercado local. Não há garantia de faturamento.</footer>
-
 <script>
-/* ------------------------------------------------------------------
-   LINK DO CHECKOUT NA KIWIFY. Mesmo checkout de R$ 97 da página principal.
-   ------------------------------------------------------------------ */
-const CHECKOUT_URL = "https://pay.kiwify.com.br/3gfOYoK";
-/* Convite do grupo VIP do WhatsApp (bônus de quem termina o quiz). */
-const GRUPO_URL = "https://chat.whatsapp.com/B5dbcw1bLQvBgvt9q1TApy";
-/* Endpoint que guarda o contato: Apps Script da planilha "Leads Quiz - Máquina de Sites"
-   (fonte em 08. Leads Quiz/apps-script.gs). Vazio = não envia. */
-const LEAD_URL = "https://script.google.com/macros/s/AKfycbwgdxdIRLWQvyfM-7tMuNAQ9etZUd9h1IGSXuPHKxJEIO6WLrdJdtUD8cpH-WttcT8Q/exec";
-/* Mesmos dados de produto da página principal, para a Meta ler os dois como o mesmo produto. */
-const PRODUTO = { nome: "Maquina de Sites", id: "89zpxmz", valor: 97.99, moeda: "BRL" };
+/* ===== CONFIG ===== */
+/* Checkout de R$ 97 na Kiwify (mesmo da página principal). */
+const CHECKOUT_URL='https://pay.kiwify.com.br/3gfOYoK';
+/* Convite do grupo VIP do WhatsApp (bônus de quem deixa o contato). */
+const GRUPO_URL='https://chat.whatsapp.com/B5dbcw1bLQvBgvt9q1TApy';
+/* Apps Script da planilha "Leads Quiz - Máquina de Sites" (fonte: 08. Leads Quiz/apps-script.gs).
+   O mesmo WhatsApp vira uma linha só: etapa "início" e depois "concluiu". */
+const LEAD_URL='https://script.google.com/macros/s/AKfycbwgdxdIRLWQvyfM-7tMuNAQ9etZUd9h1IGSXuPHKxJEIO6WLrdJdtUD8cpH-WttcT8Q/exec';
+/* Mesmos dados de produto da página principal, pra Meta ler como o mesmo produto. */
+const PRODUTO={nome:'Maquina de Sites',id:'89zpxmz',valor:97.99,moeda:'BRL'};
 
-/* Repassa UTMs e fbclid para o checkout. Se a pessoa chegou sem utm_content,
-   marca "quiz" para a venda ficar identificável na Kiwify. */
-var entrada = new URLSearchParams(location.search);
-var repasse = new URLSearchParams();
-['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(function(k){
-  var v = entrada.get(k); if (v) repasse.set(k, v);
-});
-if (!repasse.get('utm_content')) repasse.set('utm_content', 'quiz');
-/* sck é o campo de origem da Kiwify: toda venda que passa pelo quiz chega marcada,
-   mesmo que o anúncio não tenha mandado UTM nenhuma. */
-repasse.set('sck', 'quiz');
-var destino = CHECKOUT_URL + '?' + repasse.toString();
-document.querySelectorAll('[data-checkout]').forEach(function(a){ a.href = destino; });
-document.getElementById('ver-pagina').href = '/' + (location.search || '');
+/* Eventos e envio de contato só saem do domínio oficial: prévia ou teste local não sujam pixel nem planilha. */
+const DOMINIO_OK=/(^|\.)maquinadesites\.online$/.test(location.hostname);
+function px(ev,d){if(DOMINIO_OK&&window.fbq&&window.META_PIXEL_ID)fbq('track',ev,d||{})}
+function pxc(ev,d){if(DOMINIO_OK&&window.fbq&&window.META_PIXEL_ID)fbq('trackCustom',ev,d||{})}
 
-/* Eventos só saem do domínio oficial: teste local ou prévia não suja o pixel. */
-var DOMINIO_OK = /(^|\.)maquinadesites\.online$/.test(location.hostname);
-function metaTrack(evento, dados){ if (DOMINIO_OK && window.fbq && window.META_PIXEL_ID) fbq('track', evento, dados || {}); }
-function metaCustom(evento, dados){ if (DOMINIO_OK && window.fbq && window.META_PIXEL_ID) fbq('trackCustom', evento, dados || {}); }
+/* ===== UTMs: repassa pro checkout e marca toda venda do quiz com sck=quiz na Kiwify ===== */
+const Q=new URLSearchParams(location.search);
+const repasse=new URLSearchParams();
+['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(k=>{if(Q.get(k))repasse.set(k,Q.get(k))});
+if(!repasse.get('utm_content'))repasse.set('utm_content','quiz');
+repasse.set('sck','quiz');
+const DESTINO=CHECKOUT_URL+'?'+repasse.toString();
 
-/* ------------------------------------------------------------------
-   ROTEIRO: quebra-gelo, dor, desejo e ponte, com microconteúdos no meio.
-   Cada item é uma pergunta {id,...} ou um microconteúdo {micro:'id-da-tela'}.
-   ------------------------------------------------------------------ */
-var ROTEIRO = [
-  { bloco:'QUEBRA-GELO', id:'perfil', t:'Como você se vê hoje?', a:'Só pra eu entender de onde você parte.',
-    o:[['clt','Trabalho de carteira assinada e quero uma renda extra'],['autonomo','Sou autônomo ou freelancer'],['dono','Tenho um negócio próprio'],['zero','Estou começando do zero']] },
-  { bloco:'QUEBRA-GELO', id:'ia', t:'Qual IA você usa hoje?', a:'',
-    o:[['nenhuma','Nenhuma ainda'],['gpt','ChatGPT ou Codex'],['claude','Claude'],['google','Gemini ou Antigravity']] },
-  { micro:'m-ia' },
-  { bloco:'DOR', id:'incomoda', t:'O que mais te incomoda hoje?', a:'Escolha a que pesa mais.',
-    o:[['renda','Minha renda travou e não sai do lugar'],['tempo','Trabalho muito e ganho pouco'],['servico','Não tenho um serviço pra oferecer'],['vender','Já tentei vender e ninguém comprou']] },
-  { bloco:'DOR', id:'tentou', t:'Você já tentou vender site ou algum serviço digital?', a:'',
-    o:[['nunca','Nunca tentei'],['pensar','Tentei e ouvi "vou pensar e te falo"'],['portfolio','Tentei, mas me pediram portfólio e eu não tinha'],['vendo','Já vendo e quero vender mais']] },
-  { micro:'m-site' },
-  { bloco:'DOR', id:'criou', t:'Você já criou alguma coisa com IA?', a:'Site, sistema, calculadora, qualquer coisa.',
-    o:[['nunca','Nunca criei nada'],['preso','Já criei, mas ficou preso no chat da IA'],['publicou','Já criei e publiquei']] },
-  { bloco:'DOR', id:'codigo', t:'Quanto você sabe de programação?', a:'Sem resposta errada aqui.',
-    o:[['zero','Nada, zero'],['basico','O básico'],['sabe','Sei programar']] },
-  { bloco:'DOR', id:'trava', t:'E o que mais te trava pra começar?', a:'',
-    o:[['clientes','Não sei pra quem vender nem como achar cliente'],['portfolio','Não tenho portfólio pra mostrar'],['cobrar','Não sei quanto cobrar'],['publicar','Não sei publicar, ligar banco de dados ou domínio'],['comeco','Não sei por onde começar']] },
-  { micro:'m-prosp' },
-  { bloco:'DESEJO', id:'meta', t:'Quanto você quer fazer por mês com isso nos próximos 90 dias?', a:'Pensa num número que mudaria o seu mês.',
-    o:[['1k','Até R$ 1.000'],['3k','De R$ 1.000 a R$ 3.000'],['5k','De R$ 3.000 a R$ 5.000'],['5k+','Mais de R$ 5.000']] },
-  { bloco:'DESEJO', id:'faria', t:'E o que você faria com esse dinheiro?', a:'',
-    o:[['clt','Sairia da carteira assinada'],['contas','Colocaria as contas em dia'],['negocio','Investiria no meu negócio'],['liberdade','Teria liberdade de horário']] },
-  { bloco:'DESEJO', id:'software', t:'Além de sites, você criaria um software com IA pra vender?', a:'Um sistema que a empresa usa no dia a dia, com login e banco de dados.',
-    o:[['ideia','Sim, já tenho até uma ideia'],['talvez','Talvez, quero entender melhor'],['nao','Não, quero focar em sites']] },
-  { micro:'m-software' },
-  { bloco:'PONTE', id:'abordagem', t:'Se o site do negócio ficasse pronto, você mandaria pro dono?', a:'É assim que a Entrega Invertida fecha venda.',
-    o:[['sim','Sim, sem problema'],['auto','Prefiro que vá de forma automática'],['nao','Prefiro não vender pra empresas']] },
-  { bloco:'PONTE', id:'tempo', t:'Quanto tempo por dia você consegue dedicar?', a:'',
-    o:[['30','Menos de 30 minutos'],['60','Cerca de 1 hora'],['120','2 horas ou mais']] },
-  { bloco:'PONTE', id:'agora', t:'Se existisse um caminho com os 3 juntos por menos de R$ 100, você começaria hoje?', a:'',
-    o:[['hoje','Sim, começaria hoje'],['ver','Quero ver como funciona antes'],['depois','Agora não é o momento']] }
+/* ===== FLUXO ===== */
+const S=[
+ {id:'sexo',t:'q',h:'Você é Homem ou Mulher?',intro:true,two:true,o:[['👨','Homem'],['👩','Mulher']]},
+ {id:'contato',t:'captura'},
+ {id:'idade',t:'q',h:'Qual a sua idade?',o:[['','18-29'],['','30-39'],['','40-49'],['','50 ou mais']]},
+ {id:'ia',t:'q',h:'Você já usou inteligência artificial (ChatGPT, Claude, Gemini)?',o:[['🔥','Uso todo dia'],['👍','Já usei algumas vezes'],['🤔','Conheço, mas nunca usei'],['🙅','Nunca usei']]},
+ {id:'negocios',t:'q',h:'Na sua cidade, você conhece negócios locais com site ruim ou sem site nenhum?',sub:'(clínica, dentista, academia, restaurante, advogado...)',o:[['🎯','Conheço vários'],['👀','Conheço alguns'],['❓','Nunca reparei']]},
+ {id:'i1',t:'info',h:'Você NÃO precisa saber programar',body:`<p class="sub">Hoje a inteligência artificial monta um site completo, bonito e pronto pra publicar. <b>Você só precisa saber dar a direção.</b></p>
+  <div class="card"><div class="big">-20 min</div><p style="margin-top:8px">é o tempo pra deixar o site de um negócio local pronto pra vender e apresentado direto pra empresa, usando a Máquina de Sites.</p></div>
+  <div class="card"><h3>Como funciona na prática</h3><p>Em vez de ligar pra dono de empresa e implorar pra ele comprar um site, você <b style="color:var(--ink)">faz o site antes</b>, manda pronto pro dono e só então fala de preço. É o <span class="hl">Método da Entrega Invertida</span>.</p></div>`},
+ {id:'renda',t:'q',h:'Quanto você ganha hoje, em média, por mês?',o:[['','Menos de R$ 1.500'],['','R$ 1.500 a R$ 3.000'],['','R$ 3.000 a R$ 5.000'],['','Mais de R$ 5.000'],['','Não tenho renda atualmente']]},
+ {id:'contente',t:'q',h:'Você está contente com o que ganha hoje?',o:[['😣','Não dá nem pra pagar as contas direito'],['😕','Nem um pouco contente'],['😐','Poderia estar melhor']]},
+ {id:'deixou',t:'q',h:'Você já deixou de fazer algo importante pra você ou pra sua família por falta de dinheiro?',o:[['💔','Sim, já aconteceu'],['🙂','Não']]},
+ {id:'i2',t:'info',h:'Renda extra não precisa ser outro emprego',body:`<p class="sub">Quase todo mundo acha que ganhar mais significa <b>trabalhar mais horas</b>. A Máquina de Sites foi desenhada pra caber na vida de quem já está cansado.</p>
+  <div class="vs"><div class="a"><h4>Jeito comum</h4><ul><li>Cursar meses antes de começar</li><li>Montar portfólio do zero</li><li>Mandar mensagem uma por uma</li><li>Anúncio pago pra achar cliente</li></ul></div>
+  <div class="d"><h4>Entrega Invertida</h4><ul><li>Instala e começa no mesmo dia</li><li>1º site já vira portfólio</li><li>O dono vê o site pronto antes</li><li>Prospecção automática pelo WhatsApp e e-mail</li></ul></div></div>`},
+ {id:'trava',t:'q',h:'O que mais te trava na hora de começar uma renda digital?',o:[['🧑‍💻','Achar que preciso saber programar'],['📂','Não ter portfólio nem experiência'],['🗣️','Não saber como vender'],['😨','Medo de ser enganado'],['💸','Achar que custa muito caro']]},
+ {id:'i3',t:'info',h:'Seu bloqueio tem solução',body:`<p class="sub">A Máquina de Sites ataca justamente os 3 bloqueios que mais travam iniciante:</p>
+  <div class="flow"><div><b>1</b><span><strong>Sem portfólio</strong>O primeiro site que você cria já vira a sua vitrine.</span></div>
+  <div><b>2</b><span><strong>Sem saber pra quem vender</strong>A Prospecção Automática leva o site pronto até o dono, pelo WhatsApp e pelo e-mail.</span></div>
+  <div><b>3</b><span><strong>Sem "vai achar caro"</strong>O dono vê o site pronto antes de ouvir qualquer preço.</span></div></div>`},
+ {id:'aparecer',t:'q',h:'Sabia que dá pra fazer renda criando sites SEM aparecer?',sub:'Sem gravar vídeo, sem mostrar o rosto, sem seguidores.',o:[['🙋','Já quero começar'],['🤯','Não sabia!'],['🔎','Quero descobrir como']]},
+ {id:'primeiro',t:'q',h:'Qual seria a 1ª coisa que você faria se, daqui a 1 mês, entrasse R$ 1.500 a mais por mês?',sub:'(exemplo de cenário, o resultado depende da sua execução)',o:[['🚀','Sairia do meu emprego pra focar nisso'],['👨‍👩‍👧','Daria uma condição melhor pra minha família'],['✈️','Planejaria uma viagem'],['📈','Investiria o dinheiro']]},
+ {id:'tempo',t:'q',h:'Quanto tempo por dia você tem pra uma renda extra?',sub:'(sem sair de casa)',o:[['⏳','Menos de 30 min'],['⏰','30 min a 1h'],['🕒','1 a 2 horas'],['🔥','Mais de 2 horas']]},
+ {id:'i4',t:'info',h:'JÁ PODE SER UMA REALIDADE!',body:`<p class="sub">Estamos calculando o seu perfil para a Máquina de Sites.</p><p class="sub"><b>Com 1 hora por dia</b> já dá pra montar o 1º site e apresentar pro 1º dono de negócio, sem largar o seu emprego.</p>`},
+ {id:'motivo',t:'q',h:'Hoje a sua maior motivação é...',o:[['','Renda extra imediata'],['','Sair do emprego atual'],['','Liberdade financeira'],['','Viver da internet']]},
+ {id:'load',t:'load'},
+ {id:'resultado',t:'result'},
+ {id:'comprometimento',t:'q',h:'Quão disposto(a) você está a começar HOJE?',o:[['🔥','Não vou parar até conseguir'],['🤔','Ainda não tenho certeza se consigo'],['👀','Só estou curioso(a) pra tentar']]},
+ {id:'antesdepois',t:'info',h:'Antes x Depois de ter a Máquina de Sites',body:`<div class="vs"><div class="a"><h4>Antes</h4><ul><li>Renda dependendo de um único salário</li><li>Sem portfólio</li><li>Sem saber como chegar no cliente</li><li>Estresse com as contas</li></ul></div>
+  <div class="d"><h4>Depois</h4><ul><li>Uma habilidade que o mercado local paga</li><li>Sites prontos como vitrine</li><li>Prospecção automática pelo WhatsApp e e-mail</li><li>Renda extra que você controla</li></ul></div></div>
+  <p class="note" style="margin-top:16px">Resultados variam de pessoa pra pessoa e dependem de dedicação e execução. Não prometemos ganhos.</p>`},
+ {id:'plano',t:'plano'},
+ {id:'oferta',t:'oferta'}
 ];
-var R = {}, i = 0, iniciou = false, metade = false;
+const META_I=Math.floor(S.length/2);
 
-/* Relevância pessoal: a explicação de cada pergunta passa a citar o que a pessoa já respondeu. */
-var AJUDA = {
-  incomoda: function(){ return {
-    clt:'Quem tem carteira assinada costuma ter <b>pouco tempo sobrando</b>. Por isso o caminho precisa ser curto.',
-    autonomo:'Quem é autônomo sabe: <b>sem cliente novo, o mês não fecha</b>.',
-    dono:'Dono de negócio já sabe vender. A questão é <b>ter mais uma fonte de receita</b>.',
-    zero:'Começar do zero tem uma vantagem: <b>você não tem vício nenhum pra desaprender</b>.' }[R.perfil]; },
-  tentou: function(){ return R.incomoda === 'vender'
-    ? 'Você disse que já tentou e ninguém comprou. <b>Isso tem uma causa</b>, e ela aparece já já.' : ''; },
-  criou: function(){ return R.ia === 'nenhuma'
-    ? 'Tudo bem se nunca criou. <b>A máquina faz a parte técnica.</b>'
-    : 'Você já usa ' + ({gpt:'ChatGPT',claude:'Claude',google:'Gemini'}[R.ia]) + '. Isso <b>já te coloca na frente</b> de quem vai começar.'; },
-  trava: function(){ return R.tentou === 'portfolio'
-    ? 'Você já disse que te pediram portfólio. <b>Guarda essa resposta</b>, ela muda no seu diagnóstico.' : ''; },
-  meta: function(){ return 'Os sites que eu vendi saíram <b>de R$ 1.000 a R$ 3.000 cada</b>. Use isso de referência.'; },
-  software: function(){ return R.criou === 'preso'
-    ? 'Você contou que já criou algo e <b>ficou preso no chat</b>. Essa pergunta é sobre isso.' : 'Um sistema que a empresa usa no dia a dia, com login e banco de dados.'; },
-  agora: function(){ return 'Sua meta é chegar em ' + ({'1k':'até R$ 1.000','3k':'R$ 1.000 a R$ 3.000','5k':'R$ 3.000 a R$ 5.000','5k+':'mais de R$ 5.000'}[R.meta]) + ' por mês. <b>Um único site vendido já paga os R$ 97 mais de dez vezes.</b>'; }
-};
-var $ = function(id){ return document.getElementById(id); };
+/* ===== ESTADO ===== */
+const A={},H=[];let i=0,contato=null,iniciou=false,metade=false,concluiu=false;
+const app=document.getElementById('app'),prog=document.getElementById('prog'),backBtn=document.getElementById('back');
 
-function mostra(id){
-  document.querySelectorAll('.tela').forEach(function(s){ s.classList.remove('on'); });
-  $(id).classList.add('on'); window.scrollTo({top:0, behavior:'smooth'});
+/* ===== CONTATO (planilha) ===== */
+function mascaraFone(el){el.addEventListener('input',()=>{let d=el.value.replace(/\D/g,'').replace(/^55(?=\d{10,11}$)/,'').slice(0,11),f=d;
+ if(d.length>2)f='('+d.slice(0,2)+') '+d.slice(2);if(d.length>7)f='('+d.slice(0,2)+') '+d.slice(2,d.length-4)+'-'+d.slice(-4);el.value=f})}
+function lerContato(d){
+ const nome=d.querySelector('#nome').value.trim(),email=d.querySelector('#mail').value.trim(),zap=d.querySelector('#zap').value.replace(/\D/g,'');
+ const ok={nome:nome.length>=2,mail:/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email),zap:zap.length===10||zap.length===11};
+ Object.keys(ok).forEach(k=>d.querySelector('#'+k).parentNode.classList.toggle('erro',!ok[k]));
+ if(!ok.nome||!ok.mail||!ok.zap){d.querySelector('#err').textContent=!ok.nome?'Escreve seu nome.':!ok.zap?'Confere o WhatsApp com DDD.':'Confere o e-mail.';return null}
+ d.querySelector('#err').textContent='';
+ return{nome,email,whatsapp:zap,hp:d.querySelector('#hp').value};
 }
-function progresso(){
-  $('barra').style.width = Math.round(i / ROTEIRO.length * 100) + '%';
-  var pct = Math.round(i / ROTEIRO.length * 100);
-  $('passo').textContent = i >= ROTEIRO.length ? '' : (ROTEIRO.length - i <= 3 ? 'Falta pouco' : pct + '% concluído');
-}
-function renderiza(){
-  var q = ROTEIRO[i];
-  progresso();
-  if (q.micro){ mostra(q.micro); return; }
-  $('p-bloco').textContent = q.bloco;
-  $('p-titulo').textContent = q.t;
-  var ajuda = (AJUDA[q.id] && AJUDA[q.id]()) || q.a;
-  $('p-ajuda').innerHTML = ajuda; $('p-ajuda').style.display = ajuda ? '' : 'none';
-  var box = $('p-opcoes'); box.innerHTML = '';
-  q.o.forEach(function(op, n){
-    var b = document.createElement('button');
-    b.type = 'button'; b.className = 'op' + (R[q.id] === op[0] ? ' sel' : '');
-    b.innerHTML = '<span class="l">' + 'ABCDE'[n] + '</span><span></span>';
-    b.lastChild.textContent = op[1];
-    b.addEventListener('click', function(){ responde(q.id, op[0], b); });
-    box.appendChild(b);
-  });
-  mostra('t-pergunta');
-}
-function avanca(){
-  i++;
-  if (!metade && i >= Math.floor(ROTEIRO.length / 2)){ metade = true; metaCustom('QuizMetade'); }
-  if (i < ROTEIRO.length) renderiza(); else pedeContato();
-}
-function responde(id, valor, el){
-  R[id] = valor; el.classList.add('sel');
-  if (!iniciou){ iniciou = true; metaCustom('QuizIniciado'); }
-  setTimeout(avanca, 220);
-}
-$('comecar').addEventListener('click', function(){ i = 0; renderiza(); });
-document.querySelectorAll('[data-seguir]').forEach(function(b){ b.addEventListener('click', avanca); });
-document.querySelectorAll('[data-voltar]').forEach(function(b){ b.addEventListener('click', function(){
-  if (i > 0){ i--; renderiza(); } else { mostra('t-intro'); $('barra').style.width = '0'; $('passo').textContent = ''; }
-}); });
-
-/* ------------------------------------------------------------------
-   AVALIAÇÃO: espelha as respostas e monta o plano
-   ------------------------------------------------------------------ */
-function calcFoco(){
-  var foco = 'sites';
-  if (R.software === 'ideia' || R.criou === 'preso') foco = 'software';
-  if (R.trava === 'clientes' || R.abordagem === 'auto') foco = (foco === 'software') ? 'tudo' : 'prospeccao';
-  if (R.abordagem === 'nao') foco = 'software';
-  return foco;
-}
-
-/* ------------------------------------------------------------------
-   CONTATO: pega nome, WhatsApp e e-mail antes do resultado, pra recuperar
-   quem não compra. Se o envio falhar, o resultado aparece mesmo assim.
-   ------------------------------------------------------------------ */
-var contato = null; /* {nome, whatsapp, email} assim que a pessoa deixa o contato */
-function mascaraFone(){
-  var d = this.value.replace(/\D/g, '').replace(/^55(?=\d{10,11}$)/, '').slice(0, 11);
-  var f = d;
-  if (d.length > 2) f = '(' + d.slice(0,2) + ') ' + d.slice(2);
-  if (d.length > 7) f = '(' + d.slice(0,2) + ') ' + d.slice(2, d.length - 4) + '-' + d.slice(-4);
-  this.value = f;
-}
-$('c-whats').addEventListener('input', mascaraFone);
-$('i-whats').addEventListener('input', mascaraFone);
-
-/* lê e valida o formulário de prefixo p ('i' = início, 'c' = antes do resultado) */
-function lerContato(p){
-  var nome = $(p + '-nome').value.trim(), whats = $(p + '-whats').value.replace(/\D/g, ''), email = $(p + '-email').value.trim();
-  var erros = [];
-  [[p + '-nome', nome.length >= 2], [p + '-whats', whats.length === 10 || whats.length === 11], [p + '-email', /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)]]
-    .forEach(function(c){ $(c[0]).parentNode.classList.toggle('erro', !c[1]); if (!c[1]) erros.push(c[0]); });
-  if (erros.length){
-    var e0 = erros[0].slice(2);
-    $(p + '-erro').textContent = e0 === 'whats' ? 'Confere o WhatsApp com DDD.' : e0 === 'email' ? 'Confere o e-mail.' : 'Escreve seu nome.';
-    $(erros[0]).focus(); return null;
-  }
-  $(p + '-erro').textContent = '';
-  return { nome: nome, whatsapp: whats, email: email, hp: $(p + '-hp').value };
-}
-
-/* manda pra planilha. etapa 'inicio' (só o contato) ou 'concluiu' (com as respostas).
-   O mesmo WhatsApp vira uma linha só na planilha. */
+/* Colunas da planilha: "Caminho" = sexo e idade, "Trava", "Meta" = renda atual, "Começaria" = disposição. */
+const CURTO=t=>String(t||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9$.,+ -]/g,'').trim().slice(0,20);
 function enviaLead(etapa){
-  if (!contato || !LEAD_URL || !DOMINIO_OK) return Promise.resolve();
-  var utm = {}; repasse.forEach(function(v, k){ if (k !== 'fbclid') utm[k] = v; });
-  var corpo = JSON.stringify({ nome: contato.nome, whatsapp: contato.whatsapp, email: contato.email, hp: contato.hp,
-    etapa: etapa, respostas: etapa === 'inicio' ? {} : R, foco: etapa === 'inicio' ? '' : calcFoco(),
-    utm: utm, pagina: location.pathname + location.search });
-  /* text/plain + no-cors: o Google não aceita a pré-checagem de CORS, então envia sem ler a resposta */
-  return fetch(LEAD_URL, { method: 'POST', mode: 'no-cors', headers: { 'content-type': 'text/plain;charset=utf-8' }, body: corpo, keepalive: true });
+ if(!contato||!LEAD_URL||!DOMINIO_OK)return Promise.resolve();
+ const utm={};repasse.forEach((v,k)=>{if(k!=='fbclid')utm[k]=v});
+ const fim=etapa!=='inicio';
+ const resp=fim?Object.assign({},A,{trava:CURTO(A.trava),meta:CURTO(A.renda),agora:CURTO(A.comprometimento)}):{};
+ const corpo=JSON.stringify({nome:contato.nome,email:contato.email,whatsapp:contato.whatsapp,hp:contato.hp,etapa:fim?'concluiu':'inicio',
+  respostas:resp,foco:fim?CURTO((A.sexo||'')+' '+(A.idade||'')):'',utm,pagina:location.pathname+location.search});
+ /* text/plain + no-cors: o Google não aceita a pré-checagem de CORS, então envia sem ler a resposta */
+ return fetch(LEAD_URL,{method:'POST',mode:'no-cors',headers:{'content-type':'text/plain;charset=utf-8'},body:corpo,keepalive:true}).catch(()=>{});
 }
+const CAMPOS=`<div class="field"><label>Primeiro nome</label><input id="nome" autocomplete="given-name" placeholder="Seu nome"></div>
+ <div class="field"><label>WhatsApp (com DDD)</label><input id="zap" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="(00) 00000-0000"></div>
+ <div class="field"><label>E-mail</label><input id="mail" type="email" inputmode="email" autocomplete="email" placeholder="seu@email.com"></div>
+ <input class="hp" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+ <div class="err" id="err" role="alert"></div>`;
+const BONUS=`<div class="bonus"><h3>🎁 Grupo VIP no WhatsApp</h3><ul>
+ <li>Novidades em primeira mão</li><li>Os nichos que mais compram site</li><li>Os sistemas que as empresas mais compram</li>
+ <li><b>Um bônus especial só pra quem está no grupo</b></li></ul></div>`;
+const LGPD=`<p class="lock">🔒 Seus dados ficam só com a gente. Ao enviar, você aceita receber o seu resultado e novidades por WhatsApp e e-mail. Pra sair, é só pedir.</p>`;
 
-/* início: contato + bônus, depois as perguntas */
-$('f-inicio').addEventListener('submit', function(ev){
-  ev.preventDefault();
-  var c = lerContato('i'); if (!c) return;
-  contato = c;
-  metaTrack('Lead', { content_name: 'quiz', momento: 'inicio' });
-  enviaLead('inicio').catch(function(){});
-  i = 0; renderiza();
-});
-
-/* fim: quem já deixou o contato vai direto pro resultado; quem pulou, vê o formulário */
-function pedeContato(){
-  $('barra').style.width = '100%'; $('passo').textContent = 'Último passo';
-  if (contato){ enviaLead('concluiu').catch(function(){}); finaliza(); return; }
-  mostra('t-contato');
-  setTimeout(function(){ try { $('c-nome').focus({preventScroll:true}); } catch(e){} }, 450);
+/* ===== RENDER ===== */
+function go(n,push=true){if(push)H.push(i);i=n;render()}
+function render(){
+ let s=S[i];
+ /* quem já deixou o contato não vê o formulário de novo */
+ if(s.t==='captura'&&contato){i++;s=S[i]}
+ window.scrollTo(0,0);
+ prog.style.width=Math.round(i/(S.length-1)*100)+'%';
+ backBtn.style.visibility=(H.length&&s.t!=='load')?'visible':'hidden';
+ if(!metade&&i>=META_I){metade=true;pxc('QuizMetade')}
+ app.innerHTML='';const d=document.createElement('div');d.className='step';app.appendChild(d);
+ ({q,info,load,result,plano,oferta,captura})[s.t](s,d);
 }
-$('c-voltar').addEventListener('click', function(){ i = ROTEIRO.length - 1; renderiza(); });
-$('f-contato').addEventListener('submit', function(ev){
-  ev.preventDefault();
-  var c = lerContato('c'); if (!c) return;
-  contato = c; $('c-enviar').disabled = true;
-  metaTrack('Lead', { content_name: 'quiz', momento: 'final', foco: calcFoco() });
-  var seguiu = false;
-  function segue(){ if (!seguiu){ seguiu = true; finaliza(); } }
-  enviaLead('concluiu').then(segue, segue);
-  setTimeout(segue, 2500);
-});
-
-function finaliza(){
-  $('barra').style.width = '100%'; $('passo').textContent = '';
-  mostra('t-analise');
-  var itens = $('a-lista').querySelectorAll('li');
-  itens.forEach(function(li, n){ setTimeout(function(){ li.classList.add('ok'); }, 500 + n * 600); });
-  setTimeout(montaResultado, 500 + itens.length * 600 + 300);
+function q(s,d){
+ let h='';
+ if(s.intro)h+=`<span class="tag">Preencha o quiz e descubra se você está pronto:</span><h1>Crie sites com <em>IA</em> e venda pra negócios da sua cidade</h1><p class="sub"><b>Descubra se você está qualificado</b> pra fazer renda extra com a Máquina de Sites.</p><p class="sub" style="font-size:12px;letter-spacing:.06em">↓ RESPONDA PARA COMEÇAR ↓</p><h2 style="margin-top:26px;font-size:22px">${s.h}</h2>`;
+ else h+=`<h2>${s.h}</h2>`+(s.sub?`<p class="sub">${s.sub}</p>`:'');
+ h+=`<div class="opts ${s.two?'two':''}">`+s.o.map((o,k)=>`<button class="opt" data-k="${k}">${o[0]?`<span class="e">${o[0]}</span>`:''}<span>${o[1]}</span></button>`).join('')+'</div>';
+ d.innerHTML=h;
+ d.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{b.classList.add('sel');A[s.id]=s.o[b.dataset.k][1];
+  if(!iniciou){iniciou=true;pxc('QuizIniciado')}
+  setTimeout(()=>go(i+1),220)});
 }
-function item(titulo, texto){ return '<li><b>' + titulo + '</b>' + texto + '</li>'; }
-function esc(s){ return String(s).replace(/[&<>]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]; }); }
-
-function montaResultado(){
-  var PERFIL = { clt:'trabalha de carteira assinada e quer uma renda extra', autonomo:'é autônomo e vive do próprio trabalho',
-                 dono:'tem um negócio próprio', zero:'está começando do zero' };
-  var DOR = { renda:'sua renda travou', tempo:'trabalha muito e ganha pouco', servico:'falta um serviço pra oferecer',
-              vender:'já tentou vender e ninguém comprou' };
-  var META = { '1k':'até R$ 1.000', '3k':'entre R$ 1.000 e R$ 3.000', '5k':'entre R$ 3.000 e R$ 5.000', '5k+':'mais de R$ 5.000' };
-  var TRAVA = { clientes:'não saber pra quem vender', portfolio:'não ter portfólio', cobrar:'não saber quanto cobrar',
-                publicar:'não saber publicar', comeco:'não saber por onde começar' };
-  var TEMPO = { '30':'menos de 30 minutos', '60':'cerca de 1 hora', '120':'2 horas ou mais' };
-
-  var espelho = 'Você ' + PERFIL[R.perfil] + ', sente que ' + DOR[R.incomoda] + ' e quer chegar em ' + META[R.meta] +
-    ' por mês. Hoje o que te segura é ' + TRAVA[R.trava] + ', e você tem ' + TEMPO[R.tempo] +
-    ' por dia. Pelas suas respostas, você tem o perfil certo pra começar agora.';
-
-  var foco = calcFoco();
-
-  var TITULO = {
-    sites: 'Seu caminho começa pela <span class="it">Máquina de Sites.</span>',
-    prospeccao: 'Seu caminho é <span class="it">site pronto + prospecção automática.</span>',
-    software: 'Seu caminho passa por <span class="it">software com IA.</span>',
-    tudo: 'Você vai usar <span class="it">os 3 produtos.</span>'
-  };
-
-  var plano = [];
-  plano.push(R.ia === 'claude'
-    ? item('Sua IA já serve', 'Você usa Claude: o Claude Code pede no mínimo o plano Pro. Se quiser começar sem custo, Codex e Antigravity têm plano gratuito.')
-    : item('Você começa sem pagar IA', 'A máquina roda no Codex e no Antigravity, que têm plano gratuito.'));
-
-  var passo1 = {
-    sites: ['Passo 1: seu primeiro site pronto', 'Escolha um negócio da sua cidade e deixe o site dele pronto pra vender em menos de 20 minutos.'],
-    prospeccao: ['Passo 1: site pronto e prospecção ligada', 'Monte o primeiro site e deixe a Prospecção Automática levar até o dono pelo WhatsApp e pelo e-mail.'],
-    software: ['Passo 1: seu software no ar', 'Com o Dando Vida você publica no GitHub, liga o banco de dados e coloca no seu domínio, pra vender como sistema.'],
-    tudo: ['Passo 1: os três em sequência', 'Site pronto, prospecção levando até o cliente e, em paralelo, seu software saindo do chat pro ar.']
-  }[foco];
-  plano.push(item(passo1[0], passo1[1]));
-
-  var trava = {
-    clientes: ['Cliente deixa de ser problema', 'A Prospecção Automática leva o site pronto até o dono, sem você mandar mensagem uma por uma.'],
-    portfolio: ['Portfólio deixa de ser problema', 'Na Entrega Invertida o site do próprio cliente é o portfólio. Ele vê o negócio dele pronto antes de pagar.'],
-    cobrar: ['Você sai sabendo quanto cobrar', 'Tem uma aula só sobre preço, antes da primeira mensagem.'],
-    publicar: ['Publicar vira o passo mais fácil', 'GitHub, banco de dados e domínio próprio são exatamente o que o Dando Vida ensina, do zero.'],
-    comeco: ['Você ganha a ordem certa', 'Instala uma vez, deixa o primeiro site pronto em menos de 20 minutos e apresenta direto pra empresa.']
-  }[R.trava];
-  plano.push(item(trava[0], trava[1]));
-
-  if (R.tentou === 'portfolio' && R.trava !== 'portfolio') plano.push(item('Aquele pedido de portfólio', 'Lembra que te pediram portfólio? Na Entrega Invertida o site do próprio cliente é o portfólio. Ele vê o negócio dele pronto antes de pagar.'));
-  if (R.criou === 'preso') plano.push(item('Aquele projeto preso no chat', 'É o seu primeiro exercício do Dando Vida: ele sai da conversa e vai pro ar como software.'));
-  if (R.codigo === 'zero') plano.push(item('Zero código', 'Você não escreve uma linha. A IA executa o passo a passo.'));
-
-  var tempo = { '30':'Com 30 minutos por dia, a instalação cabe num dia e o primeiro site fica pronto no seguinte.',
-                '60':'Com 1 hora por dia, dá pra ter o primeiro site pronto e apresentado ainda nesta semana.',
-                '120':'Com 2 horas por dia, dá pra ter o primeiro site pronto e apresentado hoje mesmo.' }[R.tempo];
-  plano.push(item('Seu ritmo', tempo));
-  if (R.agora === 'depois') plano.push(item('Sem pressão', 'Você tem 7 dias de garantia. Entra, testa, e se não fizer sentido pede o dinheiro de volta.'));
-
-  if (GRUPO_URL){ $('r-grupo-link').href = GRUPO_URL; } else { $('r-grupo').hidden = true; }
-  $('r-titulo').innerHTML = TITULO[foco];
-  $('r-espelho').textContent = espelho;
-  $('r-plano').innerHTML = plano.join('');
-  mostra('t-resultado');
-  document.body.classList.add('com-fixo');
-  ligaFixo();
-
-  metaCustom('QuizConcluido', { foco: foco, ia: R.ia, trava: R.trava, meta: R.meta, agora: R.agora });
-  metaTrack('ViewContent', {
-    content_name: PRODUTO.nome, content_ids: [PRODUTO.id], content_type: 'product',
-    value: PRODUTO.valor, currency: PRODUTO.moeda
-  });
+/* captura logo depois da 1ª resposta: bônus do grupo em troca do contato (pode pular) */
+function captura(s,d){
+ d.innerHTML=`<span class="tag verde">🎁 Bônus pra quem responde</span>
+ <h2>Antes de continuar: pra onde eu mando o seu bônus?</h2>
+ <p class="sub">Deixa seu contato e, no final do quiz, você <b>libera o acesso ao grupo VIP</b>:</p>
+ ${BONUS}${CAMPOS}
+ <button class="btn green" id="ok">Liberar meu bônus e continuar</button>${LGPD}
+ <button class="pular" id="pula">Continuar sem o bônus</button>`;
+ mascaraFone(d.querySelector('#zap'));
+ d.querySelector('#ok').onclick=()=>{const c=lerContato(d);if(!c)return;contato=c;
+  px('Lead',{content_name:'quiz',momento:'inicio'});enviaLead('inicio');go(i+1)};
+ d.querySelector('#pula').onclick=()=>go(i+1);
 }
-
-/* botão fixo: aparece no resultado e some enquanto a oferta está na tela */
-function ligaFixo(){
-  var fixo = $('fixo'), oferta = $('oferta');
-  fixo.setAttribute('aria-hidden','false'); fixo.querySelector('a').removeAttribute('tabindex');
-  function checa(){
-    var r = oferta.getBoundingClientRect();
-    var vendo = r.top < innerHeight && r.bottom > 0;
-    fixo.classList.toggle('on', !vendo && scrollY > 200);
-  }
-  addEventListener('scroll', checa, {passive:true}); checa();
+function info(s,d){d.innerHTML=`<h2>${s.h}</h2>${s.body}<button class="btn">Continuar</button>`;d.querySelector('.btn').onclick=()=>go(i+1)}
+function load(s,d){
+ const steps=['Analisando suas respostas','Cruzando com o perfil de quem começa bem','Calculando seu nível de prontidão','Montando o seu plano'];
+ d.innerHTML=`<div class="load"><p class="sub">Carregando...</p><div class="pct" id="pct">0%</div><p class="sub">Com base nas suas respostas, estamos calculando o seu potencial na <b>Máquina de Sites</b>.</p><ul>${steps.map(x=>`<li>${x}</li>`).join('')}</ul></div>`;
+ let p=0;const lis=d.querySelectorAll('li');const t=setInterval(()=>{p+=2;d.querySelector('#pct').textContent=p+'%';lis.forEach((l,k)=>{if(p>=(k+1)*25-10)l.classList.add('on')});if(p>=100){clearInterval(t);setTimeout(()=>go(i+1,false),400)}},75);
 }
-
-$('r-grupo-link').addEventListener('click', function(){ metaCustom('GrupoVIP', { foco: calcFoco() }); });
-
-/* InitiateCheckout no clique de qualquer botão de compra, igual à página principal */
-document.querySelectorAll('[data-checkout]').forEach(function(a){
-  a.addEventListener('click', function(){
-    metaTrack('InitiateCheckout', {
-      content_name: PRODUTO.nome, content_ids: [PRODUTO.id], content_type: 'product',
-      value: PRODUTO.valor, currency: PRODUTO.moeda, botao: a.dataset.local || 'nao-identificado'
-    });
-  });
-});
+function score(){
+ let p=58;const g=(k,m)=>m[A[k]]||0;
+ p+=g('ia',{'Uso todo dia':9,'Já usei algumas vezes':7,'Conheço, mas nunca usei':4,'Nunca usei':2});
+ p+=g('negocios',{'Conheço vários':8,'Conheço alguns':5,'Nunca reparei':2});
+ p+=g('tempo',{'Mais de 2 horas':8,'1 a 2 horas':7,'30 min a 1h':5,'Menos de 30 min':3});
+ p+=g('motivo',{'Renda extra imediata':6,'Sair do emprego atual':6,'Liberdade financeira':5,'Viver da internet':5});
+ return Math.min(96,p);
+}
+function result(s,d){
+ const sc=score();A._score=sc;
+ const TEMPO={'Mais de 2 horas':'Com mais de 2 horas por dia, dá pra ter o 1º site pronto e apresentado ainda hoje.','1 a 2 horas':'Com 1 a 2 horas por dia, o 1º site sai pronto e apresentado ainda nesta semana.','30 min a 1h':'Com 30 min a 1h por dia, você instala num dia e deixa o 1º site pronto no seguinte.','Menos de 30 min':'Mesmo com menos de 30 min por dia dá pra começar: o site fica pronto em menos de 20 minutos.'};
+ const dev=TEMPO[A.tempo]||'Você tem o tempo que o método pede.';
+ const tempoAlto=['Mais de 2 horas','1 a 2 horas'].includes(A.tempo);
+ const iaTxt=['Uso todo dia','Já usei algumas vezes'].includes(A.ia)?'Você já tem intimidade com IA, e isso encurta a sua curva de aprendizado.':'Não tem problema nunca ter usado IA: o método ensina o passo a passo do zero.';
+ const neg=A.negocios==='Nunca reparei'?'Depois da 1ª aula você passa a ver oportunidade em todo negócio sem site da sua cidade.':'Você já enxerga negócios locais que precisam de site, e esse é o seu mercado.';
+ const mot=`Sua maior motivação é <b>${(A.motivo||'').toLowerCase()}</b>: o método foi montado pra gerar o 1º resultado rápido, sem você largar nada.`;
+ d.innerHTML=`<p class="sub" style="margin:0 0 10px">Aqui está o seu resultado...</p>
+ <div class="res">Seu nível de prontidão para a Máquina de Sites</div>
+ <div class="score"><div class="ring" style="--p:${sc}"><span>${sc}%</span></div></div>
+ <div class="meter"><label><span>Tempo pra começar</span><span>${tempoAlto?'Ótimo':'Bom'}</span></label><i><s style="background:var(--green);width:${tempoAlto?'92':'72'}%"></s></i></div>
+ <div class="meter"><label><span>Intimidade com IA</span><span>${['Uso todo dia','Já usei algumas vezes'].includes(A.ia)?'Alta':'Iniciante'}</span></label><i><s style="background:var(--or);width:${['Uso todo dia','Já usei algumas vezes'].includes(A.ia)?'85':'35'}%"></s></i></div>
+ <div class="meter"><label><span>Mercado ao seu redor</span><span>${A.negocios==='Conheço vários'?'Grande':'Bom'}</span></label><i><s style="background:var(--green);width:${A.negocios==='Conheço vários'?'90':'65'}%"></s></i></div>
+ <h2 style="margin-top:28px;font-size:22px">Você respondeu que...</h2>
+ <div class="card"><h3>⏰ Seu tempo</h3><p>${dev}</p></div>
+ <div class="card"><h3>🤖 Inteligência artificial</h3><p>${iaTxt}</p></div>
+ <div class="card"><h3>🏪 Mercado</h3><p>${neg}</p></div>
+ <div class="card"><h3>🎯 Motivação</h3><p>${mot}</p></div>
+ <p class="sub" style="margin-top:22px">Por isso você está <b class="g">qualificado(a)</b>. Clique abaixo e entenda como começar ainda hoje.</p>
+ <button class="btn green">Continuar</button>
+ <p class="note">Esta é uma estimativa de prontidão baseada nas suas respostas, não uma promessa de ganho.</p>`;
+ d.querySelector('.btn').onclick=()=>go(i+1);
+ if(contato)enviaLead('concluiu');
+ pxc('QuizConcluido',{prontidao:sc,sexo:A.sexo||'',idade:A.idade||''});
+ px('ViewContent',{content_name:PRODUTO.nome,content_ids:[PRODUTO.id],content_type:'product',value:PRODUTO.valor,currency:PRODUTO.moeda});
+}
+function plano(s,d){
+ d.innerHTML=`<h2>Seu plano para o 1º cliente</h2><p class="sub">Com base em tudo que você respondeu, este é o caminho da <b>Máquina de Sites</b>:</p>
+ <div class="flow">
+  <div><b>1</b><span><strong>Dia 1: monte a máquina</strong>Instale a ferramenta uma vez só. Codex e Antigravity têm plano gratuito.</span></div>
+  <div><b>2</b><span><strong>Dia 2: crie o 1º site</strong>Escolha um negócio da sua cidade e deixe o site dele pronto pra vender em menos de 20 minutos.</span></div>
+  <div><b>3</b><span><strong>Dia 3: apresente pro dono</strong>A Prospecção Automática leva o site pronto até a empresa, pelo WhatsApp e pelo e-mail.</span></div>
+  <div><b>4</b><span><strong>Depois: feche e repita</strong>Quem gosta do que viu, fecha. Você repete o processo com o próximo negócio.</span></div>
+ </div>
+ <p class="sub" style="margin-top:6px">Você fala com o dono <b>depois</b> de ter o site pronto na mão. Esse é o segredo.</p>
+ <button class="btn">Quero receber o meu plano</button>`;
+ d.querySelector('.btn').onclick=()=>go(i+1);
+}
+function oferta(s,d){
+ const nome=contato?contato.nome.split(' ')[0]:'';
+ if(contato&&!concluiu){concluiu=true;enviaLead('concluiu')}
+ d.innerHTML=`<span class="tag verde">Plano liberado${nome?', '+nome.replace(/[<>&]/g,''):''}</span>
+ <h2>Seu acesso à <em>Máquina de Sites</em> está pronto</h2>
+ <p class="sub">Os 3 produtos pra criar, apresentar e vender pra negócios da sua cidade usando a <b>Entrega Invertida</b>:</p>
+ <ul class="itens">
+  <li><b>Máquina de Sites<small>Site pronto pra vender em menos de 20 minutos</small></b><span>R$ 297</span></li>
+  <li><b>Prospecção Automática<small>Pelo WhatsApp e pelo e-mail profissional</small></b><span>R$ 197</span></li>
+  <li><b>Dando Vida a Sistemas com IA<small>Software com IA vendido como sistema</small></b><span>R$ 197</span></li>
+ </ul>
+ <div class="price"><s>De R$ 691</s><b>R$ 97</b><small>os 3 produtos · pagamento único · acesso imediato</small></div>
+ <a class="btn green" id="comprar" href="${DESTINO}">Quero os 3 por R$ 97</a>
+ <div class="garantia"><span class="s">7<br>DIAS</span><p><b>O risco é meu.</b> Seguiu o método e não funcionou pra você? Pede o dinheiro de volta em até 7 dias.</p></div>
+ ${contato?`<div class="grupo">${BONUS}<a class="btn" id="grupo" href="${GRUPO_URL}" target="_blank" rel="noopener">Entrar no grupo VIP</a></div>`:''}
+ <p class="note">Resultados variam e dependem da sua dedicação. Não há promessa de ganho.</p>`;
+ d.querySelector('#comprar').onclick=()=>px('InitiateCheckout',{content_name:PRODUTO.nome,content_ids:[PRODUTO.id],content_type:'product',value:PRODUTO.valor,currency:PRODUTO.moeda,botao:'quiz-novo'});
+ const g=d.querySelector('#grupo');if(g)g.onclick=()=>pxc('GrupoVIP');
+}
+backBtn.onclick=()=>{if(H.length){i=H.pop();
+ while((S[i].t==='load'||(S[i].t==='captura'&&contato))&&H.length)i=H.pop();render()}};
+render();
 </script>
 </body>
 </html>
