@@ -156,7 +156,6 @@ const DESTINO=CHECKOUT_URL+'?'+repasse.toString();
 /* ===== FLUXO ===== */
 const S=[
  {id:'sexo',t:'q',h:'Você é Homem ou Mulher?',intro:true,two:true,o:[['👨','Homem'],['👩','Mulher']]},
- {id:'contato',t:'captura'},
  {id:'idade',t:'q',h:'Qual a sua idade?',o:[['','18-29'],['','30-39'],['','40-49'],['','50 ou mais']]},
  {id:'ia',t:'q',h:'Você já usou inteligência artificial (ChatGPT, Claude, Gemini)?',o:[['🔥','Uso todo dia'],['👍','Já usei algumas vezes'],['🤔','Conheço, mas nunca usei'],['🙅','Nunca usei']]},
  {id:'negocios',t:'q',h:'Na sua cidade, você conhece negócios locais com site ruim ou sem site nenhum?',sub:'(clínica, dentista, academia, restaurante, advogado...)',o:[['🎯','Conheço vários'],['👀','Conheço alguns'],['❓','Nunca reparei']]},
@@ -180,6 +179,7 @@ const S=[
  {id:'i4',t:'info',h:'JÁ PODE SER UMA REALIDADE!',body:`<p class="sub">Estamos calculando o seu perfil para a Máquina de Sites.</p><p class="sub"><b>Com 1 hora por dia</b> já dá pra montar o 1º site e apresentar pro 1º dono de negócio, sem largar o seu emprego.</p>`},
  {id:'motivo',t:'q',h:'Hoje a sua maior motivação é...',o:[['','Renda extra imediata'],['','Sair do emprego atual'],['','Liberdade financeira'],['','Viver da internet']]},
  {id:'load',t:'load'},
+ {id:'contato',t:'captura'},
  {id:'resultado',t:'result'},
  {id:'comprometimento',t:'q',h:'Quão disposto(a) você está a começar HOJE?',o:[['🔥','Não vou parar até conseguir'],['🤔','Ainda não tenho certeza se consigo'],['👀','Só estou curioso(a) pra tentar']]},
  {id:'antesdepois',t:'info',h:'Antes x Depois de ter a Máquina de Sites',body:`<div class="vs"><div class="a"><h4>Antes</h4><ul><li>Renda dependendo de um único salário</li><li>Sem portfólio</li><li>Sem saber como chegar no cliente</li><li>Estresse com as contas</li></ul></div>
@@ -249,17 +249,20 @@ function q(s,d){
   if(!iniciou){iniciou=true;pxc('QuizIniciado')}
   setTimeout(()=>go(i+1),220)});
 }
-/* captura logo depois da 1ª resposta: bônus surpresa em troca do contato (pode pular) */
+/* captura no final: depois do carregamento, antes do resultado (pode pular) */
 function captura(s,d){
- d.innerHTML=`<span class="tag verde">🎁 Bônus pra quem responde</span>
- <h2>Antes de continuar: pra onde eu mando o seu bônus surpresa?</h2>
- <p class="sub">Deixa seu contato e <b>garanta um bônus surpresa</b>, só pra quem responde o quiz:</p>
+ d.innerHTML=`<span class="tag verde">✓ Seu resultado está pronto</span>
+ <h2>Pra onde eu mando o seu resultado e o seu bônus surpresa?</h2>
+ <p class="sub">Calculamos o seu <b>nível de prontidão</b> pra Máquina de Sites. Deixa seu contato pra ver agora e <b>garantir o bônus surpresa</b>, só pra quem responde o quiz:</p>
  ${BONUS}${CAMPOS}
- <button class="btn green" id="ok">Garantir meu bônus e continuar</button>${LGPD}
- <button class="pular" id="pula">Continuar sem o bônus</button>`;
+ <button class="btn green" id="ok">Ver meu resultado</button>${LGPD}
+ <button class="pular" id="pula">Ver resultado sem o bônus</button>`;
  mascaraFone(d.querySelector('#zap'));
  d.querySelector('#ok').onclick=()=>{const c=lerContato(d);if(!c)return;contato=c;
-  px('Lead',{content_name:'quiz',momento:'inicio'});enviaLead('inicio');go(i+1)};
+  const b=d.querySelector('#ok');b.disabled=true;
+  px('Lead',{content_name:'quiz',momento:'final'});
+  let foi=false;const segue=()=>{if(!foi){foi=true;go(i+1)}};
+  enviaLead('concluiu').then(segue,segue);setTimeout(segue,2500)};
  d.querySelector('#pula').onclick=()=>go(i+1);
 }
 function info(s,d){d.innerHTML=`<h2>${s.h}</h2>${s.body}<button class="btn">Continuar</button>`;d.querySelector('.btn').onclick=()=>go(i+1)}
@@ -299,7 +302,6 @@ function result(s,d){
  <button class="btn green">Continuar</button>
  <p class="note">Esta é uma estimativa de prontidão baseada nas suas respostas, não uma promessa de ganho.</p>`;
  d.querySelector('.btn').onclick=()=>go(i+1);
- if(contato)enviaLead('concluiu');
  pxc('QuizConcluido',{prontidao:sc,sexo:A.sexo||'',idade:A.idade||''});
  px('ViewContent',{content_name:PRODUTO.nome,content_ids:[PRODUTO.id],content_type:'product',value:PRODUTO.valor,currency:PRODUTO.moeda});
 }
