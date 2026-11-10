@@ -123,6 +123,12 @@ h1,h2,h3{font-family:var(--display);font-weight:900;letter-spacing:-.04em;line-h
 .msg-erro{min-height:20px;font-size:14px;color:#FF8A80;margin:2px 0 6px;}
 .lgpd{margin-top:14px;font-size:12.5px;color:var(--ink-3);line-height:1.5;text-align:center;}
 .contato .btn[disabled]{opacity:.6;cursor:wait;}
+.bonus form{margin-top:16px;}
+.bonus .campo span{color:var(--green-2);opacity:.85;}
+.bonus .btn{margin-top:4px;}
+.pular{display:block;margin:16px auto 0;background:none;border:0;color:var(--ink-3);font:500 14px var(--body);
+  text-decoration:underline;text-underline-offset:3px;cursor:pointer;}
+.intro .lgpd{margin-top:10px;font-size:12px;}
 
 /* perguntas */
 .bloco{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--orange-2);margin-bottom:12px;}
@@ -272,11 +278,20 @@ body.com-fixo footer{padding-bottom:110px;}
       <li>Seu plano pros próximos dias</li>
     </ul>
     <div class="bonus">
-      <span class="rot">🎁 BÔNUS DE QUEM CHEGA ATÉ O FINAL</span>
+      <span class="rot">🎁 BÔNUS DE QUEM RESPONDE</span>
       <p>Acesso ao <b>grupo VIP no WhatsApp</b>: novidades em primeira mão, os nichos que mais compram
         site, os sistemas que as empresas mais compram e <b>um bônus especial só pra quem está no grupo</b>.</p>
+      <form id="f-inicio" novalidate>
+        <label class="campo"><span>SEU NOME</span><input id="i-nome" name="nome" autocomplete="given-name" required></label>
+        <label class="campo"><span>WHATSAPP COM DDD</span><input id="i-whats" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(00) 00000-0000" required></label>
+        <label class="campo"><span>SEU MELHOR E-MAIL</span><input id="i-email" name="email" type="email" inputmode="email" autocomplete="email" required></label>
+        <input class="hp" id="i-hp" name="empresa" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="msg-erro" id="i-erro" role="alert"></p>
+        <button class="btn verde" type="submit" id="i-enviar">LIBERAR MEU BÔNUS E COMEÇAR →</button>
+      </form>
     </div>
-    <button class="btn" type="button" id="comecar">DESCOBRIR MEU CAMINHO →</button>
+    <p class="lgpd">Seus dados ficam só com a gente. Ao enviar, você aceita receber seu diagnóstico e novidades por WhatsApp e e-mail. Pra sair, é só pedir.</p>
+    <button class="pular" type="button" id="comecar">Responder sem o bônus</button>
     <div class="atrito"><span>2 minutos</span><span>gratuito</span><span>bônus no final</span></div>
   </section>
 
@@ -488,7 +503,7 @@ const CHECKOUT_URL = "https://pay.kiwify.com.br/3gfOYoK";
 const GRUPO_URL = "https://chat.whatsapp.com/B5dbcw1bLQvBgvt9q1TApy";
 /* Endpoint que guarda o contato: Apps Script da planilha "Leads Quiz - Máquina de Sites"
    (fonte em 08. Leads Quiz/apps-script.gs). Vazio = não envia. */
-const LEAD_URL = "https://script.google.com/macros/s/AKfycbzxS9PbeMkTh4S4dlN_b9KJz-IOeLLKAc68s43MMF8RKcmCysxezRam81lraQ-9wDqf/exec";
+const LEAD_URL = "https://script.google.com/macros/s/AKfycbwgdxdIRLWQvyfM-7tMuNAQ9etZUd9h1IGSXuPHKxJEIO6WLrdJdtUD8cpH-WttcT8Q/exec";
 /* Mesmos dados de produto da página principal, para a Meta ler os dois como o mesmo produto. */
 const PRODUTO = { nome: "Maquina de Sites", id: "89zpxmz", valor: 97.99, moeda: "BRL" };
 
@@ -630,45 +645,71 @@ function calcFoco(){
    CONTATO: pega nome, WhatsApp e e-mail antes do resultado, pra recuperar
    quem não compra. Se o envio falhar, o resultado aparece mesmo assim.
    ------------------------------------------------------------------ */
-var contatoEnviado = false;
-function pedeContato(){
-  $('barra').style.width = '100%'; $('passo').textContent = 'Último passo';
-  if (contatoEnviado){ finaliza(); return; }
-  mostra('t-contato');
-  setTimeout(function(){ try { $('c-nome').focus({preventScroll:true}); } catch(e){} }, 450);
-}
-$('c-voltar').addEventListener('click', function(){ i = ROTEIRO.length - 1; renderiza(); });
-$('c-whats').addEventListener('input', function(){
+var contato = null; /* {nome, whatsapp, email} assim que a pessoa deixa o contato */
+function mascaraFone(){
   var d = this.value.replace(/\D/g, '').replace(/^55(?=\d{10,11}$)/, '').slice(0, 11);
   var f = d;
   if (d.length > 2) f = '(' + d.slice(0,2) + ') ' + d.slice(2);
   if (d.length > 7) f = '(' + d.slice(0,2) + ') ' + d.slice(2, d.length - 4) + '-' + d.slice(-4);
   this.value = f;
-});
-$('f-contato').addEventListener('submit', function(ev){
-  ev.preventDefault();
-  var nome = $('c-nome').value.trim(), whats = $('c-whats').value.replace(/\D/g, ''), email = $('c-email').value.trim();
+}
+$('c-whats').addEventListener('input', mascaraFone);
+$('i-whats').addEventListener('input', mascaraFone);
+
+/* lê e valida o formulário de prefixo p ('i' = início, 'c' = antes do resultado) */
+function lerContato(p){
+  var nome = $(p + '-nome').value.trim(), whats = $(p + '-whats').value.replace(/\D/g, ''), email = $(p + '-email').value.trim();
   var erros = [];
-  [['c-nome', nome.length >= 2], ['c-whats', whats.length === 10 || whats.length === 11], ['c-email', /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)]]
+  [[p + '-nome', nome.length >= 2], [p + '-whats', whats.length === 10 || whats.length === 11], [p + '-email', /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)]]
     .forEach(function(c){ $(c[0]).parentNode.classList.toggle('erro', !c[1]); if (!c[1]) erros.push(c[0]); });
   if (erros.length){
-    $('c-erro').textContent = erros[0] === 'c-whats' ? 'Confere o WhatsApp com DDD.' : erros[0] === 'c-email' ? 'Confere o e-mail.' : 'Escreve seu nome.';
-    $(erros[0]).focus(); return;
+    var e0 = erros[0].slice(2);
+    $(p + '-erro').textContent = e0 === 'whats' ? 'Confere o WhatsApp com DDD.' : e0 === 'email' ? 'Confere o e-mail.' : 'Escreve seu nome.';
+    $(erros[0]).focus(); return null;
   }
-  $('c-erro').textContent = ''; $('c-enviar').disabled = true;
+  $(p + '-erro').textContent = '';
+  return { nome: nome, whatsapp: whats, email: email, hp: $(p + '-hp').value };
+}
+
+/* manda pra planilha. etapa 'inicio' (só o contato) ou 'concluiu' (com as respostas).
+   O mesmo WhatsApp vira uma linha só na planilha. */
+function enviaLead(etapa){
+  if (!contato || !LEAD_URL || !DOMINIO_OK) return Promise.resolve();
   var utm = {}; repasse.forEach(function(v, k){ if (k !== 'fbclid') utm[k] = v; });
-  var corpo = JSON.stringify({ nome: nome, whatsapp: whats, email: email, respostas: R, foco: calcFoco(),
-                               utm: utm, pagina: location.pathname + location.search, hp: $('c-hp').value });
-  metaTrack('Lead', { content_name: 'quiz', foco: calcFoco() });
-  contatoEnviado = true;
+  var corpo = JSON.stringify({ nome: contato.nome, whatsapp: contato.whatsapp, email: contato.email, hp: contato.hp,
+    etapa: etapa, respostas: etapa === 'inicio' ? {} : R, foco: etapa === 'inicio' ? '' : calcFoco(),
+    utm: utm, pagina: location.pathname + location.search });
+  /* text/plain + no-cors: o Google não aceita a pré-checagem de CORS, então envia sem ler a resposta */
+  return fetch(LEAD_URL, { method: 'POST', mode: 'no-cors', headers: { 'content-type': 'text/plain;charset=utf-8' }, body: corpo, keepalive: true });
+}
+
+/* início: contato + bônus, depois as perguntas */
+$('f-inicio').addEventListener('submit', function(ev){
+  ev.preventDefault();
+  var c = lerContato('i'); if (!c) return;
+  contato = c;
+  metaTrack('Lead', { content_name: 'quiz', momento: 'inicio' });
+  enviaLead('inicio').catch(function(){});
+  i = 0; renderiza();
+});
+
+/* fim: quem já deixou o contato vai direto pro resultado; quem pulou, vê o formulário */
+function pedeContato(){
+  $('barra').style.width = '100%'; $('passo').textContent = 'Último passo';
+  if (contato){ enviaLead('concluiu').catch(function(){}); finaliza(); return; }
+  mostra('t-contato');
+  setTimeout(function(){ try { $('c-nome').focus({preventScroll:true}); } catch(e){} }, 450);
+}
+$('c-voltar').addEventListener('click', function(){ i = ROTEIRO.length - 1; renderiza(); });
+$('f-contato').addEventListener('submit', function(ev){
+  ev.preventDefault();
+  var c = lerContato('c'); if (!c) return;
+  contato = c; $('c-enviar').disabled = true;
+  metaTrack('Lead', { content_name: 'quiz', momento: 'final', foco: calcFoco() });
   var seguiu = false;
   function segue(){ if (!seguiu){ seguiu = true; finaliza(); } }
-  if (LEAD_URL && DOMINIO_OK){
-    /* text/plain + no-cors: o Google não aceita a pré-checagem de CORS, então envia sem ler a resposta */
-    fetch(LEAD_URL, { method: 'POST', mode: 'no-cors', headers: { 'content-type': 'text/plain;charset=utf-8' }, body: corpo, keepalive: true })
-      .then(segue, segue);
-    setTimeout(segue, 2500);
-  } else segue();
+  enviaLead('concluiu').then(segue, segue);
+  setTimeout(segue, 2500);
 });
 
 function finaliza(){
