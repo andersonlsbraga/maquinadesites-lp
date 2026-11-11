@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR" data-site="vitrine">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portfólio · Sites feitos com IA na Máquina de Sites</title>
+<meta name="description" content="Sites de verdade, feitos com IA no método da Máquina de Sites: imobiliária, e-commerce, hamburgueria, revenda de veículos e mais. Abra, role e teste.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0b0c;--card:#141416;--am:#FFC83D;--txt:rgba(255,255,255,.66);--linha:rgba(255,255,255,.1)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:#fff;font-family:Archivo,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1240px,92vw);margin:0 auto}
+.it{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--am)}
+header{padding:90px 0 60px;position:relative}
+header:before{content:"";position:absolute;inset:-200px 0 auto;height:600px;background:radial-gradient(circle at 50% 30%,rgba(255,200,61,.16),transparent 60%);pointer-events:none}
+.kick{display:inline-flex;gap:10px;align-items:center;font:800 12px Archivo;letter-spacing:.3em;text-transform:uppercase;color:var(--am);border:1px solid rgba(255,200,61,.35);border-radius:999px;padding:9px 16px}
+h1{font:900 clamp(42px,6.4vw,96px)/.95 Archivo;letter-spacing:-.03em;margin:26px 0 22px;max-width:980px}
+header p{max-width:620px;color:var(--txt);font-size:18px;line-height:1.6}
+.dica{display:flex;gap:10px;align-items:center;margin-top:26px;color:rgba(255,255,255,.55);font-size:14px}
+.dica i{width:28px;height:44px;border:2px solid rgba(255,255,255,.35);border-radius:14px;position:relative;font-style:normal}
+.dica i:after{content:"";position:absolute;left:50%;top:8px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--am);animation:rola 1.6s infinite}
+@keyframes rola{to{transform:translateY(12px);opacity:0}}
+.lista{display:grid;gap:26px;padding-bottom:60px}
+.site{display:grid;grid-template-columns:1.25fr 1fr;gap:0;background:var(--card);border:1px solid var(--linha);border-radius:26px;overflow:hidden;transition:border-color .3s,transform .3s}
+.site:hover{border-color:rgba(255,200,61,.5);transform:translateY(-4px)}
+.site:nth-child(even){grid-template-columns:1fr 1.25fr}
+.site:nth-child(even) .tela{order:2}
+.tela{position:relative;background:#000;padding:26px 26px 0;overflow:hidden}
+.nav{height:30px;background:#1d1d20;border-radius:12px 12px 0 0;display:flex;align-items:center;gap:7px;padding:0 12px}
+.nav i{width:10px;height:10px;border-radius:50%;background:#ff5f57}.nav i:nth-child(2){background:#febc2e}.nav i:nth-child(3){background:#28c840}
+.nav span{margin-left:10px;font:600 12px Archivo;color:#8a8a90}
+.tela .im{aspect-ratio:16/10;background-size:cover;background-position:top center;transition:background-position 3s ease}
+.site:hover .tela .im{background-position:bottom center}
+.tx{padding:40px 38px;display:flex;flex-direction:column;justify-content:center}
+.nicho{font:800 12px Archivo;letter-spacing:.24em;text-transform:uppercase;color:var(--am)}
+.tx h2{font:900 34px/1.05 Archivo;letter-spacing:-.02em;margin:10px 0 12px}
+.tx p{color:var(--txt);line-height:1.6;font-size:15.5px}
+.tx ul{list-style:none;margin:18px 0 26px;display:grid;gap:9px}
+.tx li{display:flex;gap:10px;font-weight:600;font-size:14.5px}
+.tx li:before{content:"✦";color:var(--am)}
+.bt{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--am);color:#111;border-radius:999px;padding:16px 24px;font:900 14px Archivo;letter-spacing:.04em;text-transform:uppercase;width:max-content;transition:transform .2s}
+.bt:hover{transform:translateY(-2px)}
+.bt.lin{background:transparent;color:#fff;border:1px solid var(--linha)}
+.breve{opacity:.55}
+.breve .bt{pointer-events:none}
+.cta{margin:40px auto 120px;text-align:center;background:linear-gradient(135deg,#1c1607,#141416 60%);border:1px solid rgba(255,200,61,.3);border-radius:30px;padding:70px 6vw}
+.cta h2{font:900 clamp(32px,4.2vw,58px)/1 Archivo;letter-spacing:-.02em}
+.cta p{color:var(--txt);max-width:600px;margin:18px auto 30px;font-size:17px;line-height:1.6}
+footer{color:rgba(255,255,255,.4);font-size:13px;text-align:center;padding:0 0 50px}
+@media (max-width:860px){.site,.site:nth-child(even){grid-template-columns:1fr}.site:nth-child(even) .tela{order:0}.tx{padding:28px 24px}.tx h2{font-size:28px}}
+</style>
+</head>
+<body>
+<header class="wrap">
+ <span class="kick">Portfólio · feito com IA</span>
+ <h1>Não é print. <span class="it">São sites de verdade.</span> Abra e role.</h1>
+ <p>Todos estes sites foram feitos com IA, no mesmo método que eu ensino na Máquina de Sites. Abra cada um no celular ou no computador, role a página e mexa em tudo: carrinho, simulador, cardápio, filtros.</p>
+ <div class="dica"><i></i>Os efeitos acontecem enquanto você rola a página</div>
+</header>
+
+<main class="wrap lista">
+ <a class="site" href="imobiliaria/">
+  <div class="tela"><div class="nav"><i></i><i></i><i></i><span>vertice.com.br</span></div><div class="im" style="background-image:url(vitrine/imobiliaria.jpg)"></div></div>
+  <div class="tx"><span class="nicho">Imobiliária · Incorporadora</span><h2>Vértice Prime Residence</h2><p>O prédio é construído enquanto a pessoa rola a página: da planta ao concreto, andar por andar, até a fachada pronta no pôr do sol.</p>
+   <ul><li>Obra que sobe no scroll, com contador de andares</li><li>Galeria horizontal dos ambientes</li><li>Planta que se desenha sozinha</li><li>Simulador de parcela e agendamento de visita</li></ul><span class="bt">Abrir o site →</span></div>
+ </a>
+ <a class="site" href="loja/">
+  <div class="tela"><div class="nav"><i></i><i></i><i></i><span>kaze.com.br</span></div><div class="im" style="background-image:url(vitrine/loja.jpg)"></div></div>
+  <div class="tx"><span class="nicho">E-commerce · Moda</span><h2>KAZE Store</h2><p>Loja completa: o tênis do drop atravessa a tela e se apresenta, e o carrinho funciona de verdade, com cupom e frete grátis.</p>
+   <ul><li>Lançamento animado no scroll</li><li>Filtros, escolha de tamanho e estoque</li><li>Carrinho com cupom e barra de frete grátis</li><li>Pedido fechado no WhatsApp com o resumo</li></ul><span class="bt">Abrir o site →</span></div>
+ </a>
+ <a class="site" href="hamburgueria/">
+  <div class="tela"><div class="nav"><i></i><i></i><i></i><span>brasa68.com.br</span></div><div class="im" style="background-image:url(vitrine/hamburgueria.jpg)"></div></div>
+  <div class="tx"><span class="nicho">Restaurante · Delivery</span><h2>Brasa 68 Smash Burger</h2><p>O hambúrguer se monta camada por camada enquanto a pessoa rola. Dá fome antes de chegar no cardápio.</p>
+   <ul><li>Hambúrguer montado no scroll</li><li>Cardápio com pedido e soma automática</li><li>Entrega ou retirada, direto no WhatsApp</li><li>Mostra se está aberto agora</li></ul><span class="bt">Abrir o site →</span></div>
+ </a>
+ <a class="site" href="veiculos/">
+  <div class="tela"><div class="nav"><i></i><i></i><i></i><span>primemotors.com.br</span></div><div class="im" style="background-image:url(vitrine/veiculos.jpg)"></div></div>
+  <div class="tx"><span class="nicho">Revenda de veículos</span><h2>Prime Motors</h2><p>Test drive sem sair de casa: o carro pega a estrada e o velocímetro sobe enquanto a pessoa rola a página.</p>
+   <ul><li>Estrada e velocímetro no scroll</li><li>Estoque com filtro por tipo e preço</li><li>Simulador de financiamento por carro</li><li>Avaliação do usado pelo WhatsApp</li></ul><span class="bt">Abrir o site →</span></div>
+ </a>
+</main>
+
+<section class="wrap cta">
+ <h2>Quer fazer sites assim <span class="it">sem saber programar?</span></h2>
+ <p>Esse é o padrão que você aprende a entregar na Máquina de Sites: a IA monta, você escolhe o negócio e leva o site pronto até o dono.</p>
+ <a class="bt" href="https://maquinadesites.online/?utm_source=portfolio&utm_medium=vitrine&utm_campaign=portfolio">Quero aprender →</a>
+</section>
+<footer>Projetos conceito com marcas fictícias, criados para portfólio. Imagens geradas por IA.</footer>
+</body>
+</html>

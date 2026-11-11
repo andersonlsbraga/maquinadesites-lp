@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="pt-BR" data-site="loja" data-marca="KAZE Store">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KAZE · Tênis e streetwear</title>
+<meta name="description" content="KAZE: tênis e streetwear com drop toda semana. Frete grátis acima de R$ 399 e troca em 30 dias.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2efe9;--tinta:#0d0d0d;--lar:#ff5a1f;--cinza:#6f6b66;--card:#e7e3dc;--linha:rgba(13,13,13,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tinta);font-family:Inter,system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+.un{font-family:Unbounded,sans-serif}
+.wrap{width:min(1320px,92vw);margin:0 auto}
+.bt{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--tinta);color:#fff;border:0;border-radius:999px;padding:17px 28px;font:800 14px Inter;letter-spacing:.04em;transition:transform .25s,background .25s}
+.bt:hover{transform:translateY(-2px);background:var(--lar)}
+.bt.lar{background:var(--lar)}.bt.lar:hover{background:var(--tinta)}
+
+.aviso-topo{background:var(--tinta);color:#fff;overflow:hidden;white-space:nowrap;font:700 12px Inter;letter-spacing:.14em;padding:10px 0}
+.aviso-topo div{display:inline-block;animation:corre 26s linear infinite}
+.aviso-topo span{margin:0 28px}.aviso-topo b{color:var(--lar)}
+@keyframes corre{to{transform:translateX(-50%)}}
+
+header.nav{position:sticky;top:0;z-index:40;background:rgba(242,239,233,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--linha)}
+header.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+.marca{font:900 26px Unbounded;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
+.marca i{width:14px;height:14px;border-radius:50%;background:var(--lar);display:inline-block}
+header.nav ul{display:flex;gap:30px;list-style:none;font:600 14px Inter}
+header.nav ul a:hover{color:var(--lar)}
+.icones{display:flex;gap:10px}
+.ic{position:relative;width:44px;height:44px;border-radius:50%;border:1px solid var(--linha);background:transparent;display:grid;place-items:center;font-size:18px}
+.ic b{position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;border-radius:10px;background:var(--lar);color:#fff;font:800 11px Inter;display:grid;place-items:center;padding:0 5px;transform:scale(0);transition:transform .3s cubic-bezier(.2,.9,.3,1.4)}
+.ic b.on{transform:scale(1)}
+.ic.pula{animation:pula .5s}
+@keyframes pula{40%{transform:scale(1.18)}}
+
+/* HERO */
+.hero{position:relative;padding:40px 0 0;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;min-height:calc(100vh - 110px)}
+.hero h1{font:900 clamp(56px,8.2vw,128px)/.88 Unbounded;letter-spacing:-.04em}
+.hero h1 .vaz{color:transparent;-webkit-text-stroke:2px var(--tinta)}
+.hero h1 .lar{color:var(--lar)}
+.hero p{max-width:440px;color:var(--cinza);font-size:17px;line-height:1.6;margin:26px 0 30px}
+.hero .acoes{display:flex;gap:12px;flex-wrap:wrap}
+.selos{display:flex;gap:26px;margin-top:40px;font:600 13px Inter;color:var(--cinza)}
+.selos b{display:block;font:800 22px Unbounded;color:var(--tinta)}
+.vitrine{position:relative;height:min(78vh,700px);border-radius:28px;overflow:hidden;background:url(img/hero.jpg) center/cover}
+.vitrine:after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,rgba(13,13,13,0) 40%,rgba(13,13,13,.55))}
+.flutua{position:absolute;z-index:2;left:-12%;bottom:6%;width:78%;filter:drop-shadow(0 40px 40px rgba(0,0,0,.45));transition:transform .15s ease-out;animation:boia 5s ease-in-out infinite}
+@keyframes boia{50%{translate:0 -14px}}
+.tag-preco{position:absolute;z-index:3;right:22px;top:22px;background:#fff;border-radius:18px;padding:14px 18px;box-shadow:0 14px 30px rgba(0,0,0,.18)}
+.tag-preco small{display:block;font:700 11px Inter;letter-spacing:.14em;color:var(--lar)}
+.tag-preco b{font:800 20px Unbounded}
+
+/* DROP: tênis atravessa e explica */
+.drop{position:relative;height:420vh;background:var(--tinta);color:#fff}
+.drop .fixo{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center}
+.drop .gigante{position:absolute;font:900 clamp(120px,22vw,360px)/.8 Unbounded;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.12);white-space:nowrap;will-change:transform}
+.drop .tenis{position:relative;z-index:2;width:min(64vw,820px);filter:drop-shadow(0 60px 50px rgba(0,0,0,.6));will-change:transform}
+.drop .call{position:absolute;z-index:3;max-width:250px;opacity:0;transform:translateY(20px);transition:all .6s cubic-bezier(.2,.8,.2,1)}
+.drop .call.on{opacity:1;transform:none}
+.drop .call b{display:block;font:800 18px Unbounded;margin-bottom:6px}
+.drop .call span{font-size:14.5px;color:rgba(255,255,255,.65);line-height:1.5}
+.drop .call i{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--lar);margin-right:10px;box-shadow:0 0 0 6px rgba(255,90,31,.25)}
+.c1{left:7vw;top:22vh}.c2{right:7vw;top:28vh;text-align:right}.c3{left:9vw;bottom:18vh}.c4{right:9vw;bottom:16vh;text-align:right}
+.drop .topo{position:absolute;top:8vh;left:0;right:0;text-align:center;z-index:3}
+.drop .topo small{font:700 12px Inter;letter-spacing:.3em;color:var(--lar)}
+.drop .topo h2{font:900 clamp(30px,3.6vw,52px) Unbounded;margin-top:8px}
+.drop .compra{position:absolute;bottom:7vh;z-index:3;opacity:0;transform:translateY(20px);transition:all .6s}
+.drop .compra.on{opacity:1;transform:none}
+
+/* CATALOGO */
+.cat{padding:110px 0}
+.cat .topo{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.cat h2,.sec h2{font:900 clamp(36px,4.4vw,64px)/.95 Unbounded;letter-spacing:-.03em}
+.filtros{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--linha);background:transparent;border-radius:999px;padding:11px 18px;font:700 13.5px Inter;transition:all .25s}
+.chip.on,.chip:hover{background:var(--tinta);color:#fff;border-color:var(--tinta)}
+.grade{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.prod{position:relative;background:var(--card);border-radius:24px;padding:22px;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s;cursor:pointer}
+.prod:hover{transform:translateY(-8px);box-shadow:0 30px 50px rgba(0,0,0,.12)}
+.prod.some{display:none}
+.prod .im{height:260px;display:grid;place-items:center}
+.prod .im img{max-height:230px;width:auto;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.prod:hover .im img{transform:rotate(-8deg) scale(1.08)}
+.prod .sel{position:absolute;top:18px;left:18px;background:#fff;border-radius:999px;padding:6px 12px;font:800 11px Inter;letter-spacing:.1em}
+.prod .sel.novo{background:var(--lar);color:#fff}
+.prod h3{font:700 17px Inter;margin-top:10px}
+.prod .lin{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.prod .preco{font:800 19px Unbounded}
+.prod .preco s{font:500 13px Inter;color:var(--cinza);margin-right:6px}
+.prod .add{width:46px;height:46px;border-radius:50%;border:0;background:var(--tinta);color:#fff;font-size:22px;transition:background .25s,transform .25s}
+.prod .add:hover{background:var(--lar);transform:rotate(90deg)}
+.parc{font-size:12.5px;color:var(--cinza);margin-top:4px}
+
+/* BANNER */
+.banner{position:relative;margin:0 4vw;border-radius:32px;overflow:hidden;min-height:420px;display:flex;align-items:center;background:url(img/banner.jpg) center/cover}
+.banner:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,13,13,.85) 30%,rgba(13,13,13,.1))}
+.banner .in{position:relative;z-index:2;padding:60px 5vw;color:#fff;max-width:620px}
+.banner h2{font:900 clamp(34px,4vw,58px)/.95 Unbounded}
+.banner p{color:rgba(255,255,255,.75);margin:18px 0 26px;font-size:16.5px;line-height:1.6}
+.cupom{display:inline-flex;align-items:center;gap:14px;border:2px dashed var(--lar);border-radius:14px;padding:12px 18px;font:800 18px Unbounded;color:#fff;background:rgba(255,90,31,.12);cursor:pointer}
+.cupom small{font:600 12px Inter;color:rgba(255,255,255,.7)}
+
+.sec{padding:110px 0}
+.beneficios .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+.ben{border:1px solid var(--linha);border-radius:22px;padding:26px}
+.ben b{display:block;font:800 18px Unbounded;margin:14px 0 8px}
+.ben span{color:var(--cinza);font-size:14.5px;line-height:1.55}
+.ben i{font-size:28px;font-style:normal}
+.news{background:var(--lar);color:#fff;border-radius:32px;margin:0 4vw 90px;padding:60px 5vw;display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center}
+.news h2{font:900 clamp(30px,3.6vw,52px)/.95 Unbounded}
+.news form{display:flex;gap:10px;background:#fff;border-radius:999px;padding:6px}
+.news input{flex:1;border:0;background:transparent;padding:0 18px;font:500 15px Inter;outline:0}
+footer{border-top:1px solid var(--linha);padding:36px 0 90px;color:var(--cinza);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+
+/* QUICK VIEW */
+.qv{position:fixed;inset:0;z-index:60;background:rgba(13,13,13,.55);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:20px}
+.qv.on{display:flex}
+.qv .box{width:min(920px,100%);background:var(--bg);border-radius:28px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;animation:sobe .4s cubic-bezier(.2,.9,.3,1.1)}
+@keyframes sobe{from{transform:translateY(30px);opacity:0}}
+.qv .ft{background:var(--card);display:grid;place-items:center;padding:40px;min-height:420px}
+.qv .ft img{max-height:340px;width:auto;filter:drop-shadow(0 30px 30px rgba(0,0,0,.25))}
+.qv .tx{padding:40px;position:relative}
+.qv .fecha{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;border:1px solid var(--linha);background:transparent;font-size:18px}
+.qv h3{font:900 28px/1 Unbounded;margin:10px 0 12px}
+.qv .preco{font:800 26px Unbounded}
+.qv p{color:var(--cinza);line-height:1.6;margin:16px 0}
+.tams{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 24px}
+.tam{width:52px;height:46px;border-radius:12px;border:1px solid var(--linha);background:transparent;font:700 14px Inter}
+.tam.on{background:var(--tinta);color:#fff}
+.tam:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+
+/* CARRINHO */
+.sacola{position:fixed;top:0;right:0;bottom:0;z-index:70;width:min(440px,100%);background:#fff;box-shadow:-30px 0 60px rgba(0,0,0,.18);transform:translateX(105%);transition:transform .45s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column}
+.sacola.on{transform:none}
+.fundo{position:fixed;inset:0;z-index:65;background:rgba(13,13,13,.4);opacity:0;pointer-events:none;transition:opacity .4s}
+.fundo.on{opacity:1;pointer-events:auto}
+.sacola .cab{display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-bottom:1px solid var(--linha)}
+.sacola .cab b{font:900 20px Unbounded}
+.frete{padding:16px 24px;border-bottom:1px solid var(--linha);font-size:13.5px}
+.frete .tr{height:6px;border-radius:3px;background:var(--card);margin-top:8px;overflow:hidden}
+.frete .tr i{display:block;height:100%;background:var(--lar);width:0;transition:width .5s}
+.itens{flex:1;overflow:auto;padding:10px 24px}
+.item{display:grid;grid-template-columns:76px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--linha)}
+.item .mi{width:76px;height:76px;border-radius:14px;background:var(--card);display:grid;place-items:center}
+.item .mi img{max-height:60px;width:auto}
+.item b{font-size:14.5px}.item small{display:block;color:var(--cinza);font-size:12.5px;margin-top:3px}
+.qtd{display:inline-flex;align-items:center;border:1px solid var(--linha);border-radius:999px;margin-top:8px}
+.qtd button{width:28px;height:28px;border:0;background:transparent;font-weight:800}
+.qtd span{min-width:20px;text-align:center;font:700 13px Inter}
+.item .vl{font:800 14px Unbounded}
+.vazia{text-align:center;color:var(--cinza);padding:60px 0}
+.rodape{padding:20px 24px 26px;border-top:1px solid var(--linha);display:grid;gap:10px}
+.rodape .l{display:flex;justify-content:space-between;font-size:14.5px}
+.rodape .l.tot{font:800 18px Unbounded}
+.cup{display:flex;gap:8px}
+.cup input{flex:1;border:1px solid var(--linha);border-radius:12px;padding:12px;font:600 14px Inter;text-transform:uppercase}
+.cup button{border:0;border-radius:12px;background:var(--card);padding:0 16px;font:700 13px Inter}
+.voa{position:fixed;z-index:80;pointer-events:none;width:90px;transition:all .75s cubic-bezier(.5,-.2,.6,1)}
+
+@media (max-width:900px){
+ header.nav ul{display:none}
+ .hero .wrap{grid-template-columns:1fr}
+ .vitrine{height:60vh}.flutua{left:-6%;width:86%}
+ .grade{grid-template-columns:1fr 1fr;gap:12px}.prod .im{height:170px}.prod .im img{max-height:150px}.prod{padding:14px}
+ .c1,.c2,.c3,.c4{max-width:62vw}.drop .call b{font-size:14px}.drop .call span{font-size:12px}
+ .c1{left:6vw;top:15vh}.c2{right:6vw;top:27vh}.c3{left:6vw;bottom:25vh}.c4{right:6vw;bottom:14vh}.drop .compra{bottom:3vh}
+ .beneficios .wrap{grid-template-columns:1fr 1fr}
+ .news{grid-template-columns:1fr}
+ .qv .box{grid-template-columns:1fr;max-height:92vh;overflow:auto}.qv .ft{min-height:240px}
+}
+</style>
+</head>
+<body>
+
+<div class="aviso-topo"><div>
+ <span>FRETE GRÁTIS ACIMA DE <b>R$ 399</b></span><span>DROP NOVO TODA SEXTA</span><span>CUPOM <b>KAZE10</b> NA PRIMEIRA COMPRA</span><span>TROCA GRÁTIS EM 30 DIAS</span><span>ATÉ 10X SEM JUROS</span>
+ <span>FRETE GRÁTIS ACIMA DE <b>R$ 399</b></span><span>DROP NOVO TODA SEXTA</span><span>CUPOM <b>KAZE10</b> NA PRIMEIRA COMPRA</span><span>TROCA GRÁTIS EM 30 DIAS</span><span>ATÉ 10X SEM JUROS</span>
+</div></div>
+
+<header class="nav"><div class="wrap">
+ <a class="marca" href="#"><i></i>KAZE</a>
+ <ul><li><a href="#drop">Drop</a></li><li><a href="#loja" data-f="tenis">Tênis</a></li><li><a href="#loja" data-f="roupa">Roupas</a></li><li><a href="#loja" data-f="acess">Acessórios</a></li></ul>
+ <div class="icones"><button class="ic" aria-label="Buscar">⌕</button><button class="ic" id="abreSacola" aria-label="Sacola">👜<b id="nItens">0</b></button></div>
+</div></header>
+
+<section class="hero"><div class="wrap">
+ <div>
+  <h1 class="rv">ANDE<br><span class="vaz">LEVE.</span><br><span class="lar">ANDE KAZE.</span></h1>
+  <p class="rv">Tênis e streetwear com drop toda sexta. Peças limitadas, frete grátis acima de R$ 399 e troca sem complicação.</p>
+  <div class="acoes rv"><a class="bt lar" href="#loja">Comprar agora →</a><a class="bt" href="#drop">Ver o drop da semana</a></div>
+  <div class="selos rv"><div><b>4,9★</b>12 mil avaliações</div><div><b>30 dias</b>pra trocar</div><div><b>10x</b>sem juros</div></div>
+ </div>
+ <div class="vitrine rv" id="vitrine">
+  <div class="tag-preco"><small>DROP 11.11</small><b>R$ 689,90</b></div>
+  <img class="flutua" id="flutua" src="img/tenis-4.png" alt="Tênis KAZE Aero">
+ </div>
+</div></section>
+
+<section class="drop" id="drop"><div class="fixo">
+ <div class="gigante" id="gigante">AERO · AERO · AERO</div>
+ <div class="topo"><small>DROP DA SEMANA</small><h2>KAZE Aero 01</h2></div>
+ <img class="tenis" id="dropTenis" src="img/tenis-4.png" alt="KAZE Aero 01">
+ <div class="call c1"><b><i></i>Mesh reforçado</b><span>Cabedal que respira, com recortes de proteção nas áreas de atrito.</span></div>
+ <div class="call c2"><b>Amortecimento duplo<i style="margin:0 0 0 10px"></i></b><span>Duas camadas de espuma: macio no primeiro passo, firme no fim do dia.</span></div>
+ <div class="call c3"><b><i></i>Solado tratorado</b><span>Aderência na trilha e no piso molhado da cidade.</span></div>
+ <div class="call c4"><b>Edição limitada<i style="margin:0 0 0 10px"></i></b><span>Só 300 pares numerados neste drop.</span></div>
+ <div class="compra" id="dropCompra"><button class="bt lar" onclick="abreQV(0)">Garantir o meu · R$ 689,90</button></div>
+</div></section>
+
+<section class="cat" id="loja"><div class="wrap">
+ <div class="topo"><h2 class="rv">A LOJA</h2>
+  <div class="filtros" id="filtros"><button class="chip on" data-f="todos">Todos</button><button class="chip" data-f="tenis">Tênis</button><button class="chip" data-f="roupa">Roupas</button><button class="chip" data-f="acess">Acessórios</button></div>
+ </div>
+ <div class="grade" id="grade"></div>
+</div></section>
+
+<section class="banner rv"><div class="in">
+ <h2>PRIMEIRA COMPRA?<br>10% OFF.</h2>
+ <p>Use o cupom na sacola e aproveite. Vale para todo o site, inclusive o drop.</p>
+ <button class="cupom" id="copiaCupom">KAZE10 <small>toque para copiar</small></button>
+</div></section>
+
+<section class="sec beneficios"><div class="wrap" style="display:block">
+ <h2 class="rv">COMPRA SEM<br>DOR DE CABEÇA</h2>
+ <div class="wrap" style="width:100%">
+  <div class="ben rv"><i>🚚</i><b>Frete grátis</b><span>Acima de R$ 399 para todo o Brasil.</span></div>
+  <div class="ben rv"><i>🔁</i><b>Troca em 30 dias</b><span>Não serviu? A gente busca na sua casa.</span></div>
+  <div class="ben rv"><i>💳</i><b>10x sem juros</b><span>No cartão, ou 5% off no Pix.</span></div>
+  <div class="ben rv"><i>✅</i><b>Original</b><span>Peças com nota fiscal e garantia.</span></div>
+ </div>
+</div></section>
+
+<section class="news rv">
+ <h2>ENTRE NA LISTA DO DROP</h2>
+ <form onsubmit="return false"><input placeholder="seu melhor e-mail" type="email" required><button class="bt" data-wpp="Quero entrar na lista do drop da KAZE!">Entrar</button></form>
+</section>
+
+<footer><div class="wrap"><span>© KAZE Store · Projeto conceito, marca fictícia criada para portfólio.</span><span>Imagens de produto geradas por IA.</span></div></footer>
+
+<div class="qv" id="qv"><div class="box">
+ <div class="ft"><img id="qvImg" src="" alt=""></div>
+ <div class="tx">
+  <button class="fecha" onclick="fechaQV()">✕</button>
+  <small id="qvCat" style="font:700 12px Inter;letter-spacing:.2em;color:var(--lar)"></small>
+  <h3 id="qvNome"></h3>
+  <div class="preco" id="qvPreco"></div>
+  <p id="qvDesc"></p>
+  <b style="font-size:13px">Tamanho</b>
+  <div class="tams" id="qvTams"></div>
+  <button class="bt lar" style="width:100%" id="qvAdd">Adicionar à sacola</button>
+ </div>
+</div></div>
+
+<div class="fundo" id="fundo"></div>
+<aside class="sacola" id="sacola">
+ <div class="cab"><b>SACOLA</b><button class="ic" onclick="fechaSacola()">✕</button></div>
+ <div class="frete" id="frete"></div>
+ <div class="itens" id="itens"></div>
+ <div class="rodape">
+  <div class="cup"><input id="cupom" placeholder="Cupom"><button onclick="aplicaCupom()">Aplicar</button></div>
+  <div class="l"><span>Subtotal</span><span id="sub"></span></div>
+  <div class="l" id="lDesc" style="display:none;color:var(--lar)"><span>Desconto KAZE10</span><span id="desc"></span></div>
+  <div class="l"><span>Frete</span><span id="vFrete"></span></div>
+  <div class="l tot"><span>Total</span><span id="tot"></span></div>
+  <button class="bt lar" onclick="finaliza()">Finalizar pelo WhatsApp</button>
+ </div>
+</aside>
+
+<script src="../comum/demo.js"></script>
+<script>
+const P=[
+ {n:'KAZE Aero 01',c:'tenis',v:689.9,de:799.9,img:'tenis-4.png',s:'DROP',d:'Mesh reforçado, amortecimento duplo e solado tratorado. Edição limitada de 300 pares.',t:[37,38,39,40,41,42,43,44],x:[37,44]},
+ {n:'KAZE Night Run',c:'tenis',v:549.9,img:'tenis-2.png',s:'NOVO',d:'Knit respirável e entressola translúcida. Leve pra correr, bonito pra sair.',t:[37,38,39,40,41,42,43],x:[]},
+ {n:'KAZE Court Hi',c:'tenis',v:619.9,img:'tenis-3.png',d:'Cano alto em camurça creme e verde floresta. O clássico do basquete, do nosso jeito.',t:[38,39,40,41,42,43,44],x:[38]},
+ {n:'Moletom Heavy Grafite',c:'roupa',v:349.9,img:'moletom.png',d:'Algodão pesado de 480 g/m², modelagem oversized e capuz duplo.',t:['P','M','G','GG'],x:[]},
+ {n:'Boné Wave Preto',c:'acess',v:159.9,img:'bone.png',d:'Seis gomos, aba curva e bordado da onda KAZE.',t:['Único'],x:[]}];
+const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const $=s=>document.querySelector(s);
+
+/* grade */
+$('#grade').innerHTML=P.map((p,i)=>`<div class="prod rv" data-c="${p.c}" onclick="abreQV(${i})">${p.s?`<span class="sel ${p.s==='NOVO'||p.s==='DROP'?'novo':''}">${p.s}</span>`:''}
+ <div class="im"><img src="img/${p.img}" alt="${p.n}" loading="lazy"></div><h3>${p.n}</h3>
+ <div class="lin"><div><div class="preco">${p.de?`<s>${brl(p.de)}</s>`:''}${brl(p.v)}</div><div class="parc">10x de ${brl(p.v/10)} sem juros</div></div>
+ <button class="add" onclick="event.stopPropagation();abreQV(${i})" aria-label="Adicionar">+</button></div></div>`).join('');
+mdsObserva();
+function filtra(f){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c.dataset.f===f));
+ document.querySelectorAll('.prod').forEach(p=>p.classList.toggle('some',f!=='todos'&&p.dataset.c!==f));}
+document.querySelectorAll('[data-f]').forEach(b=>b.addEventListener('click',()=>filtra(b.dataset.f)));
+
+/* hero: tênis segue o mouse */
+const vit=$('#vitrine'),fl=$('#flutua');
+vit.addEventListener('mousemove',e=>{const r=vit.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+ fl.style.transform=`perspective(800px) rotateY(${x*18}deg) rotateX(${-y*12}deg) rotate(${-6+x*6}deg)`});
+vit.addEventListener('mouseleave',()=>fl.style.transform='rotate(-6deg)');fl.style.transform='rotate(-6deg)';
+
+/* drop: scroll */
+const drop=$('#drop'),dt=$('#dropTenis'),gig=$('#gigante'),calls=[...document.querySelectorAll('.call')],dc=$('#dropCompra');
+function dropScroll(){const r=drop.getBoundingClientRect(),p=Math.min(1,Math.max(0,-r.top/(drop.offsetHeight-innerHeight)));
+ const ent=Math.min(1,p/.18);
+ dt.style.transform=`translateX(${(1-ent)*110}vw) rotate(${-24+ent*14+Math.max(0,p-.2)*30}deg) scale(${.8+ent*.2+Math.sin(p*Math.PI)*.08})`;
+ gig.style.transform=`translateX(${10-p*60}%)`;
+ calls.forEach((c,i)=>c.classList.toggle('on',p>.22+i*.15));
+ dc.classList.toggle('on',p>.85);}
+addEventListener('scroll',()=>requestAnimationFrame(dropScroll),{passive:true});dropScroll();
+
+/* quick view */
+let atual=0,tam=null;
+function abreQV(i){atual=i;tam=null;const p=P[i];
+ $('#qvImg').src='img/'+p.img;$('#qvNome').textContent=p.n;$('#qvPreco').innerHTML=(p.de?`<s style="font:500 15px Inter;color:var(--cinza)">${brl(p.de)}</s> `:'')+brl(p.v);
+ $('#qvDesc').textContent=p.d;$('#qvCat').textContent={tenis:'TÊNIS',roupa:'ROUPAS',acess:'ACESSÓRIOS'}[p.c];
+ $('#qvTams').innerHTML=p.t.map(t=>`<button class="tam" ${p.x.includes(t)?'disabled':''} data-t="${t}">${t}</button>`).join('');
+ if(p.t.length===1){tam=p.t[0];$('#qvTams .tam').classList.add('on')}
+ $('#qv').classList.add('on');}
+function fechaQV(){$('#qv').classList.remove('on')}
+$('#qv').onclick=e=>{if(e.target.id==='qv')fechaQV()};
+$('#qvTams').onclick=e=>{const b=e.target.closest('.tam');if(!b||b.disabled)return;tam=b.dataset.t;document.querySelectorAll('.tam').forEach(x=>x.classList.toggle('on',x===b))};
+$('#qvAdd').onclick=()=>{if(!tam){$('#qvTams').animate([{transform:'translateX(0)'},{transform:'translateX(-8px)'},{transform:'translateX(8px)'},{transform:'translateX(0)'}],{duration:300});return}
+ voa($('#qvImg'));add(atual,tam);fechaQV();};
+
+/* sacola */
+let S=[],cupomOk=false;
+try{S=JSON.parse(localStorage.getItem('kaze-sacola')||'[]');cupomOk=localStorage.getItem('kaze-cupom')==='1'}catch(e){}
+const salva=()=>{try{localStorage.setItem('kaze-sacola',JSON.stringify(S));localStorage.setItem('kaze-cupom',cupomOk?'1':'0')}catch(e){}};
+function add(i,t){const k=S.find(x=>x.i===i&&x.t==t);k?k.q++:S.push({i,t,q:1});salva();render();
+ const ic=$('#abreSacola');ic.classList.remove('pula');void ic.offsetWidth;ic.classList.add('pula');setTimeout(abreSacola,650);}
+function qtd(k,d){S[k].q+=d;if(S[k].q<1)S.splice(k,1);salva();render()}
+function totais(){const sub=S.reduce((a,x)=>a+P[x.i].v*x.q,0),desc=cupomOk?sub*.1:0,base=sub-desc,fr=base>=399||!sub?0:29.9;return{sub,desc,fr,tot:base+fr}}
+function render(){const n=S.reduce((a,x)=>a+x.q,0),b=$('#nItens');b.textContent=n;b.classList.toggle('on',n>0);
+ const t=totais(),falta=Math.max(0,399-(t.sub-t.desc));
+ $('#frete').innerHTML=(falta>0&&t.sub?`Faltam <b>${brl(falta)}</b> para o frete grátis 🚚`:t.sub?'<b>Você ganhou frete grátis! 🎉</b>':'Frete grátis acima de R$ 399')+`<div class="tr"><i style="width:${Math.min(100,(t.sub-t.desc)/399*100)}%"></i></div>`;
+ $('#itens').innerHTML=S.length?S.map((x,k)=>{const p=P[x.i];return`<div class="item"><div class="mi"><img src="img/${p.img}" alt=""></div><div><b>${p.n}</b><small>Tamanho ${x.t}</small><div class="qtd"><button onclick="qtd(${k},-1)">−</button><span>${x.q}</span><button onclick="qtd(${k},1)">+</button></div></div><div class="vl">${brl(p.v*x.q)}</div></div>`}).join(''):'<div class="vazia">Sua sacola está vazia.<br>Bora escolher um par? 👟</div>';
+ $('#sub').textContent=brl(t.sub);$('#lDesc').style.display=cupomOk&&t.sub?'flex':'none';$('#desc').textContent='− '+brl(t.desc);
+ $('#vFrete').textContent=t.fr?brl(t.fr):'Grátis';$('#tot').textContent=brl(t.tot);}
+function aplicaCupom(){const c=$('#cupom');if(c.value.trim().toUpperCase()==='KAZE10'){cupomOk=true;salva();render();c.value='KAZE10 ✓'}else{c.value='';c.placeholder='Cupom inválido'}}
+function abreSacola(){$('#sacola').classList.add('on');$('#fundo').classList.add('on')}
+function fechaSacola(){$('#sacola').classList.remove('on');$('#fundo').classList.remove('on')}
+$('#abreSacola').onclick=abreSacola;$('#fundo').onclick=fechaSacola;
+function finaliza(){if(!S.length)return;const t=totais();
+ mdsWpp('Olá! Quero finalizar meu pedido na KAZE:\n'+S.map(x=>`• ${x.q}x ${P[x.i].n} (tam. ${x.t}) ${brl(P[x.i].v*x.q)}`).join('\n')+(cupomOk?`\nCupom KAZE10: − ${brl(t.desc)}`:'')+`\nFrete: ${t.fr?brl(t.fr):'grátis'}\nTotal: ${brl(t.tot)}`)}
+$('#copiaCupom').onclick=e=>{try{navigator.clipboard.writeText('KAZE10')}catch(_){};e.currentTarget.querySelector('small').textContent='copiado ✓';cupomOk=true;salva();render()};
+function voa(img){const r=img.getBoundingClientRect(),a=$('#abreSacola').getBoundingClientRect(),c=img.cloneNode();c.className='voa';
+ c.style.left=r.left+r.width/2-45+'px';c.style.top=r.top+r.height/2-45+'px';document.body.appendChild(c);
+ requestAnimationFrame(()=>{c.style.left=a.left+'px';c.style.top=a.top+'px';c.style.transform='scale(.2) rotate(30deg)';c.style.opacity='.4'});setTimeout(()=>c.remove(),800)}
+render();
+</script>
+</body>
+</html>

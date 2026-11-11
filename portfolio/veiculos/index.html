@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="pt-BR" data-site="veiculos" data-marca="Prime Motors">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prime Motors · Seminovos com laudo e garantia</title>
+<meta name="description" content="Prime Motors: seminovos revisados, com laudo cautelar aprovado e garantia de 90 dias. Simule o financiamento e avalie seu usado na hora.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0d10;--bg2:#13161b;--bg3:#1a1e25;--prata:#c9ced6;--branco:#f4f6f8;--verm:#ff2e2e;--txt:rgba(244,246,248,.66);--linha:rgba(255,255,255,.1)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--branco);font-family:Inter,system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select{font-family:inherit}
+.so{font-family:Sora,sans-serif}
+.wrap{width:min(1300px,92vw);margin:0 auto}
+.bt{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--verm);color:#fff;border:0;border-radius:10px;padding:17px 26px;font:700 14.5px Inter;letter-spacing:.02em;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 10px 30px rgba(255,46,46,.3)}
+.bt:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(255,46,46,.45)}
+.bt.lin{background:transparent;border:1px solid var(--linha);box-shadow:none}
+.kick{font:700 12px Inter;letter-spacing:.3em;text-transform:uppercase;color:var(--verm)}
+
+nav{position:fixed;inset:0 0 auto;z-index:40;transition:background .3s}
+nav.solida{background:rgba(11,13,16,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--linha)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:74px}
+.logo{font:800 20px Sora;letter-spacing:.12em;display:flex;align-items:center;gap:10px}
+.logo svg{width:34px}
+nav ul{display:flex;gap:30px;list-style:none;font:600 14px Inter;color:var(--txt)}
+nav ul a:hover{color:#fff}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.hero .bg{position:absolute;inset:0;background:url(img/showroom.jpg) center/cover;opacity:.5}
+.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,rgba(11,13,16,0),var(--bg) 75%),linear-gradient(0deg,var(--bg),transparent 35%)}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{font:800 clamp(46px,7.4vw,118px)/.92 Sora;letter-spacing:-.04em;text-align:center;margin-top:70px}
+.hero h1 span{color:transparent;-webkit-text-stroke:1.5px var(--prata)}
+.hero p{text-align:center;color:var(--txt);font-size:17px;margin-top:16px}
+.carro{position:relative;z-index:2;width:min(900px,90vw);margin:2vh auto 0;height:min(40vh,420px)}
+.carro img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .6s,transform 1.2s cubic-bezier(.2,.8,.2,1);filter:drop-shadow(0 40px 40px rgba(0,0,0,.6))}
+.carro img.on{opacity:1}
+.carro.entra img{transform:translateX(60vw)}
+.chao-luz{position:absolute;left:50%;bottom:-10px;width:80%;height:60px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(255,255,255,.18),transparent 70%);z-index:1}
+.cores{position:relative;z-index:3;display:flex;justify-content:center;align-items:center;gap:14px;margin-top:18px}
+.cor{width:34px;height:34px;border-radius:50%;border:2px solid transparent;outline:2px solid var(--linha);cursor:pointer;transition:transform .2s,outline-color .2s}
+.cor.on{outline-color:#fff;transform:scale(1.15)}
+.cores span{font:600 13px Inter;color:var(--txt);margin-left:8px;min-width:120px}
+.ficha-h{position:relative;z-index:3;display:flex;justify-content:center;gap:5vw;margin:34px auto 0;flex-wrap:wrap}
+.ficha-h div{text-align:center}
+.ficha-h b{display:block;font:700 30px Sora}
+.ficha-h small{color:var(--txt);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase}
+.hero .acoes{position:relative;z-index:3;display:flex;justify-content:center;gap:12px;margin-top:30px}
+
+/* ESTRADA */
+.estrada{position:relative;height:400vh}
+.estrada .fixo{position:sticky;top:0;height:100vh;overflow:hidden;background:#07080a}
+.pista{position:absolute;left:50%;bottom:0;width:240vw;height:80vh;transform:translateX(-50%) perspective(500px) rotateX(62deg);transform-origin:bottom;background:#14171c;overflow:hidden}
+.pista:before,.pista:after{content:"";position:absolute;top:0;bottom:0;width:14px;background:#e9ecef;opacity:.6}
+.pista:before{left:30%}.pista:after{right:30%}
+.faixa{position:absolute;left:50%;top:0;bottom:0;width:18px;transform:translateX(-50%);background:repeating-linear-gradient(180deg,#ffd400 0 80px,transparent 80px 180px);background-position-y:var(--off,0)}
+.estrada .ceu{position:absolute;inset:0;background:linear-gradient(180deg,#05060a 0,#0d0f17 40%,#2a1a24 58%,#07080a 60%)}
+.estrada .sol{position:absolute;left:50%;top:58%;width:110vw;height:260px;transform:translate(-50%,-50%);background:radial-gradient(ellipse at center,rgba(255,120,70,.55),rgba(255,46,46,.18) 35%,transparent 65%);filter:blur(6px)}
+.estrada .traseira{position:absolute;left:50%;bottom:6vh;width:min(560px,70vw);transform:translateX(-50%);z-index:3;filter:drop-shadow(0 30px 30px rgba(0,0,0,.8))}
+.velo{position:absolute;right:5vw;top:50%;transform:translateY(-50%);z-index:4;width:260px;text-align:center}
+.velo svg{width:100%}
+.velo b{display:block;font:800 64px/1 Sora;margin-top:-120px;font-variant-numeric:tabular-nums}
+.velo small{color:var(--txt);font-size:12px;letter-spacing:.2em}
+.estrada .txt{position:absolute;left:5vw;top:50%;transform:translateY(-50%);z-index:4;max-width:420px}
+.estrada .txt h2{font:800 clamp(36px,4.2vw,62px)/1 Sora;letter-spacing:-.03em;margin:14px 0}
+.estrada .txt p{color:var(--txt);line-height:1.6;font-size:16.5px}
+.vento{position:absolute;inset:0;z-index:2;pointer-events:none}
+.vento i{position:absolute;height:2px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);opacity:0}
+
+/* ESTOQUE */
+.estoque{padding:120px 0}
+.estoque .topo{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.estoque h2,.sec h2{font:800 clamp(36px,4.4vw,64px)/1 Sora;letter-spacing:-.03em;margin-top:12px}
+.filtros{display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:var(--bg2);border:1px solid var(--linha);border-radius:14px;padding:12px}
+.filtros select,.filtros input[type=range]{background:var(--bg3);color:#fff;border:1px solid var(--linha);border-radius:10px;padding:11px 12px;font:600 13.5px Inter}
+.filtros label{font:600 13px Inter;color:var(--txt);display:flex;align-items:center;gap:10px}
+.filtros input[type=range]{padding:0;accent-color:var(--verm)}
+.grade{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.vc{background:var(--bg2);border:1px solid var(--linha);border-radius:18px;overflow:hidden;transition:transform .35s,border-color .35s}
+.vc:hover{transform:translateY(-6px);border-color:rgba(255,46,46,.5)}
+.vc .im{position:relative;aspect-ratio:16/10;overflow:hidden;background:#d8dade}
+.vc .im img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.vc:hover .im img{transform:scale(1.06)}
+.vc .sel{position:absolute;top:12px;left:12px;background:rgba(11,13,16,.85);border-radius:8px;padding:6px 10px;font:700 11px Inter;letter-spacing:.08em}
+.vc .tx{padding:18px}
+.vc h3{font:700 19px Sora}
+.vc .sp{display:flex;gap:14px;color:var(--txt);font-size:13px;margin:8px 0 14px;flex-wrap:wrap}
+.vc .lin{display:flex;justify-content:space-between;align-items:center}
+.vc .pr{font:800 22px Sora}
+.vc .pr small{display:block;font:500 12.5px Inter;color:var(--txt)}
+.vc .bt{padding:12px 16px;font-size:13px}
+.nada{grid-column:1/-1;text-align:center;color:var(--txt);padding:60px}
+
+/* SIMULADOR */
+.sec{padding:120px 0}
+.sim .wrap{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center}
+.caixa{background:var(--bg2);border:1px solid var(--linha);border-radius:20px;padding:34px}
+.campo{margin-bottom:24px}
+.campo label{display:flex;justify-content:space-between;font:600 13.5px Inter;color:var(--txt);margin-bottom:10px}
+.campo label b{color:#fff}
+.campo select{width:100%;background:var(--bg3);color:#fff;border:1px solid var(--linha);border-radius:10px;padding:13px;font:600 14.5px Inter}
+.campo input[type=range]{width:100%;accent-color:var(--verm)}
+.parcelas{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.parcelas button{background:var(--bg3);border:1px solid var(--linha);color:#fff;border-radius:10px;padding:12px 0;font:700 14px Inter;cursor:pointer}
+.parcelas button.on{background:var(--verm);border-color:var(--verm)}
+.res{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid var(--linha);padding-top:22px;gap:16px}
+.res b{display:block;font:800 44px/1 Sora}
+.res span{color:var(--txt);font-size:13px}
+.aviso{font-size:12px;color:rgba(255,255,255,.4);margin-top:14px}
+
+/* DIFERENCIAIS */
+.difs .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.dif{background:var(--bg2);border:1px solid var(--linha);border-radius:18px;padding:26px}
+.dif b{display:block;font:700 19px Sora;margin:14px 0 8px}
+.dif span{color:var(--txt);font-size:14.5px;line-height:1.55}
+.dif i{width:46px;height:46px;border-radius:12px;background:rgba(255,46,46,.12);display:grid;place-items:center;font-size:22px;font-style:normal}
+
+/* USADO */
+.usado{margin:0 4vw 100px;border-radius:28px;background:linear-gradient(120deg,#1a0d0e,#13161b 60%);border:1px solid rgba(255,46,46,.25);padding:60px 5vw;display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center}
+.usado h2{font:800 clamp(32px,3.6vw,52px)/1.02 Sora;letter-spacing:-.02em}
+.usado p{color:var(--txt);line-height:1.6;margin-top:14px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+form input,form select{background:var(--bg);border:1px solid var(--linha);border-radius:10px;padding:15px;color:#fff;font:500 15px Inter}
+form .full{grid-column:1/-1}
+footer{border-top:1px solid var(--linha);padding:36px 0 90px;color:var(--txt);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+
+@media (max-width:900px){
+ nav ul{display:none}
+ .carro{height:34vh}
+ .ficha-h{gap:24px}.ficha-h b{font-size:22px}
+ .velo{right:auto;left:50%;top:14vh;transform:translateX(-50%);width:180px}.velo b{font-size:44px;margin-top:-84px}
+ .estrada .txt{top:auto;bottom:40vh;left:6vw;right:6vw}.estrada .txt p{display:none}.estrada .txt h2{font-size:30px}
+ .grade{grid-template-columns:1fr}
+ .sim .wrap,.usado{grid-template-columns:1fr}
+ .difs .grid{grid-template-columns:1fr 1fr}
+ form{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav"><div class="wrap">
+ <a class="logo" href="#"><svg viewBox="0 0 34 20" fill="none" stroke="#ff2e2e" stroke-width="2.4"><path d="M2 16 12 4h20M8 16 18 4"/></svg>PRIME MOTORS</a>
+ <ul><li><a href="#estoque">Estoque</a></li><li><a href="#simular">Financiar</a></li><li><a href="#usado">Vender meu carro</a></li></ul>
+ <a class="bt" href="#estoque" style="padding:12px 18px;font-size:13px">Ver estoque</a>
+</div></nav>
+
+<header class="hero">
+ <div class="bg"></div>
+ <div class="wrap">
+  <h1>Seu próximo carro<br><span>já passou na revisão.</span></h1>
+  <p>Seminovos com laudo cautelar aprovado, garantia de 90 dias e financiamento aprovado em minutos.</p>
+ </div>
+ <div class="carro entra" id="carro">
+  <div class="chao-luz"></div>
+  <img class="on" src="img/suv-preto.png" alt="SUV Preto Obsidiana" data-n="Preto Obsidiana">
+ </div>
+ <div class="cores" id="cores">
+  <button class="cor on" style="background:#111" aria-label="Preto"></button>
+  <span id="nomeCor">SUV Turbo Premium · Preto Obsidiana · único dono</span>
+ </div>
+ <div class="ficha-h">
+  <div><b>2024</b><small>Ano</small></div>
+  <div><b data-conta="18" data-suf=" mil km">0</b><small>Rodados</small></div>
+  <div><b data-conta="186" data-suf=" cv">0</b><small>Turbo flex</small></div>
+  <div><b data-pre="R$ " data-conta="189.9" data-suf=" mil">0</b><small>À vista</small></div>
+ </div>
+ <div class="acoes"><a class="bt" href="#simular" onclick="selecionaCarro(0)">Simular parcela</a><a class="bt lin" href="#estoque">Ver todo o estoque</a></div>
+</header>
+
+<section class="estrada" id="estrada"><div class="fixo">
+ <div class="ceu"></div><div class="sol"></div>
+ <div class="pista"><div class="faixa" id="faixa"></div></div>
+ <div class="vento" id="vento"></div>
+ <img class="traseira" id="traseira" src="img/suv-preto.png" alt="">
+ <div class="txt"><span class="kick">Test drive sem sair de casa</span><h2 id="eTit">Laudo cautelar aprovado.</h2><p id="eTxt">Cada carro passa por 120 itens de inspeção antes de entrar no estoque.</p></div>
+ <div class="velo"><svg viewBox="0 0 200 120"><path d="M20 110 A80 80 0 0 1 180 110" fill="none" stroke="#252a32" stroke-width="12" stroke-linecap="round"/><path id="arco" d="M20 110 A80 80 0 0 1 180 110" fill="none" stroke="#ff2e2e" stroke-width="12" stroke-linecap="round" stroke-dasharray="252" stroke-dashoffset="252"/></svg><b id="kmh">0</b><small>KM/H</small></div>
+</div></section>
+
+<section class="estoque" id="estoque"><div class="wrap">
+ <div class="topo"><div><span class="kick">Estoque</span><h2>Escolha o seu.</h2></div>
+  <div class="filtros">
+   <select id="fTipo"><option value="">Todos os tipos</option><option>SUV</option><option>Sedan</option><option>Hatch</option><option>Picape</option></select>
+   <label>Até <b id="fMaxV"></b><input type="range" id="fMax" min="60000" max="260000" step="5000" value="260000"></label>
+   <select id="fOrd"><option value="pr">Menor preço</option><option value="-pr">Maior preço</option><option value="km">Menos rodado</option></select>
+  </div>
+ </div>
+ <div class="grade" id="grade"></div>
+</div></section>
+
+<section class="sec sim" id="simular"><div class="wrap">
+ <div class="rv"><span class="kick">Financiamento</span><h2>Parcela que cabe.<br>Resposta na hora.</h2><p style="color:var(--txt);line-height:1.7;margin-top:16px;max-width:440px">Trabalhamos com os principais bancos. Simule aqui e um consultor envia a aprovação pelo WhatsApp, sem você sair de casa.</p></div>
+ <div class="caixa rv">
+  <div class="campo"><label>Carro</label><select id="sCarro"></select></div>
+  <div class="campo"><label>Entrada <b id="sEntV"></b></label><input type="range" id="sEnt" min="0" max="70" value="30"></div>
+  <div class="campo"><label>Parcelas</label><div class="parcelas" id="sParc"><button data-n="24">24x</button><button data-n="36">36x</button><button data-n="48" class="on">48x</button><button data-n="60">60x</button></div></div>
+  <div class="res"><div><span>Parcela estimada</span><b id="sRes"></b></div><button class="bt" id="sBt">Quero essa condição</button></div>
+  <div class="aviso">Simulação ilustrativa com taxa de 1,49% ao mês. Sujeita a análise de crédito.</div>
+ </div>
+</div></section>
+
+<section class="sec difs"><div class="wrap">
+ <span class="kick">Por que a Prime</span><h2>Compra segura,<br>do começo ao fim.</h2>
+ <div class="grid">
+  <div class="dif rv"><i>🔍</i><b>Laudo cautelar</b><span>Todo carro com laudo aprovado e histórico verificado.</span></div>
+  <div class="dif rv"><i>🛡️</i><b>Garantia 90 dias</b><span>Motor e câmbio cobertos, sem letra miúda.</span></div>
+  <div class="dif rv"><i>⚡</i><b>Aprovação rápida</b><span>Crédito analisado em minutos com vários bancos.</span></div>
+  <div class="dif rv"><i>🔁</i><b>Seu usado na troca</b><span>Avaliação justa e paga na hora.</span></div>
+ </div>
+</div></section>
+
+<section class="usado rv" id="usado">
+ <div><span class="kick">Avaliação grátis</span><h2>Quanto vale o seu carro hoje?</h2><p>Mande os dados e receba uma proposta pelo WhatsApp. Se quiser, ele entra como parte do pagamento.</p></div>
+ <form onsubmit="return false">
+  <input name="modelo" placeholder="Marca e modelo" required class="full">
+  <input name="ano" placeholder="Ano" required>
+  <input name="km" placeholder="Quilometragem" required>
+  <button class="bt full" data-wpp="Olá, Prime Motors! Quero avaliar meu carro: {modelo}, {ano}, {km} km.">Receber proposta</button>
+ </form>
+</section>
+
+<footer><div class="wrap"><span>© Prime Motors · Projeto conceito, marca fictícia criada para portfólio.</span><span>Veículos ilustrativos gerados por IA, sem marca.</span></div></footer>
+
+<script src="../comum/demo.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0});
+const parcela=(f,n,i=.0149)=>f*i/(1-Math.pow(1+i,-n));
+
+addEventListener('scroll',()=>$('#nav').classList.toggle('solida',scrollY>40),{passive:true});
+
+/* carro entra + cores */
+setTimeout(()=>$('#carro').classList.remove('entra'),200);
+const fotos=[...document.querySelectorAll('#carro img')],cores=[...document.querySelectorAll('.cor')];
+cores.forEach((c,i)=>c.onclick=()=>{cores.forEach(x=>x.classList.toggle('on',x===c));fotos.forEach((f,k)=>f.classList.toggle('on',k===i));$('#nomeCor').textContent=fotos[i].dataset.n;$('#traseira').src=fotos[i].src});
+
+/* estrada */
+const est=$('#estrada'),faixa=$('#faixa'),kmh=$('#kmh'),arco=$('#arco'),tras=$('#traseira'),vento=$('#vento');
+for(let i=0;i<18;i++){const v=document.createElement('i');v.style.top=Math.random()*70+'%';v.style.width=(80+Math.random()*200)+'px';v.style.left=Math.random()*100+'%';vento.appendChild(v)}
+const ET=[['Laudo cautelar aprovado.','Cada carro passa por 120 itens de inspeção antes de entrar no estoque.'],['Garantia de 90 dias.','Motor e câmbio cobertos. Se der problema, a gente resolve.'],['Documentação em dia.','Transferência feita por nós, sem você enfrentar fila.']];
+let eu=-1;
+function estScroll(){const r=est.getBoundingClientRect(),p=Math.min(1,Math.max(0,-r.top/(est.offsetHeight-innerHeight)));
+ const vel=Math.round(Math.sin(Math.min(1,p*1.15)*Math.PI/2)*120);kmh.textContent=vel;arco.style.strokeDashoffset=252-252*vel/140;
+ faixa.style.setProperty('--off',(p*9000)+'px');
+ tras.style.transform=`translateX(-50%) translateY(${Math.sin(p*80)*2}px) scale(${1+p*.05})`;
+ [...vento.children].forEach((v,i)=>{v.style.opacity=Math.min(.8,vel/120);v.style.transform=`translateX(${-((p*4000+i*300)%2400)}px)`});
+ const f=Math.min(2,Math.floor(p*3));if(f!==eu){eu=f;$('#eTit').textContent=ET[f][0];$('#eTxt').textContent=ET[f][1]}}
+addEventListener('scroll',()=>requestAnimationFrame(estScroll),{passive:true});estScroll();
+
+/* estoque */
+const C=[
+ {n:'SUV Turbo Premium',t:'SUV',a:2024,km:18000,pr:189900,img:'suv-preto.png',cmb:'Automático',s:'DESTAQUE'},
+ {n:'Hatch Comfort 1.0 Turbo',t:'Hatch',a:2023,km:22400,pr:84900,img:'est-1.jpg',cmb:'Automático'},
+ {n:'Sedan Executive',t:'Sedan',a:2022,km:41000,pr:119900,img:'est-2.jpg',cmb:'Automático',s:'BAIXOU'},
+ {n:'Picape Diesel 4x4',t:'Picape',a:2023,km:35200,pr:239900,img:'est-3.jpg',cmb:'Automático'},
+ {n:'Crossover Urban',t:'SUV',a:2024,km:9800,pr:132900,img:'est-4.jpg',cmb:'CVT',s:'NOVO NO ESTOQUE'},
+];
+function estoque(){const tp=$('#fTipo').value,max=+$('#fMax').value,o=$('#fOrd').value;$('#fMaxV').textContent=brl(max);
+ let L=C.map((c,i)=>({...c,i})).filter(c=>(!tp||c.t===tp)&&c.pr<=max);
+ L.sort((a,b)=>o==='km'?a.km-b.km:o==='-pr'?b.pr-a.pr:a.pr-b.pr);
+ $('#grade').innerHTML=L.length?L.map(c=>`<div class="vc"><div class="im"><img src="img/${c.img}" alt="${c.n}" loading="lazy" ${c.img.endsWith('.png')?'style="object-fit:contain;padding:12px"':''}>${c.s?`<span class="sel">${c.s}</span>`:''}</div>
+  <div class="tx"><h3>${c.n}</h3><div class="sp"><span>📅 ${c.a}</span><span>🛣️ ${c.km.toLocaleString('pt-BR')} km</span><span>⚙️ ${c.cmb}</span></div>
+  <div class="lin"><div class="pr">${brl(c.pr)}<small>ou 48x de ${brl(parcela(c.pr*.7,48))}*</small></div><a class="bt" href="#simular" onclick="selecionaCarro(${c.i})">Simular</a></div></div></div>`).join(''):'<div class="nada">Nenhum carro com esse filtro. Fala com a gente que buscamos pra você.</div>';}
+['#fTipo','#fMax','#fOrd'].forEach(s=>$(s).oninput=estoque);estoque();
+
+/* simulador */
+let nP=48;
+$('#sCarro').innerHTML=C.map((c,i)=>`<option value="${i}">${c.n} · ${brl(c.pr)}</option>`).join('');
+function sim(){const c=C[+$('#sCarro').value],e=+$('#sEnt').value;$('#sEntV').textContent=e+'% · '+brl(c.pr*e/100);$('#sRes').textContent=nP+'x '+brl(parcela(c.pr*(1-e/100),nP))}
+function selecionaCarro(i){$('#sCarro').value=i;sim()}
+$('#sCarro').oninput=sim;$('#sEnt').oninput=sim;
+$('#sParc').onclick=e=>{const b=e.target.closest('button');if(!b)return;nP=+b.dataset.n;document.querySelectorAll('#sParc button').forEach(x=>x.classList.toggle('on',x===b));sim()};
+$('#sBt').onclick=()=>{const c=C[+$('#sCarro').value];mdsWpp(`Olá, Prime Motors! Quero o ${c.n} (${c.a}) com entrada de ${$('#sEnt').value}% em ${nP}x. Parcela simulada: ${$('#sRes').textContent.split(' ').slice(1).join(' ')}.`)};
+sim();
+</script>
+</body>
+</html>
