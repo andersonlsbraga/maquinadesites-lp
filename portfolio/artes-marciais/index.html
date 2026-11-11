@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="pt-BR" data-site="artes-marciais" data-marca="Ronin Fight Academy">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ronin Fight Academy · Jiu-Jitsu, Muay Thai e Karatê Kids</title>
+<meta name="description" content="Ronin Fight Academy: Jiu-Jitsu, Muay Thai, Karatê Kids e Defesa Pessoal. Agende sua aula experimental grátis.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Serif+JP:wght@900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0b0b;--bg2:#141414;--verm:#d7261e;--osso:#efe8dc;--txt:rgba(239,232,220,.64);--linha:rgba(239,232,220,.1)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--osso);font-family:Inter,system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+.be{font-family:'Bebas Neue',sans-serif;font-weight:400;letter-spacing:.02em}
+.wrap{width:min(1260px,92vw);margin:0 auto}
+.kick{font:800 12px Inter;letter-spacing:.32em;text-transform:uppercase;color:var(--verm)}
+.bt{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--verm);color:#fff;border:0;border-radius:4px;padding:18px 28px;font:800 14px Inter;letter-spacing:.12em;text-transform:uppercase;transition:transform .2s,background .2s;clip-path:polygon(0 0,100% 0,100% 70%,94% 100%,0 100%)}
+.bt:hover{transform:translateY(-2px);background:#ef3329}
+.bt.lin{background:transparent;color:var(--osso);box-shadow:inset 0 0 0 1px var(--linha);clip-path:none}
+
+nav{position:fixed;inset:0 0 auto;z-index:40;transition:background .3s}
+nav.solida{background:rgba(11,11,11,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--linha)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:74px}
+.logo{display:flex;align-items:center;gap:10px;font:400 28px 'Bebas Neue';letter-spacing:.08em}
+.logo span{font:900 22px 'Noto Serif JP';color:var(--verm)}
+nav ul{display:flex;gap:30px;list-style:none;font:600 13.5px Inter;color:var(--txt);text-transform:uppercase;letter-spacing:.08em}
+nav ul a:hover{color:var(--osso)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:grid;align-items:center;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 72% 45%,rgba(215,38,30,.28),transparent 45%)}
+.kanji{position:absolute;right:2vw;top:50%;transform:translateY(-52%);width:min(52vw,720px);z-index:1}
+.kanji text{font:900 600px 'Noto Serif JP';fill:transparent;stroke:var(--verm);stroke-width:4;stroke-dasharray:4200;stroke-dashoffset:4200;animation:pincel 3.4s cubic-bezier(.6,.1,.3,1) forwards,enche 1.2s 3s forwards}
+@keyframes pincel{to{stroke-dashoffset:0}}
+@keyframes enche{to{fill:rgba(215,38,30,.9)}}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{font-size:clamp(86px,13vw,220px);line-height:.82}
+.hero h1 span{display:block}
+.hero h1 .vaz{color:transparent;-webkit-text-stroke:2px var(--osso)}
+.hero p{max-width:440px;color:var(--txt);font-size:18px;line-height:1.6;margin:22px 0 32px}
+.hero .acoes{display:flex;gap:12px;flex-wrap:wrap}
+.hero .nums{display:flex;gap:44px;margin-top:46px}
+.hero .nums b{display:block;font:400 52px/1 'Bebas Neue'}
+.hero .nums small{color:var(--txt);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase}
+.fita-r{position:absolute;left:0;right:0;bottom:0;z-index:3;background:var(--verm);transform:rotate(-2deg) translateY(40%);overflow:hidden;white-space:nowrap;padding:14px 0}
+.fita-r div{display:inline-block;font:400 28px 'Bebas Neue';letter-spacing:.12em;animation:corre 22s linear infinite}
+.fita-r span{margin:0 26px}
+@keyframes corre{to{transform:translateX(-50%)}}
+
+/* FAIXAS (scroll) */
+.faixas{position:relative;height:500vh}
+.faixas .fixo{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:1fr 1.15fr;align-items:center;gap:4vw;padding:0 6vw;overflow:hidden}
+.faixas h2{font-size:clamp(54px,7vw,110px);line-height:.88;margin-top:12px}
+.faixas .nome{font:400 clamp(40px,4.4vw,70px)/1 'Bebas Neue';margin-top:30px;transition:color .5s}
+.faixas .desc{color:var(--txt);line-height:1.65;max-width:420px;margin-top:10px;font-size:16.5px;min-height:5em}
+.prog{display:flex;gap:6px;margin-top:24px}
+.prog i{width:42px;height:6px;border-radius:3px;background:var(--linha);transition:background .4s}
+.faixa-svg{width:100%;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))}
+.faixa-svg .tecido{transition:fill .7s;stroke:rgba(239,232,220,.22);stroke-width:1.5}
+.faixa-svg .ponta{transition:fill .7s}
+.faixa-svg .grau{transition:opacity .3s}
+.fundo-k{position:absolute;right:-4vw;bottom:-14vh;font:900 46vh 'Noto Serif JP';color:rgba(239,232,220,.03);pointer-events:none}
+
+/* MODALIDADES */
+.sec{padding:130px 0}
+.sec h2{font-size:clamp(54px,6.4vw,100px);line-height:.88;margin-top:12px}
+.mods{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:46px}
+.mod{position:relative;background:var(--bg2);border:1px solid var(--linha);padding:30px 26px 34px;min-height:340px;display:flex;flex-direction:column;overflow:hidden;transition:transform .35s,border-color .35s}
+.mod:hover{transform:translateY(-6px);border-color:var(--verm)}
+.mod .k{font:900 120px/1 'Noto Serif JP';color:rgba(215,38,30,.14);position:absolute;right:-6px;top:-10px;transition:color .35s}
+.mod:hover .k{color:rgba(215,38,30,.35)}
+.mod small{font:800 11.5px Inter;letter-spacing:.24em;color:var(--verm)}
+.mod h3{font:400 44px/1 'Bebas Neue';margin:auto 0 10px}
+.mod p{color:var(--txt);font-size:14.5px;line-height:1.55}
+.mod .tag{margin-top:16px;font:700 12px Inter;color:var(--osso);opacity:.8}
+
+/* GRADE */
+.grade-top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.filtro{display:flex;gap:8px;flex-wrap:wrap}
+.filtro button{background:transparent;border:1px solid var(--linha);color:var(--osso);padding:11px 16px;font:700 12.5px Inter;letter-spacing:.1em;text-transform:uppercase}
+.filtro button.on{background:var(--osso);color:var(--bg)}
+.proxima{margin-top:26px;display:inline-flex;align-items:center;gap:12px;background:rgba(215,38,30,.12);border:1px solid rgba(215,38,30,.4);padding:14px 18px;font-weight:600}
+.proxima i{width:10px;height:10px;border-radius:50%;background:var(--verm);animation:pisca 1.2s infinite}
+@keyframes pisca{50%{opacity:.2}}
+.tabela{margin-top:26px;display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.dia{background:var(--bg2);border:1px solid var(--linha);padding:14px;min-height:260px}
+.dia.hoje{border-color:var(--verm)}
+.dia h4{font:400 24px 'Bebas Neue';letter-spacing:.06em;margin-bottom:10px;display:flex;justify-content:space-between}
+.dia h4 small{font:800 10px Inter;color:var(--verm);letter-spacing:.14em;align-self:center}
+.aula{border-left:3px solid var(--c);background:rgba(255,255,255,.03);padding:8px 10px;margin-bottom:8px;font-size:13px;transition:opacity .3s}
+.aula b{display:block;font-size:13.5px}
+.aula span{color:var(--txt);font-size:12px}
+.aula.some{display:none}
+
+/* PLANOS */
+.toggle{display:inline-flex;background:var(--bg2);border:1px solid var(--linha);padding:4px;margin-top:26px}
+.toggle button{background:transparent;border:0;color:var(--txt);padding:12px 18px;font:700 13px Inter;letter-spacing:.06em}
+.toggle button.on{background:var(--osso);color:var(--bg)}
+.toggle small{color:var(--verm);font-weight:800}
+.planos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.plano{background:var(--bg2);border:1px solid var(--linha);padding:34px}
+.plano.dest{border-color:var(--verm);position:relative}
+.plano.dest:before{content:"MAIS ESCOLHIDO";position:absolute;top:-12px;left:34px;background:var(--verm);font:800 11px Inter;letter-spacing:.16em;padding:6px 10px}
+.plano h3{font:400 34px 'Bebas Neue'}
+.plano .pr{font:400 64px/1 'Bebas Neue';margin:14px 0 4px}
+.plano .pr small{font:600 15px Inter;color:var(--txt)}
+.plano ul{list-style:none;margin:20px 0 28px;display:grid;gap:10px;color:var(--txt);font-size:14.5px}
+.plano li:before{content:"— ";color:var(--verm)}
+
+/* MESTRE */
+.mestre .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:5vw;align-items:center}
+.retrato{aspect-ratio:4/5;background:linear-gradient(160deg,#1c1c1c,#0b0b0b);border:1px solid var(--linha);position:relative;display:grid;place-items:center;overflow:hidden}
+.retrato b{font:900 220px 'Noto Serif JP';color:var(--verm);opacity:.9}
+.retrato span{position:absolute;bottom:22px;left:22px;right:22px;font:400 30px 'Bebas Neue';letter-spacing:.06em}
+.retrato i{position:absolute;left:0;right:0;bottom:70px;height:22px;background:#111;border-top:2px solid #2a2a2a;border-bottom:2px solid #2a2a2a}
+.retrato i:after{content:"";position:absolute;right:22%;top:0;bottom:0;width:60px;background:var(--verm)}
+.mestre p{color:var(--txt);line-height:1.75;font-size:17px;margin-top:16px}
+.mestre .tl{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.mestre .tl div{border-top:2px solid var(--verm);padding-top:12px}
+.mestre .tl b{font:400 40px/1 'Bebas Neue'}
+.mestre .tl small{color:var(--txt);font-size:13px}
+
+/* EXPERIMENTAL */
+.exp{margin:0 4vw 100px;background:var(--verm);padding:70px 5vw;display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center;clip-path:polygon(0 0,100% 0,100% 88%,96% 100%,0 100%)}
+.exp h2{font:400 clamp(54px,6vw,96px)/.88 'Bebas Neue'}
+.exp p{color:rgba(255,255,255,.85);line-height:1.6;margin-top:14px;font-size:16.5px}
+form{display:grid;gap:12px}
+form input,form select{background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.3);color:#fff;padding:16px;font:500 15px Inter}
+form input::placeholder{color:rgba(255,255,255,.7)}
+form select option{color:#111}
+form .bt{background:var(--bg);clip-path:none}
+footer{border-top:1px solid var(--linha);padding:36px 0 90px;color:var(--txt);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+
+@media (max-width:900px){
+ nav ul{display:none}
+ .kanji{width:90vw;right:-20vw;opacity:.5}
+ .hero .nums{gap:24px}
+ .faixas .fixo{grid-template-columns:1fr;align-content:center;gap:10px}
+ .faixas h2{font-size:52px}.faixas .desc{font-size:14.5px}
+ .mods,.planos{grid-template-columns:1fr}
+ .tabela{grid-template-columns:repeat(6,72vw);overflow-x:auto;scroll-snap-type:x mandatory}.dia{scroll-snap-align:start}
+ .mestre .wrap,.exp{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav"><div class="wrap">
+ <a class="logo" href="#"><span>浪</span>RONIN</a>
+ <ul><li><a href="#faixas">Graduação</a></li><li><a href="#modalidades">Modalidades</a></li><li><a href="#horarios">Horários</a></li><li><a href="#planos">Planos</a></li></ul>
+ <a class="bt" href="#experimental" style="padding:13px 18px;font-size:12px">Aula grátis</a>
+</div></nav>
+
+<header class="hero">
+ <svg class="kanji" viewBox="0 0 700 700" aria-hidden="true"><text x="50" y="590">武</text></svg>
+ <div class="wrap">
+  <span class="kick rv">Jiu-Jitsu · Muay Thai · Karatê Kids</span>
+  <h1 class="be rv"><span>Disciplina</span><span class="vaz">se treina.</span></h1>
+  <p class="rv">Aqui você não precisa estar em forma pra começar. Precisa só aparecer. A primeira aula é por nossa conta.</p>
+  <div class="acoes rv"><a class="bt" href="#experimental">Agendar aula grátis</a><a class="bt lin" href="#horarios">Ver horários</a></div>
+  <div class="nums rv"><div><b data-conta="420" data-pre="+">0</b><small>alunos ativos</small></div><div><b data-conta="18">0</b><small>anos de tatame</small></div><div><b data-conta="4">0</b><small>modalidades</small></div></div>
+ </div>
+ <div class="fita-r"><div><span>OSS</span><span>✦</span><span>AULA EXPERIMENTAL GRÁTIS</span><span>✦</span><span>TURMAS DO INICIANTE AO AVANÇADO</span><span>✦</span><span>OSS</span><span>✦</span><span>AULA EXPERIMENTAL GRÁTIS</span><span>✦</span><span>TURMAS DO INICIANTE AO AVANÇADO</span><span>✦</span></div></div>
+</header>
+
+<section class="faixas" id="faixas"><div class="fixo">
+ <div class="fundo-k">道</div>
+ <div>
+  <span class="kick">A jornada</span>
+  <h2 class="be">Cada faixa<br>conta uma história.</h2>
+  <div class="nome be" id="fNome">Faixa branca</div>
+  <p class="desc" id="fDesc">O começo. Aprender a cair, a respirar e a não desistir no primeiro treino difícil.</p>
+  <div class="prog" id="fProg"><i></i><i></i><i></i><i></i><i></i></div>
+ </div>
+ <svg class="faixa-svg" viewBox="0 0 700 460">
+  <defs><pattern id="trama" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0 4h8M4 0v8" stroke="rgba(0,0,0,.09)" stroke-width="1"/></pattern></defs>
+  <path class="tecido" d="M20 170 Q350 140 680 170 L680 238 Q350 208 20 238Z"/>
+  <path d="M20 170 Q350 140 680 170 L680 238 Q350 208 20 238Z" fill="url(#trama)"/>
+  <path class="tecido" d="M300 150 L400 150 L410 258 L290 258Z"/>
+  <path d="M300 150 L400 150 L410 258 L290 258Z" fill="url(#trama)"/>
+  <path class="tecido" d="M318 240 L270 440 L338 446 L366 248Z"/>
+  <path class="tecido" d="M382 240 L452 432 L516 412 L420 236Z"/>
+  <rect class="ponta" x="276" y="380" width="58" height="46" transform="rotate(8 305 403)"/>
+  <rect class="ponta" x="452" y="352" width="58" height="46" transform="rotate(-20 481 375)"/>
+  <g id="graus"><rect class="grau" x="282" y="388" width="7" height="34" fill="#fff" transform="rotate(8 305 403)"/><rect class="grau" x="294" y="388" width="7" height="34" fill="#fff" transform="rotate(8 305 403)"/><rect class="grau" x="306" y="388" width="7" height="34" fill="#fff" transform="rotate(8 305 403)"/><rect class="grau" x="318" y="388" width="7" height="34" fill="#fff" transform="rotate(8 305 403)"/></g>
+  <path d="M300 150 L290 258 M400 150 L410 258" stroke="rgba(0,0,0,.25)" stroke-width="2"/>
+ </svg>
+</div></section>
+
+<section class="sec" id="modalidades"><div class="wrap">
+ <span class="kick rv">Modalidades</span><h2 class="be rv">Escolha o seu tatame.</h2>
+ <div class="mods">
+  <div class="mod rv"><span class="k">柔</span><small>ADULTO</small><h3>Jiu-Jitsu</h3><p>Técnica, alavanca e paciência. Kimono e sem kimono, do iniciante à competição.</p><span class="tag">6 turmas por semana</span></div>
+  <div class="mod rv"><span class="k">拳</span><small>ADULTO</small><h3>Muay Thai</h3><p>A arte das oito armas. Condicionamento pesado e técnica de verdade.</p><span class="tag">5 turmas por semana</span></div>
+  <div class="mod rv"><span class="k">空</span><small>4 A 12 ANOS</small><h3>Karatê Kids</h3><p>Disciplina, foco e respeito, com aula pensada para a idade de cada criança.</p><span class="tag">turmas por faixa etária</span></div>
+  <div class="mod rv"><span class="k">守</span><small>FEMININO</small><h3>Defesa pessoal</h3><p>Turma só para mulheres, com situações reais e muita confiança.</p><span class="tag">sábados pela manhã</span></div>
+ </div>
+</div></section>
+
+<section class="sec" id="horarios" style="padding-top:40px"><div class="wrap">
+ <div class="grade-top"><div><span class="kick">Horários</span><h2 class="be">Grade da semana.</h2></div>
+  <div class="filtro" id="filtro"><button class="on" data-m="">Todas</button><button data-m="jj">Jiu-Jitsu</button><button data-m="mt">Muay Thai</button><button data-m="kd">Kids</button><button data-m="dp">Defesa</button></div>
+ </div>
+ <div class="proxima" id="proxima"><i></i><span></span></div>
+ <div class="tabela" id="tabela"></div>
+</div></section>
+
+<section class="sec" id="planos" style="padding-top:40px"><div class="wrap">
+ <span class="kick">Planos</span><h2 class="be">Treine do seu jeito.</h2>
+ <div class="toggle" id="toggle"><button class="on" data-p="1">Mensal</button><button data-p=".9">Trimestral <small>−10%</small></button><button data-p=".8">Anual <small>−20%</small></button></div>
+ <div class="planos" id="planos-l"></div>
+</div></section>
+
+<section class="sec mestre"><div class="wrap">
+ <div class="retrato rv"><b>浪</b><i></i><span>Mestre Daniel Kaito</span></div>
+ <div class="rv"><span class="kick">O mestre</span><h2 class="be">18 anos de tatame.</h2>
+  <p>Faixa preta de Jiu-Jitsu e kru de Muay Thai, o Mestre Daniel fundou a Ronin com uma ideia simples: qualquer pessoa pode começar, e todo mundo é tratado igual no tatame.</p>
+  <div class="tl"><div><b>Faixa preta</b><small>3º grau de Jiu-Jitsu</small></div><div><b>Kru</b><small>Muay Thai</small></div><div><b>+420</b><small>alunos formados</small></div></div>
+ </div>
+</div></section>
+
+<section class="exp rv" id="experimental">
+ <div><h2>Primeira aula<br>é por nossa conta.</h2><p>Não precisa de kimono nem de experiência. Venha com roupa confortável e a gente cuida do resto.</p></div>
+ <form onsubmit="return false">
+  <input name="nome" placeholder="Seu nome" required>
+  <select name="mod"><option>Jiu-Jitsu</option><option>Muay Thai</option><option>Karatê Kids</option><option>Defesa pessoal feminina</option></select>
+  <input name="tel" placeholder="WhatsApp" required>
+  <button class="bt" data-wpp="Oss! Sou {nome} e quero agendar uma aula experimental de {mod}. Meu WhatsApp: {tel}">Quero minha aula grátis</button>
+ </form>
+</section>
+
+<footer><div class="wrap"><span>© Ronin Fight Academy · Projeto conceito, academia e mestre fictícios criados para portfólio.</span><span>Ilustrações feitas em código.</span></div></footer>
+
+<script src="../comum/demo.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+addEventListener('scroll',()=>$('#nav').classList.toggle('solida',scrollY>40),{passive:true});
+
+/* ===== FAIXAS ===== */
+const F=[
+ ['Faixa branca','#f4f1ea','#111','O começo. Aprender a cair, a respirar e a não desistir no primeiro treino difícil.'],
+ ['Faixa azul','#1f4fb4','#111','A base está firme. Agora você entende o porquê de cada movimento.'],
+ ['Faixa roxa','#6a2c91','#111','Técnica vira estilo. Você começa a ensinar quem está chegando.'],
+ ['Faixa marrom','#5b3420','#111','Refinamento. Menos força, mais precisão. O tatame fica pequeno.'],
+ ['Faixa preta','#141414','#d7261e','Não é o fim. É quando você finalmente sabe o quanto ainda dá pra aprender.']];
+const fx=$('#faixas'),tecs=[...document.querySelectorAll('.tecido')],pontas=[...document.querySelectorAll('.ponta')],graus=[...document.querySelectorAll('.grau')],prog=[...document.querySelectorAll('#fProg i')];
+let fu=-1;
+function faixaScroll(){const r=fx.getBoundingClientRect(),p=Math.min(.9999,Math.max(0,-r.top/(fx.offsetHeight-innerHeight)));
+ const i=Math.floor(p*5),sub=p*5-i,g=Math.floor(sub*5);
+ graus.forEach((e,k)=>e.style.opacity=k<g&&i<4?1:0);
+ if(i!==fu){fu=i;tecs.forEach(t=>t.style.fill=F[i][1]);pontas.forEach(t=>t.style.fill=F[i][2]);
+  $('#fNome').textContent=F[i][0];$('#fNome').style.color=i===0?'var(--osso)':i===4?'var(--verm)':F[i][1];$('#fDesc').textContent=F[i][3];
+  prog.forEach((e,k)=>e.style.background=k<=i?(k===4?'var(--verm)':F[k][1]):'var(--linha)');}}
+addEventListener('scroll',()=>requestAnimationFrame(faixaScroll),{passive:true});faixaScroll();
+
+/* ===== GRADE ===== */
+const COR={jj:'#2f6bff',mt:'#d7261e',kd:'#f5b400',dp:'#c04bd6'},NOME={jj:'Jiu-Jitsu',mt:'Muay Thai',kd:'Karatê Kids',dp:'Defesa feminina'};
+const G={1:[['06:30','jj','Todos os níveis'],['12:00','mt','Iniciante'],['17:30','kd','4 a 7 anos'],['19:30','jj','Fundamentos'],['20:45','mt','Avançado']],
+ 2:[['07:00','mt','Todos os níveis'],['18:30','kd','8 a 12 anos'],['19:30','jj','Sem kimono'],['20:45','jj','Competição']],
+ 3:[['06:30','jj','Todos os níveis'],['12:00','mt','Iniciante'],['17:30','kd','4 a 7 anos'],['19:30','jj','Fundamentos'],['20:45','mt','Avançado']],
+ 4:[['07:00','mt','Todos os níveis'],['18:30','kd','8 a 12 anos'],['19:30','jj','Sem kimono'],['20:45','jj','Competição']],
+ 5:[['06:30','jj','Todos os níveis'],['18:00','mt','Treino aberto'],['19:30','jj','Rola livre']],
+ 6:[['09:00','dp','Defesa feminina'],['10:00','kd','Turma aberta'],['11:00','jj','Open mat']]};
+const DS=['','Seg','Ter','Qua','Qui','Sex','Sáb'],hoje=new Date().getDay();
+let filt='';
+function grade(){$('#tabela').innerHTML=[1,2,3,4,5,6].map(d=>`<div class="dia ${d===hoje?'hoje':''}"><h4>${DS[d]}${d===hoje?'<small>HOJE</small>':''}</h4>${G[d].map(a=>`<div class="aula ${filt&&a[1]!==filt?'some':''}" style="--c:${COR[a[1]]}"><b>${a[0]} · ${NOME[a[1]]}</b><span>${a[2]}</span></div>`).join('')}</div>`).join('')}
+function proxima(){const n=new Date(),agora=n.getHours()*60+n.getMinutes();
+ for(let k=0;k<8;k++){const d=(n.getDay()+k)%7;if(!G[d])continue;for(const a of G[d]){if(filt&&a[1]!==filt)continue;const [h,m]=a[0].split(':').map(Number),t=h*60+m;
+  if(k>0||t>agora){const falta=k===0?t-agora:null;$('#proxima span').textContent=`Próxima aula${filt?' de '+NOME[filt]:''}: ${k===0?'hoje':k===1?'amanhã':DS[d]} às ${a[0]} · ${NOME[a[1]]}`+(falta!==null&&falta<240?` (começa em ${falta>=60?Math.floor(falta/60)+'h ':''}${falta%60} min)`:'');return}}}}
+$('#filtro').onclick=e=>{const b=e.target.closest('button');if(!b)return;filt=b.dataset.m;document.querySelectorAll('#filtro button').forEach(x=>x.classList.toggle('on',x===b));grade();proxima()};
+grade();proxima();setInterval(proxima,30000);
+
+/* ===== PLANOS ===== */
+const PL=[['Foco','1 modalidade',189,['2x por semana','Acesso ao app de treinos','Kimono com 15% off']],['Guerreiro','1 modalidade livre',249,['Treinos ilimitados','Open mat aos sábados','Kimono com 20% off'],1],['Ronin','Todas as modalidades',329,['Tudo liberado','Aulas de competição','Avaliação física mensal']]];
+let fat=1;
+function planos(){$('#planos-l').innerHTML=PL.map(p=>`<div class="plano ${p[4]?'dest':''}"><h3>${p[0]}</h3><small style="color:var(--txt)">${p[1]}</small><div class="pr">R$ ${Math.round(p[2]*fat)}<small>/mês</small></div><ul>${p[3].map(x=>`<li>${x}</li>`).join('')}</ul><button class="bt ${p[4]?'':'lin'}" style="width:100%" onclick="mdsWpp('Oss! Quero o plano ${p[0]} (${fat===1?'mensal':fat===.9?'trimestral':'anual'}) de R$ ${Math.round(p[2]*fat)}/mês.')">Quero esse</button></div>`).join('')}
+$('#toggle').onclick=e=>{const b=e.target.closest('button');if(!b)return;fat=+b.dataset.p;document.querySelectorAll('#toggle button').forEach(x=>x.classList.toggle('on',x===b));planos()};
+planos();
+</script>
+</body>
+</html>
