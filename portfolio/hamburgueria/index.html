@@ -65,7 +65,7 @@ nav .wrap{display:flex;justify-content:space-between;align-items:center;height:7
 .pilha{position:relative;height:100vh}
 .pilha img{position:absolute;left:50%;bottom:0;width:min(34vw,470px);transform:translate(-50%,-140vh);opacity:0;filter:drop-shadow(0 22px 24px rgba(0,0,0,.55));will-change:transform}
 .pilha .sombra{position:absolute;left:50%;bottom:17vh;width:min(34vw,470px);height:50px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(0,0,0,.75),transparent 70%)}
-.pronto{position:absolute;right:5vw;top:16vh;z-index:5;background:var(--creme);color:#140a03;border-radius:20px;padding:20px 24px;transform:rotate(4deg) scale(.6);opacity:0;transition:all .5s cubic-bezier(.2,.9,.3,1.5)}
+.pronto{position:absolute;left:44vw;bottom:10vh;z-index:40;background:var(--creme);color:#140a03;border-radius:20px;padding:20px 24px;transform:rotate(4deg) scale(.6);opacity:0;transition:all .5s cubic-bezier(.2,.9,.3,1.5)}
 .pronto.on{opacity:1;transform:rotate(4deg) scale(1)}
 .pronto small{font:800 12px Archivo;letter-spacing:.2em;color:var(--fogo)}
 .pronto b{display:block;font:400 40px/1 Anton;margin:4px 0}
@@ -142,7 +142,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
  .ing{grid-template-columns:1fr 1fr;gap:6px 10px;margin-top:14px}.ing li{font-size:13px}.ing li i{width:22px;height:22px;font-size:10px}.ing li small{display:none}
  .pilha{position:absolute;inset:0;height:auto}.pilha img{width:64vw}.pilha .sombra{width:60vw;bottom:7vh}
  .status span{display:none}.status{padding:8px}
- .pronto{top:auto;bottom:4vh;right:4vw}
+ .pronto{top:auto;left:auto;bottom:4vh;right:4vw}
  .itens{grid-template-columns:1fr}.it{grid-template-columns:84px 1fr auto}.it .ft{width:84px;height:80px}.it .ft img{max-height:76px}
  .chapa .wrap,.local .wrap{grid-template-columns:1fr}
  .pedido{flex-wrap:wrap;padding:12px}.modo{order:3;flex:1}.pedido .bt{order:4;flex:1}
@@ -250,10 +250,20 @@ $('#hor').innerHTML=H.map((h,i)=>`<li class="${i===d.getDay()?'hoje':''}"><span>
 const monta=$('#monta'),camadas=[...document.querySelectorAll('#pilha img')],ings=[...document.querySelectorAll('#ing li')],pronto=$('#pronto');
 // quanto de cada camada continua aparecendo embaixo da próxima (px numa largura de 560)
 const VIS=[120,70,52,48,44,46,44,0];
+// a pilha inteira mede ~1,42x a largura (camadas visíveis + pão de cima): ajusta a largura pra caber na altura da tela
+function ajustaPilha(){
+ const mob=innerWidth<900, topo=mob?Math.max(260,innerHeight*.42):96, chao=innerHeight*(mob?.06:.1);
+ const cabe=(innerHeight-topo-chao)/((VIS.reduce((a,v)=>a+v,0)/560)+.69);
+ const w=Math.max(150,Math.min(470,innerWidth*(mob?.7:.34),cabe));
+ camadas.forEach(im=>im.style.width=w+'px');
+ const sb=document.querySelector('.pilha .sombra');sb.style.width=w*.94+'px';sb.style.bottom=(chao-18)+'px';
+ return chao;
+}
+let CHAO=ajustaPilha();addEventListener('resize',()=>{CHAO=ajustaPilha();montaScroll()});
 function montaScroll(){
  const r=monta.getBoundingClientRect(),p=Math.min(1,Math.max(0,-r.top/(monta.offsetHeight-innerHeight)));
- const k=p*8.6, w=camadas[0].clientWidth||470, esc=w/560, chao=innerHeight*(innerWidth<900?.1:.19);
- let fundo=chao;
+ const k=p*9.4, w=camadas[0].clientWidth||470, esc=w/560;
+ let fundo=CHAO;
  camadas.forEach((im,i)=>{
   const t=Math.min(1,Math.max(0,k-i)), e=1-Math.pow(1-t,3);
   const quique=t>.85&&t<1?Math.sin((t-.85)/.15*Math.PI)*-10:0;
@@ -266,7 +276,7 @@ function montaScroll(){
  ings.forEach((li,i)=>li.classList.toggle('on',k>i+.6));
  pronto.classList.toggle('on',k>8.2);
 }
-addEventListener('scroll',()=>requestAnimationFrame(montaScroll),{passive:true});addEventListener('resize',montaScroll);montaScroll();
+addEventListener('scroll',()=>requestAnimationFrame(montaScroll),{passive:true});montaScroll();
 
 /* cardápio + pedido */
 const M=[
